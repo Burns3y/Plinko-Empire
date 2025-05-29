@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbgek2ucokmh7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v7ukq"]
+
+[node name="Plinko-Pin" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_v7ukq")
