@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmnu1vaj2kiqj"]
+[gd_scene load_steps=3 format=3 uid="uid://dmnu1vaj2kiqj"]
+
+[ext_resource type="Texture2D" uid="uid://b0hxs2qe1nd5p" path="res://Assets/Ball-removebg-preview.png" id="1_268xg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h6ukh"]
 
 [node name="Plinko-ball" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("1_268xg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2, 2)

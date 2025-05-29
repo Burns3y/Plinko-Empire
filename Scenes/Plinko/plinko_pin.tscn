@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbgek2ucokmh7"]
+[gd_scene load_steps=3 format=3 uid="uid://cbgek2ucokmh7"]
+
+[ext_resource type="Texture2D" uid="uid://demtgc2ve4kre" path="res://Assets/circle_with_bg.png" id="1_isi5t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v7ukq"]
 
 [node name="Plinko-Pin" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.98023e-08, 2)
+scale = Vector2(0.0288086, 0.0288086)
+texture = ExtResource("1_isi5t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_v7ukq")
