@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bry6e1ntpky2u"
+path="res://.godot/imported/car_stationwagon_wheel_front_left.obj-ace88a5b02ba0b00e460ddd34fcffd0c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/car_stationwagon_wheel_front_left.obj-ace88a5b02ba0b00e460ddd34fcffd0c.mesh"]
+
+source_file="res://KayKit_City_Builder_Bits_1.0_FREE/Assets/obj/car_stationwagon_wheel_front_left.obj"
+dest_files=["res://.godot/imported/car_stationwagon_wheel_front_left.obj-ace88a5b02ba0b00e460ddd34fcffd0c.mesh", "res://.godot/imported/car_stationwagon_wheel_front_left.obj-ace88a5b02ba0b00e460ddd34fcffd0c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
