@@ -4,13 +4,14 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d23xa"]
 friction = 0.0
-bounce = 0.8
+bounce = 0.7
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h6ukh"]
 
 [node name="Plinko-ball" type="RigidBody2D"]
 collision_mask = 2
 physics_material_override = SubResource("PhysicsMaterial_d23xa")
+linear_damp = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.18, 0.18)

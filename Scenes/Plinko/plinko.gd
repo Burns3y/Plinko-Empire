@@ -17,4 +17,5 @@ func _on_ball_drop_pressed():
 	var new_ball = ball.instantiate()
 	new_ball.name = "Ball"
 	$Balls.add_child(new_ball)
-	new_ball.position = $BallSpawnPoint.position + Vector2(1, 0)
+	var new_ball_pos = randf_range(-1.0, 1.0)
+	new_ball.position = $BallSpawnPoint.position + Vector2(new_ball_pos, 0)
