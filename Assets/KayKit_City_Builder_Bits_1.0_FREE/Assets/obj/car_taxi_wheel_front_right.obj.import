@@ -4,14 +4,14 @@ importer="wavefront_obj"
 importer_version=1
 type="Mesh"
 uid="uid://cm3fpbpytp1nt"
-path="res://.godot/imported/car_taxi_wheel_front_right.obj-18f5302d9b0fa73ddbb6b76979a5837d.mesh"
+path="res://.godot/imported/car_taxi_wheel_front_right.obj-00f92374c5dbcf4f0bb48e2c1bfc0411.mesh"
 
 [deps]
 
-files=["res://.godot/imported/car_taxi_wheel_front_right.obj-18f5302d9b0fa73ddbb6b76979a5837d.mesh"]
+files=["res://.godot/imported/car_taxi_wheel_front_right.obj-00f92374c5dbcf4f0bb48e2c1bfc0411.mesh"]
 
-source_file="res://KayKit_City_Builder_Bits_1.0_FREE/Assets/obj/car_taxi_wheel_front_right.obj"
-dest_files=["res://.godot/imported/car_taxi_wheel_front_right.obj-18f5302d9b0fa73ddbb6b76979a5837d.mesh", "res://.godot/imported/car_taxi_wheel_front_right.obj-18f5302d9b0fa73ddbb6b76979a5837d.mesh"]
+source_file="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/obj/car_taxi_wheel_front_right.obj"
+dest_files=["res://.godot/imported/car_taxi_wheel_front_right.obj-00f92374c5dbcf4f0bb48e2c1bfc0411.mesh", "res://.godot/imported/car_taxi_wheel_front_right.obj-00f92374c5dbcf4f0bb48e2c1bfc0411.mesh"]
 
 [params]
 

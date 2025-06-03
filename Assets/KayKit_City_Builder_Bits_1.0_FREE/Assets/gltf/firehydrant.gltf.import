@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://3w7styrau12g"
-path="res://.godot/imported/firehydrant.gltf-81262bd4083d4cb91fea2bf316c32e02.scn"
+path="res://.godot/imported/firehydrant.gltf-7f6e0c2b395321c2494dcef1dfa5d310.scn"
 
 [deps]
 
-source_file="res://KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/firehydrant.gltf"
-dest_files=["res://.godot/imported/firehydrant.gltf-81262bd4083d4cb91fea2bf316c32e02.scn"]
+source_file="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/firehydrant.gltf"
+dest_files=["res://.godot/imported/firehydrant.gltf-7f6e0c2b395321c2494dcef1dfa5d310.scn"]
 
 [params]
 

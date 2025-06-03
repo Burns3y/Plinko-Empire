@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b4jqo10yxswgl"
-path="res://.godot/imported/contents.png-c444f41042b7d517dcc6f44cc6f1b3a8.ctex"
+path="res://.godot/imported/contents.png-534f07c58b1529326a8cefa7bf840d4e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://KayKit_City_Builder_Bits_1.0_FREE/contents.png"
-dest_files=["res://.godot/imported/contents.png-c444f41042b7d517dcc6f44cc6f1b3a8.ctex"]
+source_file="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/contents.png"
+dest_files=["res://.godot/imported/contents.png-534f07c58b1529326a8cefa7bf840d4e.ctex"]
 
 [params]
 

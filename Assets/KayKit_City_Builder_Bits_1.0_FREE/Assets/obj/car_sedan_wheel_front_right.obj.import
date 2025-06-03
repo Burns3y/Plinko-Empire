@@ -4,14 +4,14 @@ importer="wavefront_obj"
 importer_version=1
 type="Mesh"
 uid="uid://cxut75psfra4"
-path="res://.godot/imported/car_sedan_wheel_front_right.obj-d1ea22e236dd3fb3d368a484c19d8cc1.mesh"
+path="res://.godot/imported/car_sedan_wheel_front_right.obj-cc46b3dafe03182eba009b6573980c4d.mesh"
 
 [deps]
 
-files=["res://.godot/imported/car_sedan_wheel_front_right.obj-d1ea22e236dd3fb3d368a484c19d8cc1.mesh"]
+files=["res://.godot/imported/car_sedan_wheel_front_right.obj-cc46b3dafe03182eba009b6573980c4d.mesh"]
 
-source_file="res://KayKit_City_Builder_Bits_1.0_FREE/Assets/obj/car_sedan_wheel_front_right.obj"
-dest_files=["res://.godot/imported/car_sedan_wheel_front_right.obj-d1ea22e236dd3fb3d368a484c19d8cc1.mesh", "res://.godot/imported/car_sedan_wheel_front_right.obj-d1ea22e236dd3fb3d368a484c19d8cc1.mesh"]
+source_file="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/obj/car_sedan_wheel_front_right.obj"
+dest_files=["res://.godot/imported/car_sedan_wheel_front_right.obj-cc46b3dafe03182eba009b6573980c4d.mesh", "res://.godot/imported/car_sedan_wheel_front_right.obj-cc46b3dafe03182eba009b6573980c4d.mesh"]
 
 [params]
 

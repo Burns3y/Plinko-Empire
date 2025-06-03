@@ -4,14 +4,14 @@ importer="wavefront_obj"
 importer_version=1
 type="Mesh"
 uid="uid://bnfi8id14b0m8"
-path="res://.godot/imported/car_sedan.obj-1fa3b3362488b44a7c189a8965a65f70.mesh"
+path="res://.godot/imported/car_sedan.obj-b0a9a33a7b2ddad8c86974708308b6a2.mesh"
 
 [deps]
 
-files=["res://.godot/imported/car_sedan.obj-1fa3b3362488b44a7c189a8965a65f70.mesh"]
+files=["res://.godot/imported/car_sedan.obj-b0a9a33a7b2ddad8c86974708308b6a2.mesh"]
 
-source_file="res://KayKit_City_Builder_Bits_1.0_FREE/Assets/obj/car_sedan.obj"
-dest_files=["res://.godot/imported/car_sedan.obj-1fa3b3362488b44a7c189a8965a65f70.mesh", "res://.godot/imported/car_sedan.obj-1fa3b3362488b44a7c189a8965a65f70.mesh"]
+source_file="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/obj/car_sedan.obj"
+dest_files=["res://.godot/imported/car_sedan.obj-b0a9a33a7b2ddad8c86974708308b6a2.mesh", "res://.godot/imported/car_sedan.obj-b0a9a33a7b2ddad8c86974708308b6a2.mesh"]
 
 [params]
 

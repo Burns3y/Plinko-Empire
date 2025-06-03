@@ -4,14 +4,14 @@ importer="wavefront_obj"
 importer_version=1
 type="Mesh"
 uid="uid://6v14d8hfqkmc"
-path="res://.godot/imported/car_police_wheel_rear_left.obj-9dcf34ccb559dea03aa6369fd94d17a6.mesh"
+path="res://.godot/imported/car_police_wheel_rear_left.obj-94a528e8581fa026ceabf981fd367e06.mesh"
 
 [deps]
 
-files=["res://.godot/imported/car_police_wheel_rear_left.obj-9dcf34ccb559dea03aa6369fd94d17a6.mesh"]
+files=["res://.godot/imported/car_police_wheel_rear_left.obj-94a528e8581fa026ceabf981fd367e06.mesh"]
 
-source_file="res://KayKit_City_Builder_Bits_1.0_FREE/Assets/obj/car_police_wheel_rear_left.obj"
-dest_files=["res://.godot/imported/car_police_wheel_rear_left.obj-9dcf34ccb559dea03aa6369fd94d17a6.mesh", "res://.godot/imported/car_police_wheel_rear_left.obj-9dcf34ccb559dea03aa6369fd94d17a6.mesh"]
+source_file="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/obj/car_police_wheel_rear_left.obj"
+dest_files=["res://.godot/imported/car_police_wheel_rear_left.obj-94a528e8581fa026ceabf981fd367e06.mesh", "res://.godot/imported/car_police_wheel_rear_left.obj-94a528e8581fa026ceabf981fd367e06.mesh"]
 
 [params]
 

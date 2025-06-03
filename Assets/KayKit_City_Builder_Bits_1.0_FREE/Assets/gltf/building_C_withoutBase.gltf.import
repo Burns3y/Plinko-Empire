@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b55mgixbrgmeb"
-path="res://.godot/imported/building_C_withoutBase.gltf-50e3007c6db3319aaa1c95185560cc9a.scn"
+path="res://.godot/imported/building_C_withoutBase.gltf-f67f3b48860e0ad5e7e4b495c788ce3a.scn"
 
 [deps]
 
-source_file="res://KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/building_C_withoutBase.gltf"
-dest_files=["res://.godot/imported/building_C_withoutBase.gltf-50e3007c6db3319aaa1c95185560cc9a.scn"]
+source_file="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/building_C_withoutBase.gltf"
+dest_files=["res://.godot/imported/building_C_withoutBase.gltf-f67f3b48860e0ad5e7e4b495c788ce3a.scn"]
 
 [params]
 

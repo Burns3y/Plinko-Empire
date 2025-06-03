@@ -4,14 +4,14 @@ importer="wavefront_obj"
 importer_version=1
 type="Mesh"
 uid="uid://dl8a3awtvgtea"
-path="res://.godot/imported/car_sedan_wheel_rear_left.obj-dc7c6568c9053916e15dfe5d4e36ce39.mesh"
+path="res://.godot/imported/car_sedan_wheel_rear_left.obj-478f940e335ba098f47eef5d8c351a5b.mesh"
 
 [deps]
 
-files=["res://.godot/imported/car_sedan_wheel_rear_left.obj-dc7c6568c9053916e15dfe5d4e36ce39.mesh"]
+files=["res://.godot/imported/car_sedan_wheel_rear_left.obj-478f940e335ba098f47eef5d8c351a5b.mesh"]
 
-source_file="res://KayKit_City_Builder_Bits_1.0_FREE/Assets/obj/car_sedan_wheel_rear_left.obj"
-dest_files=["res://.godot/imported/car_sedan_wheel_rear_left.obj-dc7c6568c9053916e15dfe5d4e36ce39.mesh", "res://.godot/imported/car_sedan_wheel_rear_left.obj-dc7c6568c9053916e15dfe5d4e36ce39.mesh"]
+source_file="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/obj/car_sedan_wheel_rear_left.obj"
+dest_files=["res://.godot/imported/car_sedan_wheel_rear_left.obj-478f940e335ba098f47eef5d8c351a5b.mesh", "res://.godot/imported/car_sedan_wheel_rear_left.obj-478f940e335ba098f47eef5d8c351a5b.mesh"]
 
 [params]
 

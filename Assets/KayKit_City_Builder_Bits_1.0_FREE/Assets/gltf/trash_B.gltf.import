@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bldail85my7xm"
-path="res://.godot/imported/trash_B.gltf-4dc8c2248b2ab1964b996c793f754985.scn"
+path="res://.godot/imported/trash_B.gltf-6d3f2f8354481a92cb0c2e3420234bf2.scn"
 
 [deps]
 
-source_file="res://KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/trash_B.gltf"
-dest_files=["res://.godot/imported/trash_B.gltf-4dc8c2248b2ab1964b996c793f754985.scn"]
+source_file="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/trash_B.gltf"
+dest_files=["res://.godot/imported/trash_B.gltf-6d3f2f8354481a92cb0c2e3420234bf2.scn"]
 
 [params]
 

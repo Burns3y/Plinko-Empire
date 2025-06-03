@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cj7fr5mdyk1km"
-path="res://.godot/imported/streetlight.gltf-02a699dfd9f6649f7fbf258c3fdcfb6a.scn"
+path="res://.godot/imported/streetlight.gltf-dfb3a7f1744975beb9ffebc710337ec7.scn"
 
 [deps]
 
-source_file="res://KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/streetlight.gltf"
-dest_files=["res://.godot/imported/streetlight.gltf-02a699dfd9f6649f7fbf258c3fdcfb6a.scn"]
+source_file="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/streetlight.gltf"
+dest_files=["res://.godot/imported/streetlight.gltf-dfb3a7f1744975beb9ffebc710337ec7.scn"]
 
 [params]
 

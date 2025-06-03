@@ -4,14 +4,14 @@ importer="wavefront_obj"
 importer_version=1
 type="Mesh"
 uid="uid://iwffigkj73me"
-path="res://.godot/imported/dumpster.obj-e10c31f964952b53c1be76d25daed3dd.mesh"
+path="res://.godot/imported/dumpster.obj-0d9253d522104e2d1a23f7d5e72af2ef.mesh"
 
 [deps]
 
-files=["res://.godot/imported/dumpster.obj-e10c31f964952b53c1be76d25daed3dd.mesh"]
+files=["res://.godot/imported/dumpster.obj-0d9253d522104e2d1a23f7d5e72af2ef.mesh"]
 
-source_file="res://KayKit_City_Builder_Bits_1.0_FREE/Assets/obj/dumpster.obj"
-dest_files=["res://.godot/imported/dumpster.obj-e10c31f964952b53c1be76d25daed3dd.mesh", "res://.godot/imported/dumpster.obj-e10c31f964952b53c1be76d25daed3dd.mesh"]
+source_file="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/obj/dumpster.obj"
+dest_files=["res://.godot/imported/dumpster.obj-0d9253d522104e2d1a23f7d5e72af2ef.mesh", "res://.godot/imported/dumpster.obj-0d9253d522104e2d1a23f7d5e72af2ef.mesh"]
 
 [params]
 

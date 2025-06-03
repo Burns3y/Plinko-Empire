@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://duq1mowcq5cdx"
-path="res://.godot/imported/trafficlight_A.gltf-e7f86f549d9f5564860af3635dc43465.scn"
+path="res://.godot/imported/trafficlight_A.gltf-2811ba322fef1d1055f8373d390586ff.scn"
 
 [deps]
 
-source_file="res://KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/trafficlight_A.gltf"
-dest_files=["res://.godot/imported/trafficlight_A.gltf-e7f86f549d9f5564860af3635dc43465.scn"]
+source_file="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/trafficlight_A.gltf"
+dest_files=["res://.godot/imported/trafficlight_A.gltf-2811ba322fef1d1055f8373d390586ff.scn"]
 
 [params]
 

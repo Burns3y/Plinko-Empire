@@ -4,14 +4,14 @@ importer="wavefront_obj"
 importer_version=1
 type="Mesh"
 uid="uid://c2ryh68gaehm7"
-path="res://.godot/imported/road_straight_crossing.obj-2f830fb7aef1bebc3b549746a1fe53cf.mesh"
+path="res://.godot/imported/road_straight_crossing.obj-de02095adcd8ac058bfceb6a90f4984c.mesh"
 
 [deps]
 
-files=["res://.godot/imported/road_straight_crossing.obj-2f830fb7aef1bebc3b549746a1fe53cf.mesh"]
+files=["res://.godot/imported/road_straight_crossing.obj-de02095adcd8ac058bfceb6a90f4984c.mesh"]
 
-source_file="res://KayKit_City_Builder_Bits_1.0_FREE/Assets/obj/road_straight_crossing.obj"
-dest_files=["res://.godot/imported/road_straight_crossing.obj-2f830fb7aef1bebc3b549746a1fe53cf.mesh", "res://.godot/imported/road_straight_crossing.obj-2f830fb7aef1bebc3b549746a1fe53cf.mesh"]
+source_file="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/obj/road_straight_crossing.obj"
+dest_files=["res://.godot/imported/road_straight_crossing.obj-de02095adcd8ac058bfceb6a90f4984c.mesh", "res://.godot/imported/road_straight_crossing.obj-de02095adcd8ac058bfceb6a90f4984c.mesh"]
 
 [params]
 

@@ -4,14 +4,14 @@ importer="wavefront_obj"
 importer_version=1
 type="Mesh"
 uid="uid://1ms46px5bnpx"
-path="res://.godot/imported/car_hatchback_wheel_front_right.obj-99158cd15028cf4d1c7a1c436557f571.mesh"
+path="res://.godot/imported/car_hatchback_wheel_front_right.obj-cc97d462291d726def0b8942b9499c4b.mesh"
 
 [deps]
 
-files=["res://.godot/imported/car_hatchback_wheel_front_right.obj-99158cd15028cf4d1c7a1c436557f571.mesh"]
+files=["res://.godot/imported/car_hatchback_wheel_front_right.obj-cc97d462291d726def0b8942b9499c4b.mesh"]
 
-source_file="res://KayKit_City_Builder_Bits_1.0_FREE/Assets/obj/car_hatchback_wheel_front_right.obj"
-dest_files=["res://.godot/imported/car_hatchback_wheel_front_right.obj-99158cd15028cf4d1c7a1c436557f571.mesh", "res://.godot/imported/car_hatchback_wheel_front_right.obj-99158cd15028cf4d1c7a1c436557f571.mesh"]
+source_file="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/obj/car_hatchback_wheel_front_right.obj"
+dest_files=["res://.godot/imported/car_hatchback_wheel_front_right.obj-cc97d462291d726def0b8942b9499c4b.mesh", "res://.godot/imported/car_hatchback_wheel_front_right.obj-cc97d462291d726def0b8942b9499c4b.mesh"]
 
 [params]
 

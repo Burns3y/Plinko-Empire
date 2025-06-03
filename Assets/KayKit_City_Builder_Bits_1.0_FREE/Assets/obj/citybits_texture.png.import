@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://mkgan40udxl0"
-path.s3tc="res://.godot/imported/citybits_texture.png-9e0537868d7fed5dc7532a779968716f.s3tc.ctex"
+path.s3tc="res://.godot/imported/citybits_texture.png-2e21ee116306e72ad41d0aa6ed8151ec.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://KayKit_City_Builder_Bits_1.0_FREE/Assets/obj/citybits_texture.png"
-dest_files=["res://.godot/imported/citybits_texture.png-9e0537868d7fed5dc7532a779968716f.s3tc.ctex"]
+source_file="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/obj/citybits_texture.png"
+dest_files=["res://.godot/imported/citybits_texture.png-2e21ee116306e72ad41d0aa6ed8151ec.s3tc.ctex"]
 
 [params]
 

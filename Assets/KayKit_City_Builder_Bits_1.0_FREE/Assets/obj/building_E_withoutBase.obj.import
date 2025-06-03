@@ -4,14 +4,14 @@ importer="wavefront_obj"
 importer_version=1
 type="Mesh"
 uid="uid://db80u122s2dbg"
-path="res://.godot/imported/building_E_withoutBase.obj-0bf399e592d11fbf3658047f7a0b3be0.mesh"
+path="res://.godot/imported/building_E_withoutBase.obj-e344efb2dc005003435064a365d57120.mesh"
 
 [deps]
 
-files=["res://.godot/imported/building_E_withoutBase.obj-0bf399e592d11fbf3658047f7a0b3be0.mesh"]
+files=["res://.godot/imported/building_E_withoutBase.obj-e344efb2dc005003435064a365d57120.mesh"]
 
-source_file="res://KayKit_City_Builder_Bits_1.0_FREE/Assets/obj/building_E_withoutBase.obj"
-dest_files=["res://.godot/imported/building_E_withoutBase.obj-0bf399e592d11fbf3658047f7a0b3be0.mesh", "res://.godot/imported/building_E_withoutBase.obj-0bf399e592d11fbf3658047f7a0b3be0.mesh"]
+source_file="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/obj/building_E_withoutBase.obj"
+dest_files=["res://.godot/imported/building_E_withoutBase.obj-e344efb2dc005003435064a365d57120.mesh", "res://.godot/imported/building_E_withoutBase.obj-e344efb2dc005003435064a365d57120.mesh"]
 
 [params]
 

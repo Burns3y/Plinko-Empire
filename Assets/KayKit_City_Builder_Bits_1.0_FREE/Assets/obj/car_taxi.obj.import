@@ -4,14 +4,14 @@ importer="wavefront_obj"
 importer_version=1
 type="Mesh"
 uid="uid://b4higjcxjo8t6"
-path="res://.godot/imported/car_taxi.obj-c20580827c763ffcca7a244036c5f7b2.mesh"
+path="res://.godot/imported/car_taxi.obj-5e2c3ce679f0d0c691744da26c944f41.mesh"
 
 [deps]
 
-files=["res://.godot/imported/car_taxi.obj-c20580827c763ffcca7a244036c5f7b2.mesh"]
+files=["res://.godot/imported/car_taxi.obj-5e2c3ce679f0d0c691744da26c944f41.mesh"]
 
-source_file="res://KayKit_City_Builder_Bits_1.0_FREE/Assets/obj/car_taxi.obj"
-dest_files=["res://.godot/imported/car_taxi.obj-c20580827c763ffcca7a244036c5f7b2.mesh", "res://.godot/imported/car_taxi.obj-c20580827c763ffcca7a244036c5f7b2.mesh"]
+source_file="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/obj/car_taxi.obj"
+dest_files=["res://.godot/imported/car_taxi.obj-5e2c3ce679f0d0c691744da26c944f41.mesh", "res://.godot/imported/car_taxi.obj-5e2c3ce679f0d0c691744da26c944f41.mesh"]
 
 [params]
 

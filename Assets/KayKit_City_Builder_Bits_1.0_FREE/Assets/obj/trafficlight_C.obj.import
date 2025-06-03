@@ -4,14 +4,14 @@ importer="wavefront_obj"
 importer_version=1
 type="Mesh"
 uid="uid://cmnhc8a1boupv"
-path="res://.godot/imported/trafficlight_C.obj-9c3a8ef5f8ed2585ecb166e6c4d36711.mesh"
+path="res://.godot/imported/trafficlight_C.obj-604316d85e992ed514b0381a28c2a728.mesh"
 
 [deps]
 
-files=["res://.godot/imported/trafficlight_C.obj-9c3a8ef5f8ed2585ecb166e6c4d36711.mesh"]
+files=["res://.godot/imported/trafficlight_C.obj-604316d85e992ed514b0381a28c2a728.mesh"]
 
-source_file="res://KayKit_City_Builder_Bits_1.0_FREE/Assets/obj/trafficlight_C.obj"
-dest_files=["res://.godot/imported/trafficlight_C.obj-9c3a8ef5f8ed2585ecb166e6c4d36711.mesh", "res://.godot/imported/trafficlight_C.obj-9c3a8ef5f8ed2585ecb166e6c4d36711.mesh"]
+source_file="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/obj/trafficlight_C.obj"
+dest_files=["res://.godot/imported/trafficlight_C.obj-604316d85e992ed514b0381a28c2a728.mesh", "res://.godot/imported/trafficlight_C.obj-604316d85e992ed514b0381a28c2a728.mesh"]
 
 [params]
 

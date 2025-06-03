@@ -4,14 +4,14 @@ importer="wavefront_obj"
 importer_version=1
 type="Mesh"
 uid="uid://w71k0j2gw5pr"
-path="res://.godot/imported/road_junction.obj-3ed1a97c34c2a849a919ba381187a4c9.mesh"
+path="res://.godot/imported/road_junction.obj-4866ff58889c13354c283841145e2417.mesh"
 
 [deps]
 
-files=["res://.godot/imported/road_junction.obj-3ed1a97c34c2a849a919ba381187a4c9.mesh"]
+files=["res://.godot/imported/road_junction.obj-4866ff58889c13354c283841145e2417.mesh"]
 
-source_file="res://KayKit_City_Builder_Bits_1.0_FREE/Assets/obj/road_junction.obj"
-dest_files=["res://.godot/imported/road_junction.obj-3ed1a97c34c2a849a919ba381187a4c9.mesh", "res://.godot/imported/road_junction.obj-3ed1a97c34c2a849a919ba381187a4c9.mesh"]
+source_file="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/obj/road_junction.obj"
+dest_files=["res://.godot/imported/road_junction.obj-4866ff58889c13354c283841145e2417.mesh", "res://.godot/imported/road_junction.obj-4866ff58889c13354c283841145e2417.mesh"]
 
 [params]
 

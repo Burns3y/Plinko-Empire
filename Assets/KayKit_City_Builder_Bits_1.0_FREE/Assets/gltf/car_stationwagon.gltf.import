@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://grojixefsu47"
-path="res://.godot/imported/car_stationwagon.gltf-22beb84b561f51e58aad07f1b4ebb5fd.scn"
+path="res://.godot/imported/car_stationwagon.gltf-2a0fcbadb2be14155b812bf9dd6ccfcb.scn"
 
 [deps]
 
-source_file="res://KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/car_stationwagon.gltf"
-dest_files=["res://.godot/imported/car_stationwagon.gltf-22beb84b561f51e58aad07f1b4ebb5fd.scn"]
+source_file="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/car_stationwagon.gltf"
+dest_files=["res://.godot/imported/car_stationwagon.gltf-2a0fcbadb2be14155b812bf9dd6ccfcb.scn"]
 
 [params]
 
