@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://1texhmvmhmfg"]
+[gd_scene load_steps=3 format=3 uid="uid://1texhmvmhmfg"]
 
 [ext_resource type="PackedScene" uid="uid://cbgek2ucokmh7" path="res://Scenes/Plinko/plinko_pin.tscn" id="1_dfk3u"]
+[ext_resource type="Script" path="res://Scenes/Plinko/plinko.gd" id="1_ii2fs"]
 
 [node name="Plinko" type="Node2D"]
+script = ExtResource("1_ii2fs")
 
 [node name="BallSpawnPoint" type="Node2D" parent="."]
 position = Vector2(360, 300)
@@ -115,3 +117,7 @@ position = Vector2(560, 915)
 
 [node name="Plinko-Pin33" parent="Pins" instance=ExtResource("1_dfk3u")]
 position = Vector2(640, 915)
+
+[node name="Balls" type="Node2D" parent="."]
+
+[connection signal="pressed" from="BallDrop" to="." method="_on_ball_drop_pressed"]

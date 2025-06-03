@@ -22,6 +22,11 @@ window/size/viewport_height=1280
 window/size/mode=1
 window/size/resizable=false
 
+[layer_names]
+
+2d_physics/layer_1="Ball"
+2d_physics/layer_2="Pin"
+
 [rendering]
 
 renderer/rendering_method="mobile"
