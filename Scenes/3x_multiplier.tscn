@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dd0nprt3mcu34"]
+
+[node name="3x_multiplier" type="ColorRect"]
+offset_right = 40.0
+offset_bottom = 24.0
+color = Color(1, 0.352941, 0.352941, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "3x"
+horizontal_alignment = 1

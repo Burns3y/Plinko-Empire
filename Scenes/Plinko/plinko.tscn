@@ -120,4 +120,6 @@ position = Vector2(640, 915)
 
 [node name="Balls" type="Node2D" parent="."]
 
+[node name="Multipliers" type="Node2D" parent="."]
+
 [connection signal="pressed" from="BallDrop" to="." method="_on_ball_drop_pressed"]
