@@ -11,8 +11,14 @@ config_version=5
 [application]
 
 config/name="Plinko-empire"
+run/main_scene="res://Scenes/map.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=720
+window/size/viewport_height=1280
 
 [filesystem]
 

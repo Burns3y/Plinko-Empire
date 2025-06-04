@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://b3hquyhaxtecu"]
+[gd_scene load_steps=10 format=3 uid="uid://b3hquyhaxtecu"]
 
-[ext_resource type="PackedScene" uid="uid://divovq2vcf0lf" path="res://KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/road_straight.gltf" id="1_ktjc1"]
-[ext_resource type="PackedScene" uid="uid://ck8vtnsjn80jg" path="res://KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/road_straight_crossing.gltf" id="2_jht0d"]
-[ext_resource type="PackedScene" uid="uid://ck6j4aban148d" path="res://KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/road_corner.gltf" id="3_ewx2y"]
-[ext_resource type="PackedScene" uid="uid://bxs330e0xxmn1" path="res://KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/road_junction.gltf" id="4_ikodo"]
-[ext_resource type="PackedScene" uid="uid://cuf73kmuxttv4" path="res://KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/road_tsplit.gltf" id="5_dy3jk"]
-[ext_resource type="PackedScene" uid="uid://b2upcgjnjlv45" path="res://KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/building_A.gltf" id="6_1e82x"]
-[ext_resource type="PackedScene" uid="uid://b7kt7tii3uxtb" path="res://KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/base.gltf" id="7_hy0kk"]
+[ext_resource type="PackedScene" uid="uid://divovq2vcf0lf" path="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/road_straight.gltf" id="1_ktjc1"]
+[ext_resource type="PackedScene" uid="uid://ck8vtnsjn80jg" path="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/road_straight_crossing.gltf" id="2_jht0d"]
+[ext_resource type="PackedScene" uid="uid://ck6j4aban148d" path="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/road_corner.gltf" id="3_ewx2y"]
+[ext_resource type="PackedScene" uid="uid://bxs330e0xxmn1" path="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/road_junction.gltf" id="4_ikodo"]
+[ext_resource type="PackedScene" uid="uid://cuf73kmuxttv4" path="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/road_tsplit.gltf" id="5_dy3jk"]
+[ext_resource type="PackedScene" uid="uid://b2upcgjnjlv45" path="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/building_A.gltf" id="6_1e82x"]
+[ext_resource type="PackedScene" uid="uid://b7kt7tii3uxtb" path="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/base.gltf" id="7_hy0kk"]
+[ext_resource type="PackedScene" uid="uid://co0ie4q6bojf8" path="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/building_E.gltf" id="7_yw53e"]
+[ext_resource type="PackedScene" uid="uid://1qlkyxa2h72w" path="res://startUI.tscn" id="9_w7yip"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -97,6 +99,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2.08165e-12, -5)
 [node name="building_A2" parent="." instance=ExtResource("6_1e82x")]
 transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, 5, 2.08165e-12, -1)
 
+[node name="building_E2" parent="." instance=ExtResource("7_yw53e")]
+transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 7, 2.08165e-12, 9)
+
 [node name="base2" parent="." instance=ExtResource("7_hy0kk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.08165e-12, 1)
 
@@ -117,3 +122,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2.08165e-12, 1)
 
 [node name="base8" parent="." instance=ExtResource("7_hy0kk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2.08165e-12, -1)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, 6.5, 0.6, -1.2)
+fov = 70.0
+
+[node name="Camera3D2" type="Camera3D" parent="."]
+transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 7, 1, -5.15627)
+
+[node name="Camera3D3" type="Camera3D" parent="."]
+transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 7, 0.35, 8.12)
+
+[node name="Button_Node" parent="." instance=ExtResource("9_w7yip")]
+transform = Transform3D(-0.06, 2.09272e-17, -9.05975e-09, 2.09272e-17, 0.06, -2.09272e-17, 9.05975e-09, -2.09272e-17, -0.06, 7, 0.32, 8.3)
