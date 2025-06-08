@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://1texhmvmhmfg"]
+[gd_scene load_steps=2 format=3 uid="uid://1texhmvmhmfg"]
 
-[ext_resource type="PackedScene" uid="uid://cbgek2ucokmh7" path="res://Scenes/Plinko/plinko_pin.tscn" id="1_dfk3u"]
 [ext_resource type="Script" path="res://Scenes/Plinko/plinko.gd" id="1_ii2fs"]
 
 [node name="Plinko" type="Node2D"]
 script = ExtResource("1_ii2fs")
+rows = 5
 
 [node name="BallSpawnPoint" type="Node2D" parent="."]
 position = Vector2(360, 300)
@@ -18,105 +18,6 @@ scale = Vector2(3.43658, 3.42313)
 text = "Drop Ball"
 
 [node name="Pins" type="Node2D" parent="."]
-
-[node name="Plinko-Pin" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(280, 415)
-
-[node name="Plinko-Pin2" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(360, 415)
-
-[node name="Plinko-Pin3" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(440, 415)
-
-[node name="Plinko-Pin4" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(240, 515)
-
-[node name="Plinko-Pin5" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(320, 515)
-
-[node name="Plinko-Pin6" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(400, 515)
-
-[node name="Plinko-Pin7" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(480, 515)
-
-[node name="Plinko-Pin8" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(200, 615)
-
-[node name="Plinko-Pin9" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(280, 615)
-
-[node name="Plinko-Pin10" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(360, 615)
-
-[node name="Plinko-Pin11" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(440, 615)
-
-[node name="Plinko-Pin12" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(520, 615)
-
-[node name="Plinko-Pin13" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(160, 715)
-
-[node name="Plinko-Pin14" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(240, 715)
-
-[node name="Plinko-Pin15" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(320, 715)
-
-[node name="Plinko-Pin16" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(400, 715)
-
-[node name="Plinko-Pin17" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(480, 715)
-
-[node name="Plinko-Pin18" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(560, 715)
-
-[node name="Plinko-Pin19" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(120, 815)
-
-[node name="Plinko-Pin20" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(200, 815)
-
-[node name="Plinko-Pin21" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(280, 815)
-
-[node name="Plinko-Pin22" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(360, 815)
-
-[node name="Plinko-Pin23" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(440, 815)
-
-[node name="Plinko-Pin24" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(520, 815)
-
-[node name="Plinko-Pin25" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(600, 815)
-
-[node name="Plinko-Pin26" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(80, 915)
-
-[node name="Plinko-Pin27" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(160, 915)
-
-[node name="Plinko-Pin28" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(240, 915)
-
-[node name="Plinko-Pin29" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(320, 915)
-
-[node name="Plinko-Pin30" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(400, 915)
-
-[node name="Plinko-Pin31" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(480, 915)
-
-[node name="Plinko-Pin32" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(560, 915)
-
-[node name="Plinko-Pin33" parent="Pins" instance=ExtResource("1_dfk3u")]
-position = Vector2(640, 915)
 
 [node name="Balls" type="Node2D" parent="."]
 
