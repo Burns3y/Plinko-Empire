@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://dnill8coykxai"]
+[gd_scene format=3 uid="uid://f8wevwrppm0e"]
 
-[node name="point_5_multiplier" type="ColorRect"]
+[node name="1x_multiplier" type="ColorRect"]
 offset_right = 40.0
 offset_bottom = 24.0
 color = Color(1, 0.784314, 0.313726, 1)
@@ -9,5 +9,5 @@ color = Color(1, 0.784314, 0.313726, 1)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-text = "0.5x"
+text = "1.5x"
 horizontal_alignment = 1
