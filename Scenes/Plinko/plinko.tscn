@@ -4,7 +4,6 @@
 
 [node name="Plinko" type="Node2D"]
 script = ExtResource("1_ii2fs")
-rows = 5
 
 [node name="BallSpawnPoint" type="Node2D" parent="."]
 position = Vector2(360, 300)
