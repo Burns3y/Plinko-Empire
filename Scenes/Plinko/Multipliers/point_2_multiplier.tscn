@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://l4g5k46jgbhf"]
+
+[ext_resource type="Script" path="res://Scenes/Plinko/Multipliers/point_2_multiplier.gd" id="1_j2uoc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6arix"]
+size = Vector2(40, 24)
+
+[node name="point_2_multiplier" type="ColorRect"]
+offset_right = 40.0
+offset_bottom = 24.0
+color = Color(1, 1, 0.352941, 1)
+script = ExtResource("1_j2uoc")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "0.2x"
+horizontal_alignment = 1
+
+[node name="CollisionBox" type="Area2D" parent="."]
+position = Vector2(20, 12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionBox"]
+shape = SubResource("RectangleShape2D_6arix")
+
+[connection signal="body_entered" from="CollisionBox" to="." method="_on_collision_box_body_entered"]

@@ -1,15 +1,21 @@
-extends CharacterBody2D
+extends RigidBody2D
 
+var value: int = 1
 
-const SPEED = 300.0
+func _ready():
+	$Timer.start()
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _physics_process(_delta):
+	if global_position.y > 1280:
+		queue_free()
 
+func _on_timer_timeout():
+	if global_position.x == 0:
+		linear_velocity.x = 15
+	else:
+		linear_velocity.x = sign(global_position.x - 360) * 15
 
-func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y += gravity * delta
-
-	move_and_slide()
+	if $Timer.wait_time >= 2:
+		$Timer.wait_time -= 2
+	$Timer.start()

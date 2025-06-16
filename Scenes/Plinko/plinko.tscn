@@ -1,3 +1,70 @@
-[gd_scene format=3 uid="uid://1texhmvmhmfg"]
+[gd_scene load_steps=3 format=3 uid="uid://1texhmvmhmfg"]
+
+[ext_resource type="Script" path="res://Scenes/Plinko/plinko.gd" id="1_ii2fs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oj5at"]
+expand_margin_top = 8.0
+expand_margin_bottom = 8.0
 
 [node name="Plinko" type="Node2D"]
+script = ExtResource("1_ii2fs")
+
+[node name="BallSpawnPoint" type="Node2D" parent="."]
+position = Vector2(360, 300)
+
+[node name="BallDrop" type="Button" parent="."]
+offset_left = 228.0
+offset_top = 1104.0
+offset_right = 308.0
+offset_bottom = 1135.0
+scale = Vector2(3.43658, 3.42313)
+text = "Drop Ball"
+
+[node name="Pins" type="Node2D" parent="."]
+
+[node name="Balls" type="Node2D" parent="."]
+
+[node name="Multipliers" type="Node2D" parent="."]
+
+[node name="Sliders" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.5, 1.5)
+
+[node name="RowSlider" type="HSlider" parent="Sliders"]
+offset_left = 31.3333
+offset_top = 145.333
+offset_right = 144.333
+offset_bottom = 161.333
+theme_override_styles/slider = SubResource("StyleBoxFlat_oj5at")
+min_value = 8.0
+max_value = 12.0
+value = 8.0
+
+[node name="RowNumberLabel" type="Label" parent="Sliders/RowSlider"]
+layout_mode = 0
+offset_top = -23.0
+offset_right = 40.0
+text = "Rows:        8"
+
+[node name="BallAmountSlider" type="HSlider" parent="Sliders"]
+offset_left = 336.0
+offset_top = 145.333
+offset_right = 449.0
+offset_bottom = 161.333
+theme_override_styles/slider = SubResource("StyleBoxFlat_oj5at")
+min_value = 1.0
+max_value = 50.0
+value = 1.0
+
+[node name="BallAmountLabel" type="Label" parent="Sliders/BallAmountSlider"]
+layout_mode = 0
+offset_top = -23.0
+offset_right = 112.0
+text = "Ball Value:   $1"
+
+[connection signal="pressed" from="BallDrop" to="." method="_on_ball_drop_pressed"]
+[connection signal="drag_ended" from="Sliders/RowSlider" to="." method="_on_row_slider_drag_ended"]
+[connection signal="drag_ended" from="Sliders/BallAmountSlider" to="." method="_on_ball_amount_slider_drag_ended"]

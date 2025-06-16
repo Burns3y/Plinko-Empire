@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqi01j7qvbkpe"]
+
+[sub_resource type="GDScript" id="GDScript_bfqll"]
+script/source = "extends ColorRect
+
+signal add_points
+
+var multiplier: float = 1
+
+func _on_collision_box_body_entered(body):
+	add_points.emit(multiplier, body)
+
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6gwxx"]
+size = Vector2(40, 24)
+
+[node name="1x_multiplier" type="ColorRect"]
+offset_left = -20.0
+offset_top = -12.0
+offset_right = 20.0
+offset_bottom = 12.0
+color = Color(1, 0.784314, 0.313726, 1)
+script = SubResource("GDScript_bfqll")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "1x"
+horizontal_alignment = 1
+
+[node name="CollisionBox" type="Area2D" parent="."]
+position = Vector2(20, 12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionBox"]
+shape = SubResource("RectangleShape2D_6gwxx")
+
+[connection signal="body_entered" from="CollisionBox" to="." method="_on_collision_box_body_entered"]
