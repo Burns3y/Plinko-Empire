@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bheank1o5a28w"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 700.0
+offset_right = 540.0
+offset_bottom = 809.0
+text = "options"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 539.0
+offset_right = 536.0
+offset_bottom = 662.0
+text = "Play"
