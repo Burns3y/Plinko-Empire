@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://1qlkyxa2h72w"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6cqx2"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[node name="Button_Node" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = SubResource("ViewportTexture_6cqx2")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D"]
+size = Vector2i(145, 80)
+
+[node name="Button" type="Button" parent="Sprite3D/SubViewport"]
+modulate = Color(0.0666667, 0.843137, 0, 1)
+offset_right = 144.0
+offset_bottom = 80.0
+text = "Start"
