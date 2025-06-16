@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3hv1b820drnv"]
+[gd_scene load_steps=3 format=3 uid="uid://bqi01j7qvbkpe"]
 
 [sub_resource type="GDScript" id="GDScript_bfqll"]
 script/source = "extends ColorRect
 
 signal add_points
 
-var multiplier: float = 1.5
+var multiplier: float = 1
 
 func _on_collision_box_body_entered(body):
 	add_points.emit(multiplier, body)
@@ -15,7 +15,7 @@ func _on_collision_box_body_entered(body):
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6gwxx"]
 size = Vector2(40, 24)
 
-[node name="1_point_5x_multiplier" type="ColorRect"]
+[node name="1x_multiplier" type="ColorRect"]
 offset_left = -20.0
 offset_top = -12.0
 offset_right = 20.0
@@ -27,7 +27,7 @@ script = SubResource("GDScript_bfqll")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-text = "1.5x"
+text = "1x"
 horizontal_alignment = 1
 
 [node name="CollisionBox" type="Area2D" parent="."]
