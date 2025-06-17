@@ -11,8 +11,7 @@ config_version=5
 [application]
 
 config/name="Plinko-empire"
-
-run/main_scene="res://main.tscn"
+run/main_scene="res://Scenes/map.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
@@ -20,20 +19,12 @@ config/icon="res://icon.svg"
 
 GlobalVariables="*res://GlobalVariables.gd"
 
-
 [display]
 
 window/size/viewport_width=720
 window/size/viewport_height=1280
-
 window/size/mode=1
 window/size/resizable=false
-
-[layer_names]
-
-2d_physics/layer_1="Ball"
-2d_physics/layer_2="Pin"
-
 
 [filesystem]
 
@@ -47,6 +38,10 @@ left_click={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Ball"
+2d_physics/layer_2="Pin"
 
 [rendering]
 

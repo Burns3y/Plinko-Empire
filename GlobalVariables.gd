@@ -1,3 +1,3 @@
 extends Node
 
-var coins: float = 0
+var coins: float = 100
