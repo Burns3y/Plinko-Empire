@@ -8,7 +8,7 @@ var pin_scale
 var ball: PackedScene = preload("res://Scenes/Plinko/plinko_ball.tscn")
 var pin: PackedScene = preload("res://Scenes/Plinko/plinko_pin.tscn")
 var ball_value: int = 1
-var new_row_cost: int = 150
+var new_row_cost = 150
 
 # Preloading multipliers
 var zeroPointTwoMultiplier: PackedScene = preload("res://Scenes/Plinko/Multipliers/point_2_multiplier.tscn")
@@ -24,6 +24,7 @@ func _ready():
 	# Setting pin scale depending on rows
 	var t = float(rows - 4) / 4.0
 	pin_scale = lerp(1.5, 1.1, t)
+	$CashDisplay.text = "Cash: $" + str(GlobalVariables.coins)
 	create_rows()
 
 

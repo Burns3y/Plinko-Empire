@@ -14,9 +14,9 @@ position = Vector2(360, 300)
 
 [node name="BallDrop" type="Button" parent="."]
 offset_left = 228.0
-offset_top = 1154.0
+offset_top = 1172.0
 offset_right = 308.0
-offset_bottom = 1185.0
+offset_bottom = 1203.0
 scale = Vector2(3.43658, 3.42313)
 text = "Drop Ball"
 
@@ -41,7 +41,7 @@ offset_right = 144.333
 offset_bottom = 161.333
 theme_override_styles/slider = SubResource("StyleBoxFlat_oj5at")
 min_value = 8.0
-max_value = 8.0
+max_value = 12.0
 value = 8.0
 
 [node name="RowNumberLabel" type="Label" parent="Sliders/RowSlider"]
@@ -82,10 +82,11 @@ scale = Vector2(2, 2)
 text = "Cash:  $100"
 
 [node name="BuyButton" type="Button" parent="."]
-offset_left = 223.0
-offset_top = 212.0
-offset_right = 365.0
-offset_bottom = 243.0
+visible = false
+offset_left = 257.0
+offset_top = 211.0
+offset_right = 449.0
+offset_bottom = 242.0
 text = "Buy Another Row - $150"
 
 [connection signal="pressed" from="BallDrop" to="." method="_on_ball_drop_pressed"]
