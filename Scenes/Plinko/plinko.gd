@@ -8,6 +8,7 @@ var pin_scale
 var ball: PackedScene = preload("res://Scenes/Plinko/plinko_ball.tscn")
 var pin: PackedScene = preload("res://Scenes/Plinko/plinko_pin.tscn")
 var ball_value: int = 1
+var new_row_cost = 150
 
 # Preloading multipliers
 var zeroPointTwoMultiplier: PackedScene = preload("res://Scenes/Plinko/Multipliers/point_2_multiplier.tscn")
@@ -23,47 +24,53 @@ func _ready():
 	# Setting pin scale depending on rows
 	var t = float(rows - 4) / 4.0
 	pin_scale = lerp(1.5, 1.1, t)
+	$CashDisplay.text = "Cash: $" + str(GlobalVariables.coins)
 	create_rows()
 
 
 func _on_ball_drop_pressed():
 	
-	# Checking if the ball will be "magic"
-	var magic_ball = false
-	if randi() % ((rows + 30) * 5) == 1:
-		magic_ball = true
-	
-	# Instantiating ball
-	var new_ball = ball.instantiate()
-	
-	# Setting range of ball positions
-	var new_ball_pos = randf_range(-9, 9)
-	if rows == 9:
-		new_ball_pos = randf_range(-7.4, 7.4)
-	if rows == 10:
-		new_ball_pos = randf_range(-5.4, 5.4)
-
-	# Rescaling ball (only works if you rescale children)
-	for child in new_ball.get_children():
-		if child is CollisionShape2D or child is Sprite2D:
-			child.scale *= Vector2(pin_scale*0.16, pin_scale*0.16)
-
-	new_ball.name = "Ball"
-	# Giving the ball a value, subtracting from global
-	new_ball.value = ball_value
-	GlobalVariables.coins -= new_ball.value
-	
-	$Balls.add_child(new_ball)
-	if not magic_ball:
-		new_ball.position = $BallSpawnPoint.position + Vector2(new_ball_pos, 0)
-		# Pins have a slightly random bounce size, smaller if more rows
-		new_ball.physics_material_override.bounce = randf_range((1.0 / rows + 16) * 0.002, (1.0 / rows + 16) * 0.004)
-
+	# If you have enough money to drop a ball, lets you
+	if GlobalVariables.coins < $Sliders/BallAmountSlider.value:
+		print("Not Enough Money!")
 	else:
-		# Gives it more bounce and a further spawn point
-		new_ball.position = $BallSpawnPoint.position + Vector2(new_ball_pos*2, 0)
-		new_ball.physics_material_override.bounce = 0.35
-		magic_ball = false
+		# Checking if the ball will be "magic"
+		var magic_ball = false
+		if randi() % ((rows + 30) * 5) == 1:
+			magic_ball = true
+		
+		# Instantiating ball
+		var new_ball = ball.instantiate()
+		
+		# Setting range of ball positions
+		var new_ball_pos = randf_range(-9, 9)
+		if rows == 9:
+			new_ball_pos = randf_range(-7.4, 7.4)
+		if rows == 10:
+			new_ball_pos = randf_range(-5.4, 5.4)
+
+		# Rescaling ball (only works if you rescale children)
+		for child in new_ball.get_children():
+			if child is CollisionShape2D or child is Sprite2D:
+				child.scale *= Vector2(pin_scale*0.16, pin_scale*0.16)
+
+		new_ball.name = "Ball"
+		# Giving the ball a value, subtracting from global
+		new_ball.value = ball_value
+		GlobalVariables.coins -= new_ball.value
+		$CashDisplay.text = "Cash: $" + str(GlobalVariables.coins)
+		
+		$Balls.add_child(new_ball)
+		if not magic_ball:
+			new_ball.position = $BallSpawnPoint.position + Vector2(new_ball_pos, 0)
+			# Pins have a slightly random bounce size, smaller if more rows
+			new_ball.physics_material_override.bounce = randf_range((1.0 / rows + 16) * 0.002, (1.0 / rows + 16) * 0.004)
+
+		else:
+			# Gives it more bounce and a further spawn point
+			new_ball.position = $BallSpawnPoint.position + Vector2(new_ball_pos*2, 0)
+			new_ball.physics_material_override.bounce = 0.35
+			magic_ball = false
 
 
 func create_rows():
@@ -120,9 +127,8 @@ func create_multipliers(y_spacing, x_spacing, final_pin_location):
 func _on_multiplier_hit(multiplier_value, ball_colliding):
 	'''Adds value of multiplier * value of ball to global coins'''
 	GlobalVariables.coins += ball_colliding.value * multiplier_value
-	print("Added: ", ball_colliding.value * multiplier_value)
+	$CashDisplay.text = "Cash: $" + str(GlobalVariables.coins)
 	ball_colliding.queue_free()
-	print(GlobalVariables.coins)
 
 
 func _on_row_slider_drag_ended(value_changed):
@@ -137,8 +143,8 @@ func _on_row_slider_drag_ended(value_changed):
 		# Removing everything
 		for multiplier in $Multipliers.get_children():
 			multiplier.queue_free()
-		for pin in $Pins.get_children():
-			pin.queue_free()
+		for child in $Pins.get_children():
+			child.queue_free()
 
 		# Replacing everything
 		var t = float(rows - 4) / 4.0
@@ -156,3 +162,22 @@ func _on_ball_amount_slider_drag_ended(value_changed):
 	if value_changed:
 		ball_value = $Sliders/BallAmountSlider.value
 		$Sliders/BallAmountSlider/BallAmountLabel.text = "Ball value:  $" + str(ball_value)
+
+
+func _on_exit_pressed():
+	get_tree().change_scene_to_file("res://Scenes/map.tscn")
+
+
+func _on_buy_button_pressed():
+	if GlobalVariables.coins >= new_row_cost:
+		if rows < 10:
+			rows += 1
+			GlobalVariables.coins -= new_row_cost
+			$CashDisplay.text = "Cash: $" + str(GlobalVariables.coins)
+			new_row_cost *= 10
+			$Sliders/RowSlider.max_value += 1
+			$BuyButton.text = "Buy Another Row - $" + str(new_row_cost)
+		else:
+			$BuyButton.visible = false
+	else:
+		print("Not Enough Money!")

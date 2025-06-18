@@ -1,5 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://b3hquyhaxtecu"]
+[gd_scene load_steps=24 format=3 uid="uid://b3hquyhaxtecu"]
 
+[ext_resource type="Script" path="res://Scenes/map.gd" id="1_br6t4"]
 [ext_resource type="PackedScene" uid="uid://divovq2vcf0lf" path="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/road_straight.gltf" id="1_ktjc1"]
 [ext_resource type="PackedScene" uid="uid://ck8vtnsjn80jg" path="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/road_straight_crossing.gltf" id="2_jht0d"]
 [ext_resource type="PackedScene" uid="uid://ck6j4aban148d" path="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/road_corner.gltf" id="3_ewx2y"]
@@ -24,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://dy1m05snkjhro" path="res://button_3d.tscn" id="22_delwu"]
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_br6t4")
 
 [node name="map items" type="Node" parent="."]
 
@@ -309,14 +311,16 @@ transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-
 [node name="Camera3D" type="Camera3D" parent="camreas"]
 transform = Transform3D(-0.481342, -0.619562, 0.620043, -0.000707423, 0.707656, 0.706557, -0.876533, 0.339657, -0.341063, 13.5361, 7.17951, -2.32942)
 
-[node name="Camera3D3" type="Camera3D" parent="camreas"]
+[node name="StartCamera" type="Camera3D" parent="camreas"]
 transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 7, 0.35, 7.84437)
 fov = 100.0
 
 [node name="Camera3D2" type="Camera3D" parent="camreas"]
 transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 7, 1, -5.15627)
 
-[node name="Button_Node" parent="." instance=ExtResource("9_w7yip")]
+[node name="TransitionCamera" type="Camera3D" parent="camreas"]
+
+[node name="StartButton" parent="." instance=ExtResource("9_w7yip")]
 transform = Transform3D(-0.06, 2.09272e-17, -9.05975e-09, 2.09272e-17, 0.06, -2.09272e-17, 9.05975e-09, -2.09272e-17, -0.06, 7.0013, 0.287943, 7.93975)
 
 [node name="car_sedan2" parent="." instance=ExtResource("19_mupig")]

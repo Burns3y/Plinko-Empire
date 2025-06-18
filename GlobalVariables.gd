@@ -1,3 +1,4 @@
 extends Node
 
-var coins: float = 0
+var coins: float = 100
+var max_rows: int = 8
