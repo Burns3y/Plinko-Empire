@@ -167,7 +167,10 @@ func _on_ball_amount_slider_drag_ended(value_changed):
 
 
 func _on_exit_pressed():
-	get_tree().change_scene_to_file("res://Scenes/map.tscn")
+	if $Balls.get_child_count() == 0:
+		get_tree().change_scene_to_file("res://Scenes/map.tscn")
+	else:
+		print("Wait until balls have stopped dropping!")
 
 
 func _on_buy_button_pressed():
