@@ -58,6 +58,7 @@ func _on_ball_drop_pressed():
 		# Giving the ball a value, subtracting from global
 		new_ball.value = ball_value
 		GlobalVariables.coins -= new_ball.value
+		GlobalVariables.coins = round(GlobalVariables.coins * 10) / 10.0
 		$CashDisplay.text = "Cash: $" + str(GlobalVariables.coins)
 		
 		$Balls.add_child(new_ball)
@@ -127,6 +128,7 @@ func create_multipliers(y_spacing, x_spacing, final_pin_location):
 func _on_multiplier_hit(multiplier_value, ball_colliding):
 	'''Adds value of multiplier * value of ball to global coins'''
 	GlobalVariables.coins += ball_colliding.value * multiplier_value
+	GlobalVariables.coins = round(GlobalVariables.coins * 10) / 10.0
 	$CashDisplay.text = "Cash: $" + str(GlobalVariables.coins)
 	ball_colliding.queue_free()
 
@@ -173,6 +175,7 @@ func _on_buy_button_pressed():
 		if rows < 10:
 			rows += 1
 			GlobalVariables.coins -= new_row_cost
+			GlobalVariables.coins = round(GlobalVariables.coins * 10) / 10.0
 			$CashDisplay.text = "Cash: $" + str(GlobalVariables.coins)
 			new_row_cost *= 10
 			$Sliders/RowSlider.max_value += 1
