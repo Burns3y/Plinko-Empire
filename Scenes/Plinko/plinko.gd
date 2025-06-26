@@ -8,7 +8,6 @@ var pin_scale
 var ball: PackedScene = preload("res://Scenes/Plinko/plinko_ball.tscn")
 var pin: PackedScene = preload("res://Scenes/Plinko/plinko_pin.tscn")
 var ball_value: int = 1
-var new_row_cost = 150
 
 # Preloading multipliers
 var zeroPointTwoMultiplier: PackedScene = preload("res://Scenes/Plinko/Multipliers/point_2_multiplier.tscn")
@@ -25,6 +24,7 @@ func _ready():
 	var t = float(rows - 4) / 4.0
 	pin_scale = lerp(1.5, 1.1, t)
 	$CashDisplay.text = "Cash: $" + str(GlobalVariables.coins)
+	$Sliders/RowSlider.max_value = GlobalVariables.max_rows
 	create_rows()
 
 
@@ -102,7 +102,7 @@ func create_rows():
 func create_multipliers(y_spacing, x_spacing, final_pin_location):
 	var distributions = {
 		6: [tenMultiplier, fiveMultiplier, threeMultiplier, oneMultiplier, zeroPointTwoMultiplier, oneMultiplier, threeMultiplier, fiveMultiplier, tenMultiplier,],
-		7: [fiftyMultiplier, threeMultiplier, oneMultiplier, oneMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, oneMultiplier, oneMultiplier, threeMultiplier, fiftyMultiplier],
+		7: [fiftyMultiplier, fiveMultiplier, oneMultiplier, oneMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, oneMultiplier, oneMultiplier, fiveMultiplier, fiftyMultiplier],
 		8: [fiftyMultiplier, fiveMultiplier, threeMultiplier, oneMultiplier, oneMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, oneMultiplier, oneMultiplier, threeMultiplier, fiveMultiplier, fiftyMultiplier],
 		9: [fiftyMultiplier, tenMultiplier, threeMultiplier, oneMultiplier, oneMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, oneMultiplier, oneMultiplier, threeMultiplier, tenMultiplier, fiftyMultiplier],
 		10: [fiftyMultiplier, fiveMultiplier, threeMultiplier, threeMultiplier, oneMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, oneMultiplier, threeMultiplier, threeMultiplier, fiveMultiplier, fiftyMultiplier]
@@ -133,37 +133,35 @@ func _on_multiplier_hit(multiplier_value, ball_colliding):
 	ball_colliding.queue_free()
 
 
-func _on_row_slider_drag_ended(value_changed):
-	if value_changed:
-		rows = $Sliders/RowSlider.value - 2
-		$BallDrop.disabled = true
+func _on_row_slider_value_changed(value):
+	rows = value - 2
+	$BallDrop.disabled = true
 
-		# Wait until there are no balls left in $Balls
-		while $Balls.get_child_count() > 0:
-			await get_tree().process_frame
+	# Wait until there are no balls left in $Balls
+	while $Balls.get_child_count() > 0:
+		await get_tree().process_frame
 
-		# Removing everything
-		for multiplier in $Multipliers.get_children():
-			multiplier.queue_free()
-		for child in $Pins.get_children():
-			child.queue_free()
+	# Removing everything
+	for multiplier in $Multipliers.get_children():
+		multiplier.queue_free()
+	for child in $Pins.get_children():
+		child.queue_free()
 
-		# Replacing everything
-		var t = float(rows - 4) / 4.0
-		pin_scale = lerp(1.5, 1.1, t)
-		create_rows()
-		
+	# Replacing everything
+	var t = float(rows - 4) / 4.0
+	pin_scale = lerp(1.5, 1.1, t)
+	create_rows()
+	
 
-		# Setting text and reenabling button
-		$Sliders/RowSlider/RowNumberLabel.text = "Rows:         " + str(rows + 2)
-		
-		$BallDrop.disabled = false
+	# Setting text and reenabling button
+	$Sliders/RowSlider/RowNumberLabel.text = "Rows:         " + str(rows + 2)
+	
+	$BallDrop.disabled = false
 
 
-func _on_ball_amount_slider_drag_ended(value_changed):
-	if value_changed:
-		ball_value = $Sliders/BallAmountSlider.value
-		$Sliders/BallAmountSlider/BallAmountLabel.text = "Ball value:  $" + str(ball_value)
+func _on_ball_amount_slider_value_changed(value):
+	ball_value = value
+	$Sliders/BallAmountSlider/BallAmountLabel.text = "Ball value:  $" + str(ball_value)
 
 
 func _on_exit_pressed():
@@ -174,16 +172,25 @@ func _on_exit_pressed():
 
 
 func _on_buy_button_pressed():
-	if GlobalVariables.coins >= new_row_cost:
+	if GlobalVariables.coins >= GlobalVariables.new_row_cost:
 		if rows < 10:
 			rows += 1
-			GlobalVariables.coins -= new_row_cost
+			GlobalVariables.coins -= GlobalVariables.new_row_cost
 			GlobalVariables.coins = round(GlobalVariables.coins * 10) / 10.0
 			$CashDisplay.text = "Cash: $" + str(GlobalVariables.coins)
-			new_row_cost *= 10
-			$Sliders/RowSlider.max_value += 1
-			$BuyButton.text = "Buy Another Row - $" + str(new_row_cost)
+			GlobalVariables.new_row_cost *= 10
+			if GlobalVariables.max_rows < 12:
+				GlobalVariables.max_rows += 1
+			$Sliders/RowSlider.max_value = GlobalVariables.max_rows
+			$Sliders/RowSlider.value = $Sliders/RowSlider.max_value
+			
+			if GlobalVariables.max_rows == 12:
+				$BuyButton.visible = false
+			else:
+				$BuyButton.text = "Buy Another Row - $" + str(GlobalVariables.new_row_cost)
 		else:
 			$BuyButton.visible = false
 	else:
 		print("Not Enough Money!")
+
+

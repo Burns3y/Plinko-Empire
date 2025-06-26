@@ -82,7 +82,6 @@ scale = Vector2(2, 2)
 text = "Cash:  $100"
 
 [node name="BuyButton" type="Button" parent="."]
-visible = false
 offset_left = 257.0
 offset_top = 211.0
 offset_right = 449.0
@@ -90,7 +89,7 @@ offset_bottom = 242.0
 text = "Buy Another Row - $150"
 
 [connection signal="pressed" from="BallDrop" to="." method="_on_ball_drop_pressed"]
-[connection signal="drag_ended" from="Sliders/RowSlider" to="." method="_on_row_slider_drag_ended"]
-[connection signal="drag_ended" from="Sliders/BallAmountSlider" to="." method="_on_ball_amount_slider_drag_ended"]
+[connection signal="value_changed" from="Sliders/RowSlider" to="." method="_on_row_slider_value_changed"]
+[connection signal="value_changed" from="Sliders/BallAmountSlider" to="." method="_on_ball_amount_slider_value_changed"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="BuyButton" to="." method="_on_buy_button_pressed"]
