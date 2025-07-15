@@ -131,6 +131,7 @@ func _on_multiplier_hit(multiplier_value, ball_colliding):
 	GlobalVariables.coins = round(GlobalVariables.coins * 10) / 10.0
 	$CashDisplay.text = "Cash: $" + str(GlobalVariables.coins)
 	ball_colliding.queue_free()
+	$MultiplierDisplay.rearrange_multipliers(multiplier_value)
 
 
 func _on_row_slider_value_changed(value):
@@ -192,5 +193,3 @@ func _on_buy_button_pressed():
 			$BuyButton.visible = false
 	else:
 		print("Not Enough Money!")
-
-

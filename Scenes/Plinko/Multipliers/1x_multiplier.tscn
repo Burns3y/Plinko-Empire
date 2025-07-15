@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqi01j7qvbkpe"]
+[gd_scene load_steps=4 format=3 uid="uid://bqi01j7qvbkpe"]
 
 [sub_resource type="GDScript" id="GDScript_bfqll"]
 script/source = "extends ColorRect
@@ -11,6 +11,9 @@ func _on_collision_box_body_entered(body):
 	add_points.emit(multiplier, body)
 
 "
+
+[sub_resource type="LabelSettings" id="LabelSettings_btdwb"]
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6gwxx"]
 size = Vector2(40, 24)
@@ -28,6 +31,7 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "1x"
+label_settings = SubResource("LabelSettings_btdwb")
 horizontal_alignment = 1
 
 [node name="CollisionBox" type="Area2D" parent="."]
