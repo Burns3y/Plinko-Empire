@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bo4logmdxjk45"]
+
+[ext_resource type="Script" path="res://TouchscreenCamera.gd" id="1_vcrh8"]
+
+[node name="TouchscreenCamera" type="Camera2D"]
+script = ExtResource("1_vcrh8")
