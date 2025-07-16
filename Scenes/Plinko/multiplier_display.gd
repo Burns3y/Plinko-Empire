@@ -3,7 +3,7 @@ extends VBoxContainer
 var multiplier_colours: Dictionary = {
 "0.2": "ffff5a",
 "1": "ffc850",
-"3": "ffc850",
+"3": "ff915a",
 "5": "ff5a5a",
 "10": "ff4b4f",
 "50": "ff2328",
@@ -41,10 +41,14 @@ func rearrange_multipliers(multiplier_value):
 	new_multiplier.visible = true
 	var label = new_multiplier.get_node("Label")
 	label.text = str(multiplier_value)
-	new_multiplier.color = ("#" + multiplier_colours.get(multiplier_value, "ffffff"))
+	new_multiplier.color = ("#" + multiplier_colours.get(str(multiplier_value), "ffffff"))
 	queue.append(new_multiplier)
 	# If we now have more than 4 visible, hide the oldest (top one)
 	if queue.size() > 4:
 		var oldest = queue.pop_front()
 		oldest.visible = false
+
+		# Move it to the bottom so order stays
+		remove_child(oldest)
+		add_child(oldest)
 
