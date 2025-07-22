@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://b3hquyhaxtecu"]
+[gd_scene load_steps=27 format=3 uid="uid://b3hquyhaxtecu"]
 
 [ext_resource type="Script" path="res://Scenes/Plinko/map.gd" id="1_br6t4"]
 [ext_resource type="PackedScene" uid="uid://divovq2vcf0lf" path="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/road_straight.gltf" id="1_ktjc1"]
+[ext_resource type="Texture2D" uid="uid://cedocwabj4xtg" path="res://Scenes/skybox.jpg" id="2_cl0lj"]
 [ext_resource type="PackedScene" uid="uid://ck8vtnsjn80jg" path="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/road_straight_crossing.gltf" id="2_jht0d"]
 [ext_resource type="PackedScene" uid="uid://ck6j4aban148d" path="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/road_corner.gltf" id="3_ewx2y"]
 [ext_resource type="PackedScene" uid="uid://bxs330e0xxmn1" path="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/road_junction.gltf" id="4_ikodo"]
@@ -23,8 +24,24 @@
 [ext_resource type="PackedScene" uid="uid://dgi6ci8x5xxt1" path="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/building_B_withoutBase.gltf" id="21_sxujc"]
 [ext_resource type="PackedScene" uid="uid://dy1m05snkjhro" path="res://button_3d.tscn" id="22_delwu"]
 
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_4dw56"]
+panorama = ExtResource("2_cl0lj")
+
+[sub_resource type="Sky" id="Sky_hwuja"]
+sky_material = SubResource("PanoramaSkyMaterial_4dw56")
+
+[sub_resource type="Environment" id="Environment_xmr3u"]
+background_mode = 2
+sky = SubResource("Sky_hwuja")
+sky_rotation = Vector3(3.48787e-16, 3.48787e-16, 3.48787e-16)
+tonemap_mode = 2
+glow_enabled = true
+
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_br6t4")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xmr3u")
 
 [node name="map items" type="Node" parent="."]
 
@@ -317,6 +334,7 @@ transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e
 transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 7, 1, -5.15627)
 
 [node name="TransitionCamera" type="Camera3D" parent="camreas"]
+transform = Transform3D(0.842198, 0, 0.539168, 0, 1, 0, -0.539168, 0, 0.842198, 0.928087, 0.827384, 1.15542)
 
 [node name="car_sedan2" parent="." instance=ExtResource("19_mupig")]
 transform = Transform3D(-0.0102275, 0, -0.999948, 0, 1, 0, 0.999948, 0, -0.0102275, 11.1108, 0.125469, 7.34322)

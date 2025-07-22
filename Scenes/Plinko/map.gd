@@ -4,21 +4,31 @@ extends Node3D
 @onready var selected_camera: Camera3D = $camreas/Camera3D
 
 var transitionTween: Tween
+var changenum = 0
 
 func _ready():
-	pass
+	_CameraIntro()
+	pass	
+
+func _CameraIntro():
+	if selected_camera == $camreas/Camera3D2 and changenum == 0:
+		_change_camera($camreas/StartCamera)
+		changenum += 1
+		print(changenum)
+	elif selected_camera == $camreas/Camera3D2 and changenum == 1:
+		_change_camera($camreas/StartCamera)
+	else:
+		_change_camera($camreas/Camera3D2)
+
+
 
 func _process(_delta):
-	if Input.is_action_just_pressed("ui_accept"):
-		if selected_camera == $camreas/Camera3D2:
-			_change_camera($camreas/StartCamera)
-		else:
-			_change_camera($camreas/Camera3D2)
 	if Input.is_action_just_pressed("ui_down"):
 		start_plinko()
 
 
 func _change_camera(desired_camera: Camera3D):
+	
 	if transitionTween:
 		transitionTween.kill()
 
