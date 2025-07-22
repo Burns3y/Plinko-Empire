@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b3hquyhaxtecu"]
+[gd_scene load_steps=28 format=3 uid="uid://b3hquyhaxtecu"]
 
 [ext_resource type="Script" path="res://Scenes/Plinko/map.gd" id="1_br6t4"]
 [ext_resource type="PackedScene" uid="uid://divovq2vcf0lf" path="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/road_straight.gltf" id="1_ktjc1"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://bwgghgfgl5oo4" path="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/building_C.gltf" id="18_kxe7w"]
 [ext_resource type="PackedScene" uid="uid://cqqg2gvcn1mf7" path="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/car_sedan.gltf" id="19_mupig"]
 [ext_resource type="PackedScene" uid="uid://dgi6ci8x5xxt1" path="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/building_B_withoutBase.gltf" id="21_sxujc"]
+[ext_resource type="PackedScene" path="res://Scenes/touchscreen_camera.tscn" id="21_v46cy"]
 [ext_resource type="PackedScene" uid="uid://dy1m05snkjhro" path="res://button_3d.tscn" id="22_delwu"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_4dw56"]
@@ -323,6 +324,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 2.08165e-12, -5)
 transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, 5, 2.08165e-12, -1)
 
 [node name="camreas" type="Node" parent="."]
+
+[node name="TouchscreenCamera" parent="camreas" instance=ExtResource("21_v46cy")]
+transform = Transform3D(-0.543393, -0.225774, 0.808549, -0.00460249, 0.963942, 0.266072, -0.839466, 0.14086, -0.524838, 9.27881, 3.94398, -4.0259)
 
 [node name="Camera3D" type="Camera3D" parent="camreas"]
 transform = Transform3D(-0.481342, -0.619562, 0.620043, -0.000707423, 0.707656, 0.706557, -0.876533, 0.339657, -0.341063, 13.5361, 7.17951, -2.32942)

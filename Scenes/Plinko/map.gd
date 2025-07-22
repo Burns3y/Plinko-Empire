@@ -7,18 +7,18 @@ var transitionTween: Tween
 var changenum = 0
 
 func _ready():
-	_CameraIntro()
+	#_CameraIntro()
 	pass	
 
-func _CameraIntro():
-	if selected_camera == $camreas/Camera3D2 and changenum == 0:
-		_change_camera($camreas/StartCamera)
-		changenum += 1
-		print(changenum)
-	elif selected_camera == $camreas/Camera3D2 and changenum == 1:
-		_change_camera($camreas/StartCamera)
-	else:
-		_change_camera($camreas/Camera3D2)
+#func _CameraIntro():
+	#if selected_camera == $camreas/Camera3D2 and changenum == 0:
+		#_change_camera($camreas/TouchscreenCamera)
+		#changenum += 1
+		#print(changenum)
+	#elif selected_camera == $camreas/Camera3D2 and changenum == 1:
+		#_change_camera($camreas/StartCamera)
+	#else:
+		#_change_camera($camreas/Camera3D2)
 
 
 
