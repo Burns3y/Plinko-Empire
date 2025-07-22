@@ -6,7 +6,7 @@ extends Node3D
 var transitionTween: Tween
 
 func _ready():
-	$StartButton.connect("started", self.start_plinko)
+	pass
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_accept"):

@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2n601pywpo5p"]
+
+[ext_resource type="Script" path="res://Menu.gd" id="1_lod11"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1qoob"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lod11")
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 350
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Label" type="Label" parent="Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 62
+text = "PLINKO EMPIRE!!"
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 80)
+layout_mode = 2
+
+[node name="StartBtn" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1qoob")
+text = "Start"
+
+[node name="OptionsBtn" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1qoob")
+text = "Options"
+
+[node name="QuitBtn" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1qoob")
+text = "Quit?"
+
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/StartBtn" to="Menu" method="_on_start_btn_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/OptionsBtn" to="Menu" method="_on_options_btn_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/QuitBtn" to="Menu" method="_on_quit_btn_pressed"]
