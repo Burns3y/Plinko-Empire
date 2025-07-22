@@ -12,7 +12,7 @@ size = Vector3(0.8, 0.05, 0.8)
 [node name="buy_button" type="Node3D"]
 
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.93619, 2.08165e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.1, 2.08165e-12)
 script = ExtResource("1_cpse0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
