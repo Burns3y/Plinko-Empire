@@ -34,10 +34,6 @@ func _on_ball_drop_pressed():
 	if GlobalVariables.coins < $Sliders/BallAmountSlider.value:
 		print("Not Enough Money!")
 	else:
-		# Checking if the ball will be "magic"
-		var magic_ball = false
-		if randi() % ((rows + 30) * 5) == 1:
-			magic_ball = true
 		
 		# Instantiating ball
 		var new_ball = ball.instantiate()
@@ -55,6 +51,7 @@ func _on_ball_drop_pressed():
 				child.scale *= Vector2(pin_scale*0.16, pin_scale*0.16)
 
 		new_ball.name = "Ball"
+		new_ball.position = $BallSpawnPoint.position + Vector2(new_ball_pos, 0)
 		# Giving the ball a value, subtracting from global
 		new_ball.value = ball_value
 		GlobalVariables.coins -= new_ball.value
@@ -62,16 +59,7 @@ func _on_ball_drop_pressed():
 		$CashDisplay.text = "Cash: $" + str(GlobalVariables.coins)
 		
 		$Balls.add_child(new_ball)
-		if not magic_ball:
-			new_ball.position = $BallSpawnPoint.position + Vector2(new_ball_pos, 0)
-			# Pins have a slightly random bounce size, smaller if more rows
-			new_ball.physics_material_override.bounce = randf_range((1.0 / rows + 16) * 0.002, (1.0 / rows + 16) * 0.004)
 
-		else:
-			# Gives it more bounce and a further spawn point
-			new_ball.position = $BallSpawnPoint.position + Vector2(new_ball_pos*2, 0)
-			new_ball.physics_material_override.bounce = 0.35
-			magic_ball = false
 
 
 func create_rows():
