@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://TouchscreenCamera.gd" id="1_vcrh8"]
 
-[node name="TouchscreenCamera" type="Camera2D"]
+[node name="TouchscreenCamera" type="Camera3D"]
 script = ExtResource("1_vcrh8")
