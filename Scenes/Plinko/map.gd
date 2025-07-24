@@ -4,21 +4,22 @@ extends Node3D
 @onready var selected_camera: Camera3D = $camreas/Camera3D
 
 var transitionTween: Tween
-var changenum = 0
+signal trans_complete
 
 func _ready():
-	#_CameraIntro()
-	pass	
+	_CameraIntro()
 
-#func _CameraIntro():
-	#if selected_camera == $camreas/Camera3D2 and changenum == 0:
-		#_change_camera($camreas/TouchscreenCamera)
-		#changenum += 1
-		#print(changenum)
-	#elif selected_camera == $camreas/Camera3D2 and changenum == 1:
-		#_change_camera($camreas/StartCamera)
-	#else:
-		#_change_camera($camreas/Camera3D2)
+
+func _CameraIntro():
+		selected_camera = $camreas/TransitionCamera
+		if selected_camera == $camreas/TransitionCamera:
+			await _change_camera($camreas/Camera3D2)
+			
+			if selected_camera == $camreas/Camera3D2:
+				await _change_camera($camreas/StartCamera)
+				
+				if selected_camera == $camreas/StartCamera:
+					_change_camera($camreas/TouchscreenCamera)
 
 
 
@@ -38,8 +39,10 @@ func _change_camera(desired_camera: Camera3D):
 
 	TransitionCamera.current = true
 	selected_camera = desired_camera
-
-
+	
+	await transitionTween.finished
+	emit_signal("trans_complete")
+	
 func start_plinko():
 	get_tree().change_scene_to_file("res://Scenes/Plinko/plinko.tscn")
 

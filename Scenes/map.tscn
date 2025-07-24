@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://bwgghgfgl5oo4" path="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/building_C.gltf" id="18_kxe7w"]
 [ext_resource type="PackedScene" uid="uid://cqqg2gvcn1mf7" path="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/car_sedan.gltf" id="19_mupig"]
 [ext_resource type="PackedScene" uid="uid://dgi6ci8x5xxt1" path="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/building_B_withoutBase.gltf" id="21_sxujc"]
-[ext_resource type="PackedScene" path="res://Scenes/touchscreen_camera.tscn" id="21_v46cy"]
+[ext_resource type="PackedScene" uid="uid://bo4logmdxjk45" path="res://Scenes/touchscreen_camera.tscn" id="21_v46cy"]
 [ext_resource type="PackedScene" uid="uid://dy1m05snkjhro" path="res://button_3d.tscn" id="22_delwu"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_4dw56"]
