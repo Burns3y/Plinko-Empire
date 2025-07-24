@@ -2,6 +2,7 @@ extends VBoxContainer
 
 var multiplier_colours: Dictionary = {
 "0.2": "ffff5a",
+"0.5": "ffb43c",
 "1": "ffc850",
 "3": "ff915a",
 "5": "ff5a5a",

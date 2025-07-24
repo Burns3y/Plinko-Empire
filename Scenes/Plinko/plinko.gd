@@ -10,6 +10,7 @@ var ball_value: int = 1
 
 # Preloading multipliers
 var zeroPointTwoMultiplier: PackedScene = preload("res://Scenes/Plinko/Multipliers/point_2_multiplier.tscn")
+var zeroPointFiveMultiplier: PackedScene = preload("res://Scenes/Plinko/Multipliers/point_5_multiplier.tscn")
 var oneMultiplier: PackedScene = preload("res://Scenes/Plinko/Multipliers/1x_multiplier.tscn")
 var threeMultiplier: PackedScene = preload("res://Scenes/Plinko/Multipliers/3x_multiplier.tscn")
 var fiveMultiplier: PackedScene = preload("res://Scenes/Plinko/Multipliers/5x_multiplier.tscn")
@@ -38,7 +39,7 @@ func _on_ball_drop_pressed():
 		var new_ball = ball.instantiate()
 		
 		# Setting ball spawn point range
-		var new_ball_pos = randf_range(-15, 15)
+		var new_ball_pos = randf_range(-30, 30)
 
 		# Rescaling ball (only works if you rescale children)
 		for child in new_ball.get_children():
@@ -89,11 +90,11 @@ func create_rows():
 
 func create_multipliers(y_spacing, x_spacing, final_pin_location):
 	var distributions = {
-		6: [tenMultiplier, threeMultiplier, threeMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, threeMultiplier, threeMultiplier, tenMultiplier],
-		7: [tenMultiplier, fiveMultiplier, threeMultiplier, oneMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, oneMultiplier, threeMultiplier, fiveMultiplier, tenMultiplier],
+		6: [fiftyMultiplier, fiveMultiplier, oneMultiplier, zeroPointFiveMultiplier, zeroPointTwoMultiplier, zeroPointFiveMultiplier, oneMultiplier, fiveMultiplier, fiftyMultiplier],
+		7: [fiftyMultiplier, fiveMultiplier, threeMultiplier, zeroPointFiveMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, zeroPointFiveMultiplier, threeMultiplier, fiveMultiplier, fiftyMultiplier],
 		8: [fiftyMultiplier, fiveMultiplier, threeMultiplier, oneMultiplier, oneMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, oneMultiplier, oneMultiplier, threeMultiplier, fiveMultiplier, fiftyMultiplier],
-		9: [fiftyMultiplier, tenMultiplier, threeMultiplier, oneMultiplier, oneMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, oneMultiplier, oneMultiplier, threeMultiplier, tenMultiplier, fiftyMultiplier],
-		10: [fiftyMultiplier, fiveMultiplier, threeMultiplier, threeMultiplier, oneMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, oneMultiplier, threeMultiplier, threeMultiplier, fiveMultiplier, fiftyMultiplier]
+		9: [hundredMultiplier, tenMultiplier, fiveMultiplier, oneMultiplier, zeroPointFiveMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, zeroPointFiveMultiplier, oneMultiplier, threeMultiplier, tenMultiplier, hundredMultiplier],
+		10: [hundredMultiplier, fiftyMultiplier, fiveMultiplier, threeMultiplier, zeroPointFiveMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, zeroPointFiveMultiplier, threeMultiplier, fiveMultiplier, fiftyMultiplier, hundredMultiplier]
 	}
 	
 	# Getting distribution

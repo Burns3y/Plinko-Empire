@@ -5,10 +5,13 @@ var value: int = 1
 func _ready():
 	$Timer.start()
 	# Each ball has a 1 in 100 chance of having extra bounce, to increase randomness.
-	if randi() % 100 == 1:
-		$".".physics_material_override.bounce = 0.35
+	if randi() % 250 == 1:
+		print("Magic")
+		$".".physics_material_override.bounce = 0.45
 
-	else: $".".physics_material_override.bounce += randf_range(-0.05, 0.05)
+	else: 
+		$".".physics_material_override.bounce = 0.32
+		$".".physics_material_override.bounce += randf_range(-5, 0.1)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
