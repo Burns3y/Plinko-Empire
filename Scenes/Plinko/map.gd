@@ -19,8 +19,8 @@ func _CameraIntro():
 				await _change_camera($camreas/StartCamera)
 				
 				if selected_camera == $camreas/StartCamera:
-					_change_camera($camreas/TouchscreenCamera)
-
+					await _change_camera($camreas/TouchscreenCamera)
+					selected_camera = $camreas/TouchscreenCamera
 
 
 func _process(_delta):
