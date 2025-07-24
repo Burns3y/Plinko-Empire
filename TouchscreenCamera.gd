@@ -6,7 +6,6 @@ var events = {}
 
 func _unhandled_input(event):
 	if $".".current:
-		print("current")
 		# Track when fingers touch or lift
 		if event is InputEventScreenTouch:
 			if event.pressed:
@@ -38,5 +37,3 @@ func _unhandled_input(event):
 					var zoom_change = (curr_dist - prev_dist) * -zoom_sensitivity
 
 					translate_object_local(Vector3(0, 0, zoom_change))
-	else:
-		print("not_current")
