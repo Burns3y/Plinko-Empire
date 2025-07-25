@@ -44,7 +44,7 @@ func _on_ball_drop_pressed():
 		# Rescaling ball (only works if you rescale children)
 		for child in new_ball.get_children():
 			if child is CollisionShape2D or child is Sprite2D:
-				child.scale *= Vector2(pin_scale*0.16, pin_scale*0.16)
+				child.scale *= Vector2(pin_scale*0.15, pin_scale*0.15)
 
 		new_ball.name = "Ball"
 		
@@ -94,7 +94,7 @@ func create_multipliers(y_spacing, x_spacing, final_pin_location):
 		7: [fiftyMultiplier, fiveMultiplier, threeMultiplier, zeroPointFiveMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, zeroPointFiveMultiplier, threeMultiplier, fiveMultiplier, fiftyMultiplier],
 		8: [fiftyMultiplier, fiveMultiplier, threeMultiplier, oneMultiplier, oneMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, oneMultiplier, oneMultiplier, threeMultiplier, fiveMultiplier, fiftyMultiplier],
 		9: [hundredMultiplier, tenMultiplier, fiveMultiplier, oneMultiplier, zeroPointFiveMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, zeroPointFiveMultiplier, oneMultiplier, threeMultiplier, tenMultiplier, hundredMultiplier],
-		10: [hundredMultiplier, fiftyMultiplier, fiveMultiplier, threeMultiplier, zeroPointFiveMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, zeroPointFiveMultiplier, threeMultiplier, fiveMultiplier, fiftyMultiplier, hundredMultiplier]
+		10: [hundredMultiplier, fiftyMultiplier, tenMultiplier, fiveMultiplier, oneMultiplier, zeroPointFiveMultiplier, zeroPointTwoMultiplier, zeroPointFiveMultiplier, oneMultiplier, threeMultiplier, fiveMultiplier, fiftyMultiplier, hundredMultiplier]
 	}
 	
 	# Getting distribution

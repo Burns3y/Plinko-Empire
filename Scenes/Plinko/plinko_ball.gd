@@ -10,8 +10,8 @@ func _ready():
 		$".".physics_material_override.bounce = 0.45
 
 	else: 
-		$".".physics_material_override.bounce = 0.32
-		$".".physics_material_override.bounce += randf_range(-5, 0.1)
+		$".".physics_material_override.bounce = 0.33
+		$".".physics_material_override.bounce += randf_range(-0.15, 0.05)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
