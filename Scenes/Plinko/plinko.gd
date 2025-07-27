@@ -90,11 +90,11 @@ func create_rows():
 
 func create_multipliers(y_spacing, x_spacing, final_pin_location):
 	var distributions = {
-		6: [fiftyMultiplier, fiveMultiplier, oneMultiplier, zeroPointFiveMultiplier, zeroPointTwoMultiplier, zeroPointFiveMultiplier, oneMultiplier, fiveMultiplier, fiftyMultiplier],
-		7: [fiftyMultiplier, fiveMultiplier, threeMultiplier, zeroPointFiveMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, zeroPointFiveMultiplier, threeMultiplier, fiveMultiplier, fiftyMultiplier],
-		8: [fiftyMultiplier, fiveMultiplier, threeMultiplier, oneMultiplier, oneMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, oneMultiplier, oneMultiplier, threeMultiplier, fiveMultiplier, fiftyMultiplier],
-		9: [hundredMultiplier, tenMultiplier, fiveMultiplier, oneMultiplier, zeroPointFiveMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, zeroPointFiveMultiplier, oneMultiplier, threeMultiplier, tenMultiplier, hundredMultiplier],
-		10: [hundredMultiplier, fiftyMultiplier, tenMultiplier, fiveMultiplier, oneMultiplier, zeroPointFiveMultiplier, zeroPointTwoMultiplier, zeroPointFiveMultiplier, oneMultiplier, threeMultiplier, fiveMultiplier, fiftyMultiplier, hundredMultiplier]
+		6: [fiftyMultiplier, fiveMultiplier, threeMultiplier, zeroPointFiveMultiplier, zeroPointTwoMultiplier, zeroPointFiveMultiplier, threeMultiplier, fiveMultiplier, fiftyMultiplier],
+		7: [hundredMultiplier, fiveMultiplier, fiveMultiplier, zeroPointFiveMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, zeroPointFiveMultiplier, fiveMultiplier, fiveMultiplier, hundredMultiplier],
+		8: [hundredMultiplier, tenMultiplier, fiveMultiplier, threeMultiplier, zeroPointFiveMultiplier, zeroPointTwoMultiplier, zeroPointFiveMultiplier, threeMultiplier, fiveMultiplier, tenMultiplier, hundredMultiplier],
+		9: [hundredMultiplier, fiftyMultiplier, fiveMultiplier, threeMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, threeMultiplier, fiveMultiplier, fiftyMultiplier, hundredMultiplier],
+		10: [hundredMultiplier, hundredMultiplier, fiftyMultiplier, tenMultiplier, threeMultiplier, zeroPointFiveMultiplier, zeroPointTwoMultiplier, zeroPointFiveMultiplier, threeMultiplier, tenMultiplier, fiftyMultiplier, hundredMultiplier, hundredMultiplier]
 	}
 	
 	# Getting distribution
