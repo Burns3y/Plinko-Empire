@@ -11,7 +11,7 @@ expand_margin_bottom = 8.0
 script = ExtResource("1_ii2fs")
 
 [node name="BallSpawnPoint" type="Node2D" parent="."]
-position = Vector2(360, 300)
+position = Vector2(360, 515)
 
 [node name="BallDrop" type="Button" parent="."]
 offset_left = 228.0
