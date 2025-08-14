@@ -7,7 +7,7 @@ var transitionTween: Tween
 signal trans_complete
 
 func _ready():
-	$CoinDisplay._update_label()
+	$Displays/CoinDisplay._update_label()
 	_CameraIntro()
 
 

@@ -72,14 +72,9 @@ offset_top = -23.0
 offset_right = 112.0
 text = "Ball Value:   $1"
 
-[node name="Exit" type="Button" parent="."]
-offset_left = 684.0
-offset_right = 702.0
-offset_bottom = 31.0
-scale = Vector2(2, 2)
-text = "X"
+[node name="Buttons" type="Node2D" parent="."]
 
-[node name="BuyButton" type="Button" parent="."]
+[node name="BuyButton" type="Button" parent="Buttons"]
 offset_left = 147.0
 offset_top = 112.0
 offset_right = 339.0
@@ -87,28 +82,37 @@ offset_bottom = 143.0
 scale = Vector2(2.24, 2.24)
 text = "Buy Another Row - $150"
 
-[node name="MultiplierDisplay" parent="." instance=ExtResource("2_7t7hv")]
+[node name="Exit" type="Button" parent="Buttons"]
+offset_left = 684.0
+offset_right = 702.0
+offset_bottom = 31.0
+scale = Vector2(2, 2)
+text = "X"
+
+[node name="Displays" type="Node2D" parent="."]
+
+[node name="MultiplierDisplay" parent="Displays" instance=ExtResource("2_7t7hv")]
 offset_left = 587.0
 offset_top = 361.0
 offset_right = 627.0
-offset_bottom = 496.0
+offset_bottom = 577.0
 
-[node name="IncomeDisplay" parent="." instance=ExtResource("3_2oh6s")]
-offset_left = 503.0
-offset_top = 57.0
-offset_right = 504.0
-offset_bottom = 97.0
-scale = Vector2(0.08, 0.08)
-
-[node name="CoinDisplay" parent="." instance=ExtResource("3_t0noj")]
+[node name="CoinDisplay" parent="Displays" instance=ExtResource("3_t0noj")]
 offset_left = 52.0
 offset_top = 56.0
 offset_right = 53.0
 offset_bottom = 96.0
 scale = Vector2(0.08, 0.08)
 
+[node name="IncomeDisplay" parent="Displays" instance=ExtResource("3_2oh6s")]
+offset_left = 503.0
+offset_top = 57.0
+offset_right = 504.0
+offset_bottom = 97.0
+scale = Vector2(0.08, 0.08)
+
 [connection signal="pressed" from="BallDrop" to="." method="_on_ball_drop_pressed"]
 [connection signal="value_changed" from="Sliders/RowSlider" to="." method="_on_row_slider_value_changed"]
 [connection signal="value_changed" from="Sliders/BallAmountSlider" to="." method="_on_ball_amount_slider_value_changed"]
-[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
-[connection signal="pressed" from="BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="Buttons/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="Buttons/Exit" to="." method="_on_exit_pressed"]

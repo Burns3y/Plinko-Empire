@@ -23,7 +23,7 @@ func _ready():
 	# Setting pin scale depending on rows
 	var t = float(GlobalVariables.current_rows - 4) / 4.0
 	pin_scale = lerp(1.5, 1.1, t)
-	$CoinDisplay._update_label()
+	$Displays/CoinDisplay._update_label()
 	$Sliders/RowSlider.max_value = GlobalVariables.max_rows
 	create_rows()
 
@@ -56,7 +56,7 @@ func _on_ball_drop_pressed():
 			new_ball.value = GlobalVariables.free_balls.pop_front()
 			print("Free ball used, value ", new_ball.value, "\nFree balls left: ", len(GlobalVariables.free_balls))
 		GlobalVariables.coins = round(GlobalVariables.coins * 10) / 10.0
-		$CoinDisplay._update_label()
+		$Displays/CoinDisplay._update_label()
 		
 		$Balls.add_child(new_ball)
 		new_ball.position = $BallSpawnPoint.position + Vector2(new_ball_pos, 0)
@@ -118,9 +118,9 @@ func _on_multiplier_hit(multiplier_value, ball_colliding):
 	'''Adds value of multiplier * value of ball to global coins'''
 	GlobalVariables.coins += ball_colliding.value * multiplier_value
 	GlobalVariables.coins = round(GlobalVariables.coins * 10) / 10.0
-	$CoinDisplay._update_label()
+	$Displays/CoinDisplay._update_label()
 	ball_colliding.queue_free()
-	$MultiplierDisplay.rearrange_multipliers(multiplier_value)
+	$Displays/MultiplierDisplay.rearrange_multipliers(multiplier_value)
 
 
 func _on_row_slider_value_changed(value):
@@ -167,7 +167,7 @@ func _on_buy_button_pressed():
 			GlobalVariables.current_rows += 1
 			GlobalVariables.coins -= GlobalVariables.new_row_cost
 			GlobalVariables.coins = round(GlobalVariables.coins * 10) / 10.0
-			$CoinDisplay._update_label()
+			$DisplaysCoinDisplay._update_label()
 			GlobalVariables.new_row_cost *= 10
 			if GlobalVariables.max_rows < 12:
 				GlobalVariables.max_rows += 1
@@ -175,10 +175,10 @@ func _on_buy_button_pressed():
 			$Sliders/RowSlider.value = $Sliders/RowSlider.max_value
 			
 			if GlobalVariables.max_rows == 12:
-				$BuyButton.visible = false
+				$Buttons/BuyButton.visible = false
 			else:
-				$BuyButton.text = "Buy Another Row - $" + str(GlobalVariables.new_row_cost)
+				$Buttons/BuyButton.text = "Buy Another Row - $" + str(GlobalVariables.new_row_cost)
 		else:
-			$BuyButton.visible = false
+			$Buttons/BuyButton.visible = false
 	else:
 		print("Not Enough Money!")

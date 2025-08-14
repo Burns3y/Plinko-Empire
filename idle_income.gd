@@ -28,7 +28,7 @@ func _on_income_tick():
 	
 	# Updating cash display
 	if get_tree().current_scene.name in ["Plinko", "Map"]:
-		var coin_display = get_tree().current_scene.get_node("CoinDisplay")
+		var coin_display = get_tree().current_scene.get_node("Displays/CoinDisplay")
 		
 		if coin_display:
 			coin_display._update_label()
@@ -38,7 +38,7 @@ func _on_income_tick():
 
 func _update_income_display():
 	if get_tree().current_scene.name in ["Plinko", "Map"]:
-		var income_display = get_tree().current_scene.get_node("IncomeDisplay")
+		var income_display = get_tree().current_scene.get_node("Displays/IncomeDisplay")
 		
 		if income_display:
 			income_display._update_label(GlobalVariables.income_per_minute)

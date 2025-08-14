@@ -5,7 +5,7 @@ func _update_label():
 	var decimals: int
 
 	# Decide what we're displaying based on the node's name
-	if self.name == "CoinsDisplay":
+	if self.name == "CoinDisplay":
 		num = GlobalVariables.coins
 		decimals = 2
 	elif self.name == "IncomeDisplay":
@@ -31,14 +31,14 @@ func format_abbreviated(value, decimals):
 	value = floor(value * factor) / factor
 
 	# Apply formatting with correct decimal places
-	var fmt = "%,." + str(decimals) + "f"
+	var fmt = "%." + str(decimals) + "f"
 	var text = fmt % value
 
 	# Strip trailing zeros/decimal point only if decimals > 0
 	if decimals > 0:
 		text = text.rstrip("0").rstrip(".")
 		
-	if self.name == "CoinsDisplay":
+	if self.name == "CoinDisplay":
 		return text + suffixes[suffix_index]
 	elif self.name == "IncomeDisplay":
 		return text + suffixes[suffix_index] + "/ minute"
