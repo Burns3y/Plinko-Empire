@@ -3,7 +3,6 @@ extends Node
 var timer_wait_time: int = 60
 @onready var timer = Timer.new()
 func _ready():
-	print("ready")
 	if GlobalVariables.income_per_minute >= 60:
 		timer_wait_time = 5
 	
@@ -28,9 +27,10 @@ func _on_income_tick():
 	GlobalVariables.coins = round(GlobalVariables.coins * 10) / 10.0
 	
 	# Updating cash display
-	if get_tree().current_scene.name == "Plinko":
-		var cash_display = get_tree().current_scene.get_node("CashDisplay")
-		if cash_display:
-			cash_display.text = "Cash: $" + str(GlobalVariables.coins)
+	if get_tree().current_scene.name == "Plinko" or get_tree().current_scene.name == "Map":
+		var coin_display = get_tree().current_scene.get_node("CoinDisplay")
+		
+		if coin_display:
+			coin_display._update_label()
 	
 	timer.wait_time = timer_wait_time

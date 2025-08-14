@@ -7,6 +7,7 @@ var transitionTween: Tween
 signal trans_complete
 
 func _ready():
+	$CoinDisplay._update_label()
 	_CameraIntro()
 
 
@@ -27,6 +28,7 @@ func _CameraIntro():
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_down"):
 		start_plinko()
+	
 
 
 func _change_camera(desired_camera: Camera3D):
