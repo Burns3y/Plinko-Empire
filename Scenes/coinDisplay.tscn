@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bsaw8kcgrrimw" path="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/Coin-display-area.png" id="1_lvcbk"]
 [ext_resource type="Texture2D" uid="uid://bkyirs3gvk6ab" path="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/Coin.png" id="1_rfyw4"]
-[ext_resource type="Script" path="res://coinDisplay.gd" id="1_t6oxb"]
+[ext_resource type="Script" path="res://Scenes/coinDisplay.gd" id="1_t6oxb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8s6u8"]
 font_size = 200
@@ -17,18 +17,18 @@ script = ExtResource("1_t6oxb")
 
 [node name="TextCont" type="Sprite2D" parent="."]
 position = Vector2(1129, 3)
-scale = Vector2(5.26838, 4.06944)
+scale = Vector2(5, 3.8)
 texture = ExtResource("1_lvcbk")
 
 [node name="Coin" type="Sprite2D" parent="."]
-position = Vector2(21, 0)
+position = Vector2(135, 0)
 texture = ExtResource("1_rfyw4")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
-offset_left = 433.0
+offset_left = 543.0
 offset_top = -248.0
-offset_right = 1523.0
+offset_right = 1633.0
 offset_bottom = 25.0
 scale = Vector2(1.71582, 1.71582)
 text = "100"

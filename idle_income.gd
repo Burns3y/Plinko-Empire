@@ -27,10 +27,21 @@ func _on_income_tick():
 	GlobalVariables.coins = round(GlobalVariables.coins * 10) / 10.0
 	
 	# Updating cash display
-	if get_tree().current_scene.name == "Plinko" or get_tree().current_scene.name == "Map":
+	if get_tree().current_scene.name in ["Plinko", "Map"]:
 		var coin_display = get_tree().current_scene.get_node("CoinDisplay")
 		
 		if coin_display:
 			coin_display._update_label()
 	
 	timer.wait_time = timer_wait_time
+
+
+func _update_income_display():
+	if get_tree().current_scene.name in ["Plinko", "Map"]:
+		var income_display = get_tree().current_scene.get_node("IncomeDisplay")
+		
+		if income_display:
+			income_display._update_label(GlobalVariables.income_per_minute)
+
+
+

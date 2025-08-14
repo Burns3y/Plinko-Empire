@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://1texhmvmhmfg"]
+[gd_scene load_steps=6 format=3 uid="uid://1texhmvmhmfg"]
 
 [ext_resource type="Script" path="res://Scenes/Plinko/plinko.gd" id="1_ii2fs"]
 [ext_resource type="PackedScene" uid="uid://dwi2juadl5agr" path="res://Scenes/Plinko/multiplier_display.tscn" id="2_7t7hv"]
-[ext_resource type="PackedScene" uid="uid://dd24y1jcounp7" path="res://coinDisplay.tscn" id="3_t0noj"]
+[ext_resource type="PackedScene" uid="uid://fldhyw8rvrv2" path="res://incomeDisplay.tscn" id="3_2oh6s"]
+[ext_resource type="PackedScene" uid="uid://dd24y1jcounp7" path="res://Scenes/coinDisplay.tscn" id="3_t0noj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oj5at"]
 expand_margin_top = 8.0
@@ -91,6 +92,13 @@ offset_left = 587.0
 offset_top = 361.0
 offset_right = 627.0
 offset_bottom = 496.0
+
+[node name="IncomeDisplay" parent="." instance=ExtResource("3_2oh6s")]
+offset_left = 503.0
+offset_top = 57.0
+offset_right = 504.0
+offset_bottom = 97.0
+scale = Vector2(0.08, 0.08)
 
 [node name="CoinDisplay" parent="." instance=ExtResource("3_t0noj")]
 offset_left = 52.0
