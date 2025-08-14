@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://fldhyw8rvrv2"]
 
-[ext_resource type="Script" path="res://Scenes/coinDisplay.gd" id="1_4fq00"]
+[ext_resource type="Script" path="res://Scenes/coinAndIncomeDisplay.gd" id="1_4fq00"]
 [ext_resource type="Texture2D" uid="uid://8sje4rmqrfq0" path="res://IdleIncomeLabel.png" id="2_h5uqw"]
 [ext_resource type="Texture2D" uid="uid://dcb73ypgsk73o" path="res://HourglassAdjusted.png" id="3_hxaaj"]
 

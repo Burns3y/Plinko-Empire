@@ -17,7 +17,7 @@ func _update_label():
 	$Label.text = format_abbreviated(num, decimals)
 
 
-func format_abbreviated(value: float, decimals: int) -> String:
+func format_abbreviated(value, decimals):
 	var suffixes = ["", "K", "M", "B", "T", "Q"]
 	var suffix_index = 0
 
@@ -37,5 +37,9 @@ func format_abbreviated(value: float, decimals: int) -> String:
 	# Strip trailing zeros/decimal point only if decimals > 0
 	if decimals > 0:
 		text = text.rstrip("0").rstrip(".")
-
-	return text + suffixes[suffix_index]
+		
+	if self.name == "CoinsDisplay":
+		return text + suffixes[suffix_index]
+	elif self.name == "IncomeDisplay":
+		return text + suffixes[suffix_index] + "/ minute"
+		
