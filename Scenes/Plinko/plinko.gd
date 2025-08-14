@@ -169,7 +169,7 @@ func _on_buy_button_pressed():
 			GlobalVariables.current_rows += 1
 			GlobalVariables.coins -= GlobalVariables.new_row_cost
 			GlobalVariables.coins = round(GlobalVariables.coins * 10) / 10.0
-			$DisplaysCoinDisplay._update_label()
+			$Displays/CoinDisplay._update_label()
 			GlobalVariables.new_row_cost *= 10
 			if GlobalVariables.max_rows < 12:
 				GlobalVariables.max_rows += 1
