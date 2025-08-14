@@ -15,14 +15,6 @@ script = ExtResource("1_ii2fs")
 [node name="BallSpawnPoint" type="Node2D" parent="."]
 position = Vector2(360, 515)
 
-[node name="BallDrop" type="Button" parent="."]
-offset_left = 228.0
-offset_top = 1172.0
-offset_right = 308.0
-offset_bottom = 1203.0
-scale = Vector2(3.43658, 3.42313)
-text = "Drop Ball"
-
 [node name="Pins" type="Node2D" parent="."]
 
 [node name="Balls" type="Node2D" parent="."]
@@ -40,10 +32,10 @@ scale = Vector2(2.46, 2.46)
 
 [node name="RowSlider" type="HSlider" parent="Sliders"]
 layout_mode = 0
-offset_left = 50.813
-offset_top = 130.081
-offset_right = 163.813
-offset_bottom = 146.081
+offset_left = 50.0
+offset_top = 130.0
+offset_right = 163.0
+offset_bottom = 146.0
 theme_override_styles/slider = SubResource("StyleBoxFlat_oj5at")
 min_value = 8.0
 max_value = 12.0
@@ -75,19 +67,27 @@ text = "Ball Value:   $1"
 [node name="Buttons" type="Node2D" parent="."]
 
 [node name="BuyButton" type="Button" parent="Buttons"]
-offset_left = 147.0
-offset_top = 112.0
-offset_right = 339.0
-offset_bottom = 143.0
-scale = Vector2(2.24, 2.24)
-text = "Buy Another Row - $150"
+offset_left = 13.0
+offset_top = 334.0
+offset_right = 133.0
+offset_bottom = 395.0
+scale = Vector2(2.32, 2.32)
+text = "Buy Row
+$150"
 
 [node name="Exit" type="Button" parent="Buttons"]
-offset_left = 684.0
-offset_right = 702.0
+offset_right = 18.0
 offset_bottom = 31.0
 scale = Vector2(2, 2)
 text = "X"
+
+[node name="BallDrop" type="Button" parent="Buttons"]
+offset_left = 228.0
+offset_top = 1172.0
+offset_right = 308.0
+offset_bottom = 1203.0
+scale = Vector2(3.43658, 3.42313)
+text = "Drop Ball"
 
 [node name="Displays" type="Node2D" parent="."]
 
@@ -98,9 +98,9 @@ offset_right = 627.0
 offset_bottom = 577.0
 
 [node name="CoinDisplay" parent="Displays" instance=ExtResource("3_t0noj")]
-offset_left = 52.0
+offset_left = 63.0
 offset_top = 56.0
-offset_right = 53.0
+offset_right = 64.0
 offset_bottom = 96.0
 scale = Vector2(0.08, 0.08)
 
@@ -111,8 +111,8 @@ offset_right = 504.0
 offset_bottom = 97.0
 scale = Vector2(0.08, 0.08)
 
-[connection signal="pressed" from="BallDrop" to="." method="_on_ball_drop_pressed"]
 [connection signal="value_changed" from="Sliders/RowSlider" to="." method="_on_row_slider_value_changed"]
 [connection signal="value_changed" from="Sliders/BallAmountSlider" to="." method="_on_ball_amount_slider_value_changed"]
 [connection signal="pressed" from="Buttons/BuyButton" to="." method="_on_buy_button_pressed"]
 [connection signal="pressed" from="Buttons/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Buttons/BallDrop" to="." method="_on_ball_drop_pressed"]

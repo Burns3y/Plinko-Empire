@@ -8,6 +8,7 @@ signal trans_complete
 
 func _ready():
 	$Displays/CoinDisplay._update_label()
+	$Displays/IncomeDisplay._update_label()
 	_CameraIntro()
 
 

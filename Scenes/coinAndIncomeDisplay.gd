@@ -41,5 +41,5 @@ func format_abbreviated(value, decimals):
 	if self.name == "CoinDisplay":
 		return text + suffixes[suffix_index]
 	elif self.name == "IncomeDisplay":
-		return text + suffixes[suffix_index] + "/ minute"
+		return text + suffixes[suffix_index] + "/ min"
 		

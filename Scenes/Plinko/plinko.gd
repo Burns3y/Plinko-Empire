@@ -20,10 +20,12 @@ var hundredMultiplier: PackedScene = preload("res://Scenes/Plinko/Multipliers/10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Displays/CoinDisplay._update_label()
+	$Displays/IncomeDisplay._update_label()
+	
 	# Setting pin scale depending on rows
 	var t = float(GlobalVariables.current_rows - 4) / 4.0
 	pin_scale = lerp(1.5, 1.1, t)
-	$Displays/CoinDisplay._update_label()
 	$Sliders/RowSlider.max_value = GlobalVariables.max_rows
 	create_rows()
 
