@@ -159,7 +159,10 @@ func _on_row_slider_value_changed(value):
 	$Buttons/BallDrop.disabled = false
 	
 	# Setting maximum and minimum ball values so that they scale depending on row count
-	$Sliders/BallAmountSlider.min_value = (GlobalVariables.current_rows - 5) * 5
+	if GlobalVariables.current_rows == 8:
+		$Sliders/BallAmountSlider.min_value = 1
+	else:
+		$Sliders/BallAmountSlider.min_value = (GlobalVariables.current_rows - 6) * 10
 	$Sliders/BallAmountSlider.max_value = (GlobalVariables.current_rows - 5) * 50
 	$Sliders/BallAmountSlider/BallAmountLabel.text = "Ball value:  $" + str(ball_value)
 
@@ -183,7 +186,7 @@ func _on_buy_button_pressed():
 			GlobalVariables.coins -= GlobalVariables.new_row_cost
 			GlobalVariables.coins = round(GlobalVariables.coins * 10) / 10.0
 			$Displays/CoinDisplay._update_label()
-			GlobalVariables.new_row_cost *= 10
+			GlobalVariables.new_row_cost *= 25
 			if GlobalVariables.max_rows < 12:
 				GlobalVariables.max_rows += 1
 			$Sliders/RowSlider.max_value = GlobalVariables.max_rows
@@ -192,7 +195,7 @@ func _on_buy_button_pressed():
 			if GlobalVariables.max_rows == 12:
 				$Buttons/BuyButton.visible = false
 			else:
-				$Buttons/BuyButton.text = "Buy Row\n$" + str(GlobalVariables.new_row_cost)
+				$Buttons/BuyButton.text = "Buy Row\n$" + UsefulFunctions._format_abbreviated(GlobalVariables.new_row_cost, 2)
 		else:
 			$Buttons/BuyButton.visible = false
 	else:

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GlobalVariables="*res://GlobalVariables.gd"
 IdleIncome="*res://idle_income.gd"
+UsefulFunctions="*res://UsefulFunctions.gd"
 
 [display]
 
