@@ -227,6 +227,7 @@ transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-
 
 [node name="building_B2" parent="map items" instance=ExtResource("17_q8ifd")]
 transform = Transform3D(-4.37114e-08, -3.48787e-16, -1, 3.48787e-16, 1, -3.48787e-16, 1, -3.48787e-16, -4.37114e-08, 13, 2.08165e-12, 11)
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 13, 2.08165e-12, 11)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="map items"]
 transform = Transform3D(-0.53378, -0.845498, 0.0145558, -0.521549, 0.342716, 0.781365, -0.665632, 0.409485, -0.623904, 7.35951, 6.25993, 0)
@@ -328,10 +329,8 @@ transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-
 [node name="camreas" type="Node" parent="."]
 
 [node name="TouchscreenCamera" parent="camreas" instance=ExtResource("21_v46cy")]
-transform = Transform3D(-0.543393, -0.225774, 0.808549, -0.00460249, 0.963942, 0.266072, -0.839466, 0.14086, -0.524838, 9.27881, 3.94398, -4.0259)
 
 [node name="Camera3D" type="Camera3D" parent="camreas"]
-transform = Transform3D(-0.481342, -0.619562, 0.620043, -0.000707423, 0.707656, 0.706557, -0.876533, 0.339657, -0.341063, 13.5361, 7.17951, -2.32942)
 
 [node name="StartCamera" type="Camera3D" parent="camreas"]
 transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 7, 0.35, 7.84437)
