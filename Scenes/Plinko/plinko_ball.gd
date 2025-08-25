@@ -33,7 +33,7 @@ func _physics_process(_delta):
 		popup.position = popup_pos
 		popup.rotation = randf_range(-0.3, 0.3) # slight tilt
 		get_tree().root.add_child(popup)
-		popup._show_popup("+ Free Ball!", true)
+		popup._show_popup("+ Free $" + str(value) + " Ball!", true)
 
 		queue_free()
 
