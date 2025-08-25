@@ -26,6 +26,12 @@ position = Vector2(360, 515)
 
 [node name="Multipliers" type="Node2D" parent="."]
 
+[node name="Popups" type="Node2D" parent="."]
+
+[node name="GoodPopups" type="Node2D" parent="Popups"]
+
+[node name="BadPopups" type="Node2D" parent="Popups"]
+
 [node name="Sliders" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -37,9 +43,9 @@ scale = Vector2(2.46, 2.46)
 
 [node name="RowSlider" type="HSlider" parent="Sliders"]
 layout_mode = 0
-offset_left = 50.0
+offset_left = 54.4715
 offset_top = 130.0
-offset_right = 163.0
+offset_right = 167.471
 offset_bottom = 146.0
 theme_override_styles/slider = SubResource("StyleBoxFlat_oj5at")
 min_value = 8.0
@@ -54,9 +60,9 @@ text = "Rows:        8"
 
 [node name="BallAmountSlider" type="HSlider" parent="Sliders"]
 layout_mode = 0
-offset_left = 220.0
+offset_left = 214.715
 offset_top = 130.0
-offset_right = 333.0
+offset_right = 327.715
 offset_bottom = 146.0
 theme_override_styles/slider = SubResource("StyleBoxFlat_oj5at")
 min_value = 1.0
@@ -97,9 +103,9 @@ text = "Drop Ball"
 [node name="Displays" type="Node2D" parent="."]
 
 [node name="MultiplierDisplay" parent="Displays" instance=ExtResource("2_7t7hv")]
-offset_left = 587.0
+offset_left = 630.0
 offset_top = 361.0
-offset_right = 627.0
+offset_right = 670.0
 offset_bottom = 577.0
 
 [node name="CoinDisplay" parent="Displays" instance=ExtResource("3_t0noj")]
