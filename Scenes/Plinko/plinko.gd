@@ -8,9 +8,6 @@ var ball: PackedScene = preload("res://Scenes/Plinko/plinko_ball.tscn")
 var pin: PackedScene = preload("res://Scenes/Plinko/plinko_pin.tscn")
 var ball_value: int = 1
 
-# Preloading popups
-var popup: PackedScene = preload("res://Scenes/Plinko/plinko_popups.tscn")
-
 # Preloading multipliers
 var zeroPointTwoMultiplier: PackedScene = preload("res://Scenes/Plinko/Multipliers/point_2_multiplier.tscn")
 var zeroPointFiveMultiplier: PackedScene = preload("res://Scenes/Plinko/Multipliers/point_5_multiplier.tscn")
@@ -37,8 +34,7 @@ func _on_ball_drop_pressed():
 	
 	# If you have enough money to drop a ball, lets you
 	if GlobalVariables.coins < $Sliders/BallAmountSlider.value:
-		bad_popup("Not Enough Money!")
-		
+		print("Not Enough Money!")
 	else:
 
 		# Instantiating ball
@@ -131,12 +127,9 @@ func _on_multiplier_hit(multiplier_value, ball_colliding):
 
 func _on_row_slider_value_changed(value):
 	GlobalVariables.current_rows = value - 2
+	$BallDrop.disabled = true
 
 	# Wait until there are no balls left in $Balls
-	if $Balls.get_child_count() > 0 and GlobalVariables.max_rows != 8:
-		$Buttons/BallDrop.disabled = true
-		bad_popup("Waiting until balls\nhave stopped dropping!")
-		$Buttons/BuyButton.disabled = true
 	while $Balls.get_child_count() > 0:
 		await get_tree().process_frame
 
@@ -150,12 +143,12 @@ func _on_row_slider_value_changed(value):
 	var t = float(GlobalVariables.current_rows - 4) / 4.0
 	pin_scale = lerp(1.5, 1.1, t)
 	create_rows()
-	$Buttons/BuyButton.disabled = false
 	
 
 	# Setting text and reenabling button
 	$Sliders/RowSlider/RowNumberLabel.text = "Rows:         " + str(GlobalVariables.current_rows + 2)
 	
+<<<<<<< HEAD
 	$Buttons/BallDrop.disabled = false
 	
 	# Setting maximum and minimum ball values so that they scale depending on row count
@@ -165,11 +158,14 @@ func _on_row_slider_value_changed(value):
 		$Sliders/BallAmountSlider.min_value = (GlobalVariables.current_rows - 6) * 10
 	$Sliders/BallAmountSlider.max_value = (GlobalVariables.current_rows - 5) * 50
 	$Sliders/BallAmountSlider/BallAmountLabel.text = "Ball value:  $" + str(ball_value)
+=======
+	$BallDrop.disabled = false
+>>>>>>> parent of ae06985 (Added bad popups)
 
 
 func _on_ball_amount_slider_value_changed(value):
 	ball_value = value
-	$Sliders/BallAmountSlider/BallAmountLabel.text = "Ball value: $" + str(ball_value)
+	$Sliders/BallAmountSlider/BallAmountLabel.text = "Ball value:  $" + str(ball_value)
 
 
 func _on_exit_pressed():
@@ -177,12 +173,12 @@ func _on_exit_pressed():
 		get_tree().change_scene_to_file("res://Scenes/map.tscn")
 	else:
 		print("Wait until balls have stopped dropping!")
-		bad_popup("Waiting until balls\nhave stopped dropping!")
 
 
 func _on_buy_button_pressed():
 	if GlobalVariables.coins >= GlobalVariables.new_row_cost:
 		if GlobalVariables.current_rows < 10:
+			GlobalVariables.current_rows += 1
 			GlobalVariables.coins -= GlobalVariables.new_row_cost
 			GlobalVariables.coins = round(GlobalVariables.coins * 10) / 10.0
 			$Displays/CoinDisplay._update_label()
@@ -195,15 +191,12 @@ func _on_buy_button_pressed():
 			if GlobalVariables.max_rows == 12:
 				$Buttons/BuyButton.visible = false
 			else:
+<<<<<<< HEAD
 				$Buttons/BuyButton.text = "Buy Row\n$" + UsefulFunctions._format_abbreviated(GlobalVariables.new_row_cost, 2)
+=======
+				$Buttons/BuyButton.text = "Buy Another Row - $" + str(GlobalVariables.new_row_cost)
+>>>>>>> parent of ae06985 (Added bad popups)
 		else:
 			$Buttons/BuyButton.visible = false
 	else:
 		print("Not Enough Money!")
-
-func bad_popup(statement: String):
-	var bad_popup = popup.instantiate()
-	bad_popup.position = $BallSpawnPoint.position - Vector2(50, 0)
-	for child in $Popups/BadPopups.get_children(): child.queue_free()
-	$Popups/BadPopups.add_child(bad_popup)
-	bad_popup._show_popup(statement, false)
