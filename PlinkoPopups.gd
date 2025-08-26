@@ -4,6 +4,7 @@ extends Control
 func _show_popup(text, good_message: bool = true):
 	$Label.text = text
 	$Label.visible = true
+	var label_scale = $Label.scale
 	
 	# Setting up tweens and basic colours
 	var tween = get_tree().create_tween()
@@ -14,8 +15,8 @@ func _show_popup(text, good_message: bool = true):
 		$Label.modulate = Color(0, 1, 0)  
 		# Scale up then back down (like a pop)
 		if GlobalVariables.animations_on:
-			tween.tween_property($PlinkoPopups, "scale", Vector2(1.3, 1.3), 0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-			tween.tween_property($PlinkoPopups, "scale", Vector2.ONE, 0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+			tween.tween_property($Label, "scale", label_scale * 1.3, 0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+			tween.tween_property($Label, "scale", label_scale, 0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
 	else:
 		# Red text
 		$Label.modulate = Color(1, 0, 0)
