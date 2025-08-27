@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://1texhmvmhmfg"]
+[gd_scene load_steps=7 format=3 uid="uid://1texhmvmhmfg"]
 
 [ext_resource type="Script" path="res://Scenes/Plinko/plinko.gd" id="1_ii2fs"]
 [ext_resource type="PackedScene" uid="uid://dwi2juadl5agr" path="res://Scenes/Plinko/multiplier_display.tscn" id="2_7t7hv"]
+[ext_resource type="Texture2D" uid="uid://7v5vytywmhqu" path="res://Plinko-background.png" id="2_rfl30"]
+[ext_resource type="PackedScene" uid="uid://fldhyw8rvrv2" path="res://incomeDisplay.tscn" id="3_2oh6s"]
+[ext_resource type="PackedScene" uid="uid://dd24y1jcounp7" path="res://Scenes/coinDisplay.tscn" id="3_t0noj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oj5at"]
 expand_margin_top = 8.0
@@ -10,16 +13,12 @@ expand_margin_bottom = 8.0
 [node name="Plinko" type="Node2D"]
 script = ExtResource("1_ii2fs")
 
-[node name="BallSpawnPoint" type="Node2D" parent="."]
-position = Vector2(360, 300)
+[node name="Plinko-background" type="Sprite2D" parent="."]
+position = Vector2(378, 618)
+texture = ExtResource("2_rfl30")
 
-[node name="BallDrop" type="Button" parent="."]
-offset_left = 228.0
-offset_top = 1172.0
-offset_right = 308.0
-offset_bottom = 1203.0
-scale = Vector2(3.43658, 3.42313)
-text = "Drop Ball"
+[node name="BallSpawnPoint" type="Node2D" parent="."]
+position = Vector2(360, 515)
 
 [node name="Pins" type="Node2D" parent="."]
 
@@ -27,19 +26,27 @@ text = "Drop Ball"
 
 [node name="Multipliers" type="Node2D" parent="."]
 
+[node name="Popups" type="Node2D" parent="."]
+
+[node name="GoodPopups" type="Node2D" parent="Popups"]
+
+[node name="BadPopups" type="Node2D" parent="Popups"]
+
 [node name="Sliders" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(1.5, 1.5)
+offset_left = -112.0
+offset_top = -61.0
+offset_right = -72.0
+offset_bottom = -21.0
+scale = Vector2(2.46, 2.46)
 
 [node name="RowSlider" type="HSlider" parent="Sliders"]
 layout_mode = 0
-offset_left = 31.3333
-offset_top = 145.333
-offset_right = 144.333
-offset_bottom = 161.333
+offset_left = 54.4715
+offset_top = 130.0
+offset_right = 167.471
+offset_bottom = 146.0
 theme_override_styles/slider = SubResource("StyleBoxFlat_oj5at")
 min_value = 8.0
 max_value = 12.0
@@ -53,10 +60,10 @@ text = "Rows:        8"
 
 [node name="BallAmountSlider" type="HSlider" parent="Sliders"]
 layout_mode = 0
-offset_left = 336.0
-offset_top = 145.333
-offset_right = 449.0
-offset_bottom = 161.333
+offset_left = 214.715
+offset_top = 130.0
+offset_right = 327.715
+offset_bottom = 146.0
 theme_override_styles/slider = SubResource("StyleBoxFlat_oj5at")
 min_value = 1.0
 max_value = 50.0
@@ -68,35 +75,55 @@ offset_top = -23.0
 offset_right = 112.0
 text = "Ball Value:   $1"
 
-[node name="Exit" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="Buttons" type="Node2D" parent="."]
+
+[node name="BuyButton" type="Button" parent="Buttons"]
+offset_left = 13.0
+offset_top = 334.0
+offset_right = 133.0
+offset_bottom = 395.0
+scale = Vector2(2.32, 2.32)
+text = "Buy Row
+$150"
+
+[node name="Exit" type="Button" parent="Buttons"]
+offset_right = 18.0
+offset_bottom = 31.0
 scale = Vector2(2, 2)
 text = "X"
 
-[node name="CashDisplay" type="Label" parent="."]
-offset_left = 275.0
-offset_top = 54.0
-offset_right = 362.0
-offset_bottom = 77.0
-scale = Vector2(2, 2)
-text = "Cash:  $100"
+[node name="BallDrop" type="Button" parent="Buttons"]
+offset_left = 228.0
+offset_top = 1172.0
+offset_right = 308.0
+offset_bottom = 1203.0
+scale = Vector2(3.43658, 3.42313)
+text = "Drop Ball"
 
-[node name="BuyButton" type="Button" parent="."]
-offset_left = 257.0
-offset_top = 211.0
-offset_right = 449.0
-offset_bottom = 242.0
-text = "Buy Another Row - $150"
+[node name="Displays" type="Node2D" parent="."]
 
-[node name="MultiplierDisplay" parent="." instance=ExtResource("2_7t7hv")]
-offset_left = 587.0
+[node name="MultiplierDisplay" parent="Displays" instance=ExtResource("2_7t7hv")]
+offset_left = 630.0
 offset_top = 361.0
-offset_right = 627.0
-offset_bottom = 496.0
+offset_right = 670.0
+offset_bottom = 577.0
 
-[connection signal="pressed" from="BallDrop" to="." method="_on_ball_drop_pressed"]
+[node name="CoinDisplay" parent="Displays" instance=ExtResource("3_t0noj")]
+offset_left = 63.0
+offset_top = 56.0
+offset_right = 64.0
+offset_bottom = 96.0
+scale = Vector2(0.08, 0.08)
+
+[node name="IncomeDisplay" parent="Displays" instance=ExtResource("3_2oh6s")]
+offset_left = 503.0
+offset_top = 57.0
+offset_right = 504.0
+offset_bottom = 97.0
+scale = Vector2(0.08, 0.08)
+
 [connection signal="value_changed" from="Sliders/RowSlider" to="." method="_on_row_slider_value_changed"]
 [connection signal="value_changed" from="Sliders/BallAmountSlider" to="." method="_on_ball_amount_slider_value_changed"]
-[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
-[connection signal="pressed" from="BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="Buttons/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="Buttons/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Buttons/BallDrop" to="." method="_on_ball_drop_pressed"]

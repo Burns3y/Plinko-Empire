@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dd24y1jcounp7"]
+
+[ext_resource type="Script" path="res://Scenes/coinAndIncomeDisplay.gd" id="1_lo2q6"]
+[ext_resource type="Texture2D" uid="uid://bsaw8kcgrrimw" path="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/Coin-display-area.png" id="1_lvcbk"]
+[ext_resource type="Texture2D" uid="uid://bkyirs3gvk6ab" path="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/Coin.png" id="1_rfyw4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8s6u8"]
+font_size = 200
+font_color = Color(0, 0, 0, 1)
+
+[node name="CoinDisplay" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1.0
+offset_bottom = 40.0
+script = ExtResource("1_lo2q6")
+
+[node name="TextCont" type="Sprite2D" parent="."]
+position = Vector2(1129, 3)
+scale = Vector2(5, 3.8)
+texture = ExtResource("1_lvcbk")
+
+[node name="Coin" type="Sprite2D" parent="."]
+position = Vector2(135, 0)
+texture = ExtResource("1_rfyw4")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_left = 543.0
+offset_top = -248.0
+offset_right = 1633.0
+offset_bottom = 25.0
+scale = Vector2(1.71582, 1.71582)
+text = "100"
+label_settings = SubResource("LabelSettings_8s6u8")

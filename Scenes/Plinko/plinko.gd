@@ -1,7 +1,6 @@
 extends Node2D
 
 # Setting up the row generation
-@export var rows: int = 6
 var pin_scale
 
 # Preloading balls and pins
@@ -9,8 +8,12 @@ var ball: PackedScene = preload("res://Scenes/Plinko/plinko_ball.tscn")
 var pin: PackedScene = preload("res://Scenes/Plinko/plinko_pin.tscn")
 var ball_value: int = 1
 
+# Preloading popups
+var popup: PackedScene = preload("res://Scenes/Plinko/plinko_popups.tscn")
+
 # Preloading multipliers
 var zeroPointTwoMultiplier: PackedScene = preload("res://Scenes/Plinko/Multipliers/point_2_multiplier.tscn")
+var zeroPointFiveMultiplier: PackedScene = preload("res://Scenes/Plinko/Multipliers/point_5_multiplier.tscn")
 var oneMultiplier: PackedScene = preload("res://Scenes/Plinko/Multipliers/1x_multiplier.tscn")
 var threeMultiplier: PackedScene = preload("res://Scenes/Plinko/Multipliers/3x_multiplier.tscn")
 var fiveMultiplier: PackedScene = preload("res://Scenes/Plinko/Multipliers/5x_multiplier.tscn")
@@ -20,10 +23,12 @@ var hundredMultiplier: PackedScene = preload("res://Scenes/Plinko/Multipliers/10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Displays/CoinDisplay._update_label()
+	$Displays/IncomeDisplay._update_label()
+	
 	# Setting pin scale depending on rows
-	var t = float(rows - 4) / 4.0
+	var t = float(GlobalVariables.current_rows - 4) / 4.0
 	pin_scale = lerp(1.5, 1.1, t)
-	$CashDisplay.text = "Cash: $" + str(GlobalVariables.coins)
 	$Sliders/RowSlider.max_value = GlobalVariables.max_rows
 	create_rows()
 
@@ -32,58 +37,48 @@ func _on_ball_drop_pressed():
 	
 	# If you have enough money to drop a ball, lets you
 	if GlobalVariables.coins < $Sliders/BallAmountSlider.value:
-		print("Not Enough Money!")
-	else:
-		# Checking if the ball will be "magic"
-		var magic_ball = false
-		if randi() % ((rows + 30) * 5) == 1:
-			magic_ball = true
+		bad_popup("Not Enough Money!")
 		
+	else:
+
 		# Instantiating ball
 		var new_ball = ball.instantiate()
 		
-		# Setting range of ball positions
-		var new_ball_pos = randf_range(-9, 9)
-		if rows == 9:
-			new_ball_pos = randf_range(-7.4, 7.4)
-		if rows == 10:
-			new_ball_pos = randf_range(-5.4, 5.4)
+		# Setting ball spawn point range
+		var new_ball_pos = randf_range(-30, 30)
 
 		# Rescaling ball (only works if you rescale children)
 		for child in new_ball.get_children():
 			if child is CollisionShape2D or child is Sprite2D:
-				child.scale *= Vector2(pin_scale*0.16, pin_scale*0.16)
+				child.scale *= Vector2(pin_scale*0.15, pin_scale*0.15)
 
 		new_ball.name = "Ball"
+		
 		# Giving the ball a value, subtracting from global
-		new_ball.value = ball_value
-		GlobalVariables.coins -= new_ball.value
+		if GlobalVariables.free_balls == []:
+			new_ball.value = ball_value
+			GlobalVariables.coins -= new_ball.value
+		else:
+			new_ball.value = GlobalVariables.free_balls.pop_front()
+			print("Free ball used, value ", new_ball.value, "\nFree balls left: ", len(GlobalVariables.free_balls))
 		GlobalVariables.coins = round(GlobalVariables.coins * 10) / 10.0
-		$CashDisplay.text = "Cash: $" + str(GlobalVariables.coins)
+		$Displays/CoinDisplay._update_label()
 		
 		$Balls.add_child(new_ball)
-		if not magic_ball:
-			new_ball.position = $BallSpawnPoint.position + Vector2(new_ball_pos, 0)
-			# Pins have a slightly random bounce size, smaller if more rows
-			new_ball.physics_material_override.bounce = randf_range((1.0 / rows + 16) * 0.002, (1.0 / rows + 16) * 0.004)
+		new_ball.position = $BallSpawnPoint.position + Vector2(new_ball_pos, 0)
 
-		else:
-			# Gives it more bounce and a further spawn point
-			new_ball.position = $BallSpawnPoint.position + Vector2(new_ball_pos*2, 0)
-			new_ball.physics_material_override.bounce = 0.35
-			magic_ball = false
 
 
 func create_rows():
-	var x_spacing = 580 / (rows + 1)
-	var y_spacing = 700 / (rows + 2)
+	var x_spacing = 580 / (GlobalVariables.current_rows + 1)
+	var y_spacing = 700 / (GlobalVariables.current_rows + 2)
 
 	var start_position: Vector2 = Vector2(360 - x_spacing, 500)
 	var new_pos = start_position
 	var col_count = 3
 	var final_pin_location
 
-	for row in range(rows):
+	for row in range(GlobalVariables.current_rows):
 		new_pos.y += y_spacing
 		new_pos.x = start_position.x - row * x_spacing / 2
 		for col in range(col_count):
@@ -101,15 +96,15 @@ func create_rows():
 
 func create_multipliers(y_spacing, x_spacing, final_pin_location):
 	var distributions = {
-		6: [tenMultiplier, fiveMultiplier, threeMultiplier, oneMultiplier, zeroPointTwoMultiplier, oneMultiplier, threeMultiplier, fiveMultiplier, tenMultiplier,],
-		7: [fiftyMultiplier, fiveMultiplier, oneMultiplier, oneMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, oneMultiplier, oneMultiplier, fiveMultiplier, fiftyMultiplier],
-		8: [fiftyMultiplier, fiveMultiplier, threeMultiplier, oneMultiplier, oneMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, oneMultiplier, oneMultiplier, threeMultiplier, fiveMultiplier, fiftyMultiplier],
-		9: [fiftyMultiplier, tenMultiplier, threeMultiplier, oneMultiplier, oneMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, oneMultiplier, oneMultiplier, threeMultiplier, tenMultiplier, fiftyMultiplier],
-		10: [fiftyMultiplier, fiveMultiplier, threeMultiplier, threeMultiplier, oneMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, oneMultiplier, threeMultiplier, threeMultiplier, fiveMultiplier, fiftyMultiplier]
+		6: [fiftyMultiplier, fiveMultiplier, threeMultiplier, zeroPointFiveMultiplier, zeroPointTwoMultiplier, zeroPointFiveMultiplier, threeMultiplier, fiveMultiplier, fiftyMultiplier],
+		7: [hundredMultiplier, fiveMultiplier, fiveMultiplier, zeroPointFiveMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, zeroPointFiveMultiplier, fiveMultiplier, fiveMultiplier, hundredMultiplier],
+		8: [hundredMultiplier, tenMultiplier, fiveMultiplier, threeMultiplier, zeroPointFiveMultiplier, zeroPointTwoMultiplier, zeroPointFiveMultiplier, threeMultiplier, fiveMultiplier, tenMultiplier, hundredMultiplier],
+		9: [hundredMultiplier, fiftyMultiplier, fiveMultiplier, threeMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, threeMultiplier, fiveMultiplier, fiftyMultiplier, hundredMultiplier],
+		10: [hundredMultiplier, hundredMultiplier, fiftyMultiplier, tenMultiplier, threeMultiplier, zeroPointFiveMultiplier, zeroPointTwoMultiplier, zeroPointFiveMultiplier, threeMultiplier, tenMultiplier, fiftyMultiplier, hundredMultiplier, hundredMultiplier]
 	}
 	
 	# Getting distribution
-	var selected_distribution = distributions.get(rows, [])
+	var selected_distribution = distributions.get(GlobalVariables.current_rows, [])
 	
 	#Finding multiplier spacing
 	var starting_position = Vector2(final_pin_location.x + x_spacing/2 - 20 * pin_scale, final_pin_location.y + y_spacing*0.8)
@@ -129,16 +124,19 @@ func _on_multiplier_hit(multiplier_value, ball_colliding):
 	'''Adds value of multiplier * value of ball to global coins'''
 	GlobalVariables.coins += ball_colliding.value * multiplier_value
 	GlobalVariables.coins = round(GlobalVariables.coins * 10) / 10.0
-	$CashDisplay.text = "Cash: $" + str(GlobalVariables.coins)
+	$Displays/CoinDisplay._update_label()
 	ball_colliding.queue_free()
-	$MultiplierDisplay.rearrange_multipliers(multiplier_value)
+	$Displays/MultiplierDisplay.rearrange_multipliers(multiplier_value)
 
 
 func _on_row_slider_value_changed(value):
-	rows = value - 2
-	$BallDrop.disabled = true
+	GlobalVariables.current_rows = value - 2
 
 	# Wait until there are no balls left in $Balls
+	if $Balls.get_child_count() > 0 and GlobalVariables.max_rows != 8:
+		$Buttons/BallDrop.disabled = true
+		bad_popup("Waiting until balls\nhave stopped dropping!")
+		$Buttons/BuyButton.disabled = true
 	while $Balls.get_child_count() > 0:
 		await get_tree().process_frame
 
@@ -149,20 +147,29 @@ func _on_row_slider_value_changed(value):
 		child.queue_free()
 
 	# Replacing everything
-	var t = float(rows - 4) / 4.0
+	var t = float(GlobalVariables.current_rows - 4) / 4.0
 	pin_scale = lerp(1.5, 1.1, t)
 	create_rows()
+	$Buttons/BuyButton.disabled = false
 	
 
 	# Setting text and reenabling button
-	$Sliders/RowSlider/RowNumberLabel.text = "Rows:         " + str(rows + 2)
+	$Sliders/RowSlider/RowNumberLabel.text = "Rows:         " + str(GlobalVariables.current_rows + 2)
 	
-	$BallDrop.disabled = false
+	$Buttons/BallDrop.disabled = false
+	
+	# Setting maximum and minimum ball values so that they scale depending on row count
+	if GlobalVariables.current_rows == 8:
+		$Sliders/BallAmountSlider.min_value = 1
+	else:
+		$Sliders/BallAmountSlider.min_value = (GlobalVariables.current_rows - 6) * 10
+	$Sliders/BallAmountSlider.max_value = (GlobalVariables.current_rows - 5) * 50
+	$Sliders/BallAmountSlider/BallAmountLabel.text = "Ball value:  $" + str(ball_value)
 
 
 func _on_ball_amount_slider_value_changed(value):
 	ball_value = value
-	$Sliders/BallAmountSlider/BallAmountLabel.text = "Ball value:  $" + str(ball_value)
+	$Sliders/BallAmountSlider/BallAmountLabel.text = "Ball value: $" + str(ball_value)
 
 
 func _on_exit_pressed():
@@ -170,26 +177,33 @@ func _on_exit_pressed():
 		get_tree().change_scene_to_file("res://Scenes/map.tscn")
 	else:
 		print("Wait until balls have stopped dropping!")
+		bad_popup("Waiting until balls\nhave stopped dropping!")
 
 
 func _on_buy_button_pressed():
 	if GlobalVariables.coins >= GlobalVariables.new_row_cost:
-		if rows < 10:
-			rows += 1
+		if GlobalVariables.current_rows < 10:
 			GlobalVariables.coins -= GlobalVariables.new_row_cost
 			GlobalVariables.coins = round(GlobalVariables.coins * 10) / 10.0
-			$CashDisplay.text = "Cash: $" + str(GlobalVariables.coins)
-			GlobalVariables.new_row_cost *= 10
+			$Displays/CoinDisplay._update_label()
+			GlobalVariables.new_row_cost *= 25
 			if GlobalVariables.max_rows < 12:
 				GlobalVariables.max_rows += 1
 			$Sliders/RowSlider.max_value = GlobalVariables.max_rows
 			$Sliders/RowSlider.value = $Sliders/RowSlider.max_value
 			
 			if GlobalVariables.max_rows == 12:
-				$BuyButton.visible = false
+				$Buttons/BuyButton.visible = false
 			else:
-				$BuyButton.text = "Buy Another Row - $" + str(GlobalVariables.new_row_cost)
+				$Buttons/BuyButton.text = "Buy Row\n$" + UsefulFunctions._format_abbreviated(GlobalVariables.new_row_cost, 2)
 		else:
-			$BuyButton.visible = false
+			$Buttons/BuyButton.visible = false
 	else:
 		print("Not Enough Money!")
+
+func bad_popup(statement: String):
+	var bad_popup = popup.instantiate()
+	bad_popup.position = $BallSpawnPoint.position - Vector2(50, 0)
+	for child in $Popups/BadPopups.get_children(): child.queue_free()
+	$Popups/BadPopups.add_child(bad_popup)
+	bad_popup._show_popup(statement, false)
