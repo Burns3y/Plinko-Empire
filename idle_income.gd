@@ -34,6 +34,7 @@ func _on_income_tick():
 			coin_display._update_label()
 	
 	timer.wait_time = timer_wait_time
+	UsefulFunctions.save()
 
 
 func _update_income_display():

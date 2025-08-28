@@ -65,10 +65,13 @@ func _on_ball_drop_pressed():
 			new_ball.value = GlobalVariables.free_balls.pop_front()
 			print("Free ball used, value ", new_ball.value, "\nFree balls left: ", len(GlobalVariables.free_balls))
 		GlobalVariables.coins = round(GlobalVariables.coins * 10) / 10.0
+		UsefulFunctions.save()
 		$Displays/CoinDisplay._update_label()
 		
 		$Balls.add_child(new_ball)
 		new_ball.position = $BallSpawnPoint.position + Vector2(new_ball_pos, 0)
+
+	UsefulFunctions.save()
 
 
 
@@ -135,6 +138,8 @@ func _on_multiplier_hit(multiplier_value, ball_colliding):
 	$Displays/CoinDisplay._update_label()
 	ball_colliding.queue_free()
 	$Displays/MultiplierDisplay.rearrange_multipliers(multiplier_value)
+	
+	UsefulFunctions.save()
 
 
 func _on_row_slider_value_changed(value):
@@ -165,6 +170,8 @@ func _on_row_slider_value_changed(value):
 		$Sliders/BallAmountSlider.min_value = (GlobalVariables.current_rows - 6) * 10
 	$Sliders/BallAmountSlider.max_value = (GlobalVariables.current_rows - 5) * 50
 	$Sliders/BallAmountSlider/BallAmountLabel.text = "Ball value: $" + str(ball_value)
+	
+	UsefulFunctions.save()
 
 
 func _on_ball_amount_slider_value_changed(value):
@@ -178,6 +185,8 @@ func _on_exit_pressed():
 	else:
 		print("Wait until balls have stopped dropping!")
 		bad_popup("Waiting until balls\nhave stopped dropping!")
+	
+	UsefulFunctions.save()
 
 
 func _on_buy_button_pressed():
@@ -191,6 +200,7 @@ func _on_buy_button_pressed():
 				GlobalVariables.max_rows += 1
 			$Sliders/RowSlider.max_value = GlobalVariables.max_rows
 			$Sliders/RowSlider.value = $Sliders/RowSlider.max_value
+			UsefulFunctions.save()
 			
 			if GlobalVariables.max_rows == 12:
 				$Buttons/BuyButton.visible = false
@@ -200,6 +210,8 @@ func _on_buy_button_pressed():
 			$Buttons/BuyButton.visible = false
 	else:
 		bad_popup("Not Enough Money!")
+	
+	UsefulFunctions.save()
 
 
 func _clear_all():
@@ -227,3 +239,6 @@ func _on_viewport_size_changed():
 	$BallSpawnPoint.position.x = get_viewport_rect().size.x / 2
 	$BallSpawnPoint.position.y = get_viewport_rect().size.y * 0.4
 	create_rows()
+	
+	UsefulFunctions.save()
+
