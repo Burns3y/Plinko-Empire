@@ -1926,9 +1926,9 @@ anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = 21.0
-offset_top = 351.0
+offset_top = 325.0
 offset_right = -494.0
-offset_bottom = -148.0
+offset_bottom = -174.0
 grow_vertical = 2
 theme = SubResource("Theme_5rkje")
 text = "Buy Row
@@ -1961,14 +1961,12 @@ expand_icon = true
 [node name="Sliders" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.019
-anchor_top = 0.13
-anchor_right = 0.981
-anchor_bottom = 0.264
-offset_left = 0.319999
-offset_top = -0.400024
-offset_right = -0.320068
-offset_bottom = 4.08002
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 231.0
+offset_right = -14.0
+offset_bottom = -1009.0
 alignment = 1
 
 [node name="RowSlider" type="HSlider" parent="Sliders"]
