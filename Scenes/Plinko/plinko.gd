@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 # Setting up the row generation
 var pin_scale
@@ -23,24 +23,27 @@ var hundredMultiplier: PackedScene = preload("res://Scenes/Plinko/Multipliers/10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	get_tree().root.connect("size_changed", self._on_viewport_size_changed)
 	$Displays/CoinDisplay._update_label()
 	$Displays/IncomeDisplay._update_label()
 	
 	# Setting pin scale depending on rows
-	var t = float(GlobalVariables.current_rows - 4) / 4.0
-	pin_scale = lerp(1.5, 1.1, t)
-	$Sliders/RowSlider.max_value = GlobalVariables.max_rows
-	create_rows()
+	if get_viewport_rect().size != Vector2(720, 1280):
+		_on_viewport_size_changed()
+	else:
+		var t = float(GlobalVariables.current_rows - 4) / 4.0
+		var base_pin_scale = lerp(1.5, 1.1, float(GlobalVariables.current_rows - 4) / 4.0)
+		pin_scale = base_pin_scale * (get_viewport_rect().size.x / 720)
+		$Sliders/RowSlider.max_value = GlobalVariables.max_rows
+		create_rows()
 
 
 func _on_ball_drop_pressed():
-	
 	# If you have enough money to drop a ball, lets you
 	if GlobalVariables.coins < $Sliders/BallAmountSlider.value:
 		bad_popup("Not Enough Money!")
-		
-	else:
 
+	else:
 		# Instantiating ball
 		var new_ball = ball.instantiate()
 		
@@ -70,10 +73,15 @@ func _on_ball_drop_pressed():
 
 
 func create_rows():
-	var x_spacing = 580 / (GlobalVariables.current_rows + 1)
-	var y_spacing = 700 / (GlobalVariables.current_rows + 2)
+	var viewport_size = get_viewport_rect().size
 
-	var start_position: Vector2 = Vector2(360 - x_spacing, 500)
+	# Use ratios instead of fixed values
+	var x_spacing = (viewport_size.x * 0.8) / (GlobalVariables.current_rows + 1)
+	var y_spacing = (viewport_size.y * 0.55) / (GlobalVariables.current_rows + 2)
+
+	# Start a bit below the top middle
+	var start_position = Vector2(viewport_size.x / 2 - x_spacing, viewport_size.y * 0.4)
+
 	var new_pos = start_position
 	var col_count = 3
 	var final_pin_location
@@ -140,16 +148,8 @@ func _on_row_slider_value_changed(value):
 	while $Balls.get_child_count() > 0:
 		await get_tree().process_frame
 
-	# Removing everything
-	for multiplier in $Multipliers.get_children():
-		multiplier.queue_free()
-	for child in $Pins.get_children():
-		child.queue_free()
-
-	# Replacing everything
-	var t = float(GlobalVariables.current_rows - 4) / 4.0
-	pin_scale = lerp(1.5, 1.1, t)
-	create_rows()
+	# Removing and replacing everything based on screen size
+	_on_viewport_size_changed()
 	$Buttons/BuyButton.disabled = false
 	
 
@@ -159,12 +159,12 @@ func _on_row_slider_value_changed(value):
 	$Buttons/BallDrop.disabled = false
 	
 	# Setting maximum and minimum ball values so that they scale depending on row count
-	if GlobalVariables.current_rows == 8:
+	if $Sliders/RowSlider.value == $Sliders/RowSlider.min_value:
 		$Sliders/BallAmountSlider.min_value = 1
 	else:
 		$Sliders/BallAmountSlider.min_value = (GlobalVariables.current_rows - 6) * 10
 	$Sliders/BallAmountSlider.max_value = (GlobalVariables.current_rows - 5) * 50
-	$Sliders/BallAmountSlider/BallAmountLabel.text = "Ball value:  $" + str(ball_value)
+	$Sliders/BallAmountSlider/BallAmountLabel.text = "Ball value: $" + str(ball_value)
 
 
 func _on_ball_amount_slider_value_changed(value):
@@ -199,11 +199,31 @@ func _on_buy_button_pressed():
 		else:
 			$Buttons/BuyButton.visible = false
 	else:
-		print("Not Enough Money!")
+		bad_popup("Not Enough Money!")
+
+
+func _clear_all():
+	for multiplier in $Multipliers.get_children():
+		multiplier.queue_free()
+	for child in $Pins.get_children():
+		child.queue_free()
+
 
 func bad_popup(statement: String):
 	var bad_popup = popup.instantiate()
 	bad_popup.position = $BallSpawnPoint.position - Vector2(50, 0)
-	for child in $Popups/BadPopups.get_children(): child.queue_free()
+	for child in $Popups/BadPopups.get_children(): child.clear_self()
 	$Popups/BadPopups.add_child(bad_popup)
 	bad_popup._show_popup(statement, false)
+
+
+func _on_viewport_size_changed():
+	# Clear pins + multipliers and recreate them
+	_clear_all()
+	for slider in $Sliders.get_children():
+		slider.size_flags_vertical = Control.SIZE_EXPAND
+	var base_pin_scale = lerp(1.5, 1.1, float(GlobalVariables.current_rows - 4) / 4.0)
+	pin_scale = base_pin_scale * (get_viewport_rect().size.x / 720)
+	$BallSpawnPoint.position.x = get_viewport_rect().size.x / 2
+	$BallSpawnPoint.position.y = get_viewport_rect().size.y * 0.4
+	create_rows()
