@@ -11,25 +11,25 @@ font_color = Color(0, 0, 0, 1)
 [node name="CoinDisplay" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1.0
-offset_bottom = 40.0
+offset_right = 2010.0
+offset_bottom = 551.0
 script = ExtResource("1_lo2q6")
 
 [node name="TextCont" type="Sprite2D" parent="."]
-position = Vector2(1129, 3)
+position = Vector2(1006, 280)
 scale = Vector2(5, 3.8)
 texture = ExtResource("1_lvcbk")
 
 [node name="Coin" type="Sprite2D" parent="."]
-position = Vector2(135, 0)
+position = Vector2(-97, 253)
 texture = ExtResource("1_rfyw4")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
-offset_left = 543.0
-offset_top = -248.0
-offset_right = 1633.0
-offset_bottom = 25.0
+offset_left = 318.0
+offset_top = 26.0
+offset_right = 1408.0
+offset_bottom = 299.0
 scale = Vector2(1.71582, 1.71582)
-text = "100"
+text = "$100"
 label_settings = SubResource("LabelSettings_8s6u8")

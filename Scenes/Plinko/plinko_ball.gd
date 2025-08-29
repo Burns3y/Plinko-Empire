@@ -16,7 +16,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
-	if global_position.y > 1280:
+	var viewport_rect = get_viewport_rect()
+	if global_position.y > viewport_rect.size.y + 50:
 		GlobalVariables.free_balls.append(value)
 		print("Free ball added, value", value)
 
@@ -26,7 +27,6 @@ func _physics_process(_delta):
 		var popup_pos = global_position
 
 		# Clamp to safe viewport area
-		var viewport_rect = get_viewport_rect()
 		popup_pos.x = clamp(popup_pos.x, 100 + randf_range(0, 100), viewport_rect.size.x - 200 - randf_range(0, 100))
 		popup_pos.y = clamp(popup_pos.y, 200, viewport_rect.size.y - 200)
 
