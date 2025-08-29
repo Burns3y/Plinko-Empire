@@ -17,19 +17,27 @@ func save():
 		push_error("Failed to open save file: " + save_path)
 		return
 
+	# Setting up datetime
+	GlobalVariables.initial_datetime = Time.get_unix_time_from_system()
+
 	file.store_var(GlobalVariables.income_per_minute)
 	file.store_var(GlobalVariables.coins)
 	file.store_var(GlobalVariables.max_rows)
 	file.store_var(GlobalVariables.new_row_cost)
+	
+	file.store_var(GlobalVariables.initial_datetime)
 
 
 func load_data():
 	if FileAccess.file_exists(save_path):
 		var file = FileAccess.open(save_path, FileAccess.READ)
-		GlobalVariables.income_per_minute = file.get_var(GlobalVariables.income_per_minute)
-		GlobalVariables.coins = file.get_var(GlobalVariables.coins)
-		GlobalVariables.max_rows = file.get_var(GlobalVariables.max_rows)
-		GlobalVariables.new_row_cost = file.get_var(GlobalVariables.new_row_cost)
+		GlobalVariables.income_per_minute = file.get_var()
+		GlobalVariables.coins = file.get_var()
+		GlobalVariables.max_rows = file.get_var()
+		GlobalVariables.new_row_cost = file.get_var()
+		GlobalVariables.initial_datetime = file.get_var()
+
+		GlobalVariables.coins += clamp((Time.get_unix_time_from_system() - GlobalVariables.initial_datetime)/60, 0, 100 * GlobalVariables.income_per_minute)
 
 
 func reset():

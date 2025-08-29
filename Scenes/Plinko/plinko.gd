@@ -41,7 +41,7 @@ func _ready():
 func _on_ball_drop_pressed():
 	# If you have enough money to drop a ball, lets you
 	if GlobalVariables.coins < $Sliders/BallAmountSlider.value:
-		bad_popup("Not Enough Money!")
+		_bad_popup("Not Enough Money!")
 
 	else:
 		# Instantiating ball
@@ -148,7 +148,7 @@ func _on_row_slider_value_changed(value):
 	# Wait until there are no balls left in $Balls
 	if $Balls.get_child_count() > 0 and GlobalVariables.max_rows != 8:
 		$Buttons/BallDrop.disabled = true
-		bad_popup("Waiting until balls\nhave stopped dropping!")
+		_bad_popup("Waiting until balls\nhave stopped dropping!")
 		$Buttons/BuyButton.disabled = true
 	while $Balls.get_child_count() > 0:
 		await get_tree().process_frame
@@ -184,7 +184,7 @@ func _on_exit_pressed():
 		get_tree().change_scene_to_file("res://Scenes/map.tscn")
 	else:
 		print("Wait until balls have stopped dropping!")
-		bad_popup("Waiting until balls\nhave stopped dropping!")
+		_bad_popup("Waiting until balls\nhave stopped dropping!")
 	
 	UsefulFunctions.save()
 
@@ -209,7 +209,7 @@ func _on_buy_button_pressed():
 		else:
 			$Buttons/BuyButton.visible = false
 	else:
-		bad_popup("Not Enough Money!")
+		_bad_popup("Not Enough Money!")
 	
 	UsefulFunctions.save()
 
@@ -221,7 +221,7 @@ func _clear_all():
 		child.queue_free()
 
 
-func bad_popup(statement: String):
+func _bad_popup(statement: String):
 	var bad_popup = popup.instantiate()
 	bad_popup.position = $BallSpawnPoint.position - Vector2(50, 0)
 	for child in $Popups/BadPopups.get_children(): child.clear_self()
