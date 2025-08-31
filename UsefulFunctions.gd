@@ -50,8 +50,8 @@ func reset():
 	# Replace all variables
 	GlobalVariables.income_per_minute = GlobalVariables.initial_income_per_minute
 	GlobalVariables.coins = GlobalVariables.initial_coins
-	GlobalVariables.max_rows = GlobalVariables.inital_max_rows
-	GlobalVariables.new_row_cost = GlobalVariables.new_row_cost
+	GlobalVariables.max_rows = GlobalVariables.initial_max_rows
+	GlobalVariables.new_row_cost = GlobalVariables.initial_new_row_cost
 
 
 func _format_abbreviated(value, decimals):
