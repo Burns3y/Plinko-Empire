@@ -81,12 +81,13 @@ layout_mode = 2
 text = "Purple - Default"
 label_settings = SubResource("LabelSettings_4cfnq")
 
-[node name="Buy" type="Button" parent="Menu/VBoxContainer/Row1/Purple"]
+[node name="Select" type="Button" parent="Menu/VBoxContainer/Row1/Purple"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mwffs")
-text = "Buy"
+text = "Select"
 
 [node name="Blue" type="VBoxContainer" parent="Menu/VBoxContainer/Row1"]
 layout_mode = 2
@@ -103,6 +104,14 @@ size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mwffs")
 text = "Buy"
+
+[node name="Select" type="Button" parent="Menu/VBoxContainer/Row1/Blue"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mwffs")
+text = "Select"
 
 [node name="Row2" type="HBoxContainer" parent="Menu/VBoxContainer"]
 layout_mode = 2
@@ -122,6 +131,14 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mwffs")
 text = "Buy"
 
+[node name="Select" type="Button" parent="Menu/VBoxContainer/Row2/Pink"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mwffs")
+text = "Select"
+
 [node name="Red" type="VBoxContainer" parent="Menu/VBoxContainer/Row2"]
 layout_mode = 2
 size_flags_horizontal = 10
@@ -137,6 +154,14 @@ size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mwffs")
 text = "Buy"
+
+[node name="Select" type="Button" parent="Menu/VBoxContainer/Row2/Red"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mwffs")
+text = "Select"
 
 [node name="Row3" type="HBoxContainer" parent="Menu/VBoxContainer"]
 layout_mode = 2
@@ -156,6 +181,14 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mwffs")
 text = "Buy"
 
+[node name="Select" type="Button" parent="Menu/VBoxContainer/Row3/Green"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mwffs")
+text = "Select"
+
 [node name="Orange" type="VBoxContainer" parent="Menu/VBoxContainer/Row3"]
 layout_mode = 2
 size_flags_horizontal = 10
@@ -171,6 +204,14 @@ size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mwffs")
 text = "Buy"
+
+[node name="Select" type="Button" parent="Menu/VBoxContainer/Row3/Orange"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mwffs")
+text = "Select"
 
 [node name="Row4" type="HBoxContainer" parent="Menu/VBoxContainer"]
 layout_mode = 2
@@ -190,6 +231,14 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mwffs")
 text = "Buy"
 
+[node name="Select" type="Button" parent="Menu/VBoxContainer/Row4/Teal"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mwffs")
+text = "Select"
+
 [node name="Gold" type="VBoxContainer" parent="Menu/VBoxContainer/Row4"]
 layout_mode = 2
 size_flags_horizontal = 10
@@ -206,6 +255,14 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mwffs")
 text = "Buy"
 
+[node name="Select" type="Button" parent="Menu/VBoxContainer/Row4/Gold"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mwffs")
+text = "Select"
+
 [node name="MarginContainer2" type="MarginContainer" parent="Menu/VBoxContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 80)
 layout_mode = 2
@@ -217,20 +274,19 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxEmpty_d0xny")
 text = "Back"
 
-[connection signal="pressed" from="Menu/VBoxContainer/Row1/Purple/Buy" to="." method="_on_cancel_restart_pressed"]
-[connection signal="pressed" from="Menu/VBoxContainer/Row1/Purple/Buy" to="Menu" method="_on_quit_btn_pressed"]
-[connection signal="pressed" from="Menu/VBoxContainer/Row1/Blue/Buy" to="." method="_on_cancel_restart_pressed"]
-[connection signal="pressed" from="Menu/VBoxContainer/Row1/Blue/Buy" to="Menu" method="_on_quit_btn_pressed"]
-[connection signal="pressed" from="Menu/VBoxContainer/Row2/Pink/Buy" to="." method="_on_cancel_restart_pressed"]
-[connection signal="pressed" from="Menu/VBoxContainer/Row2/Pink/Buy" to="Menu" method="_on_quit_btn_pressed"]
-[connection signal="pressed" from="Menu/VBoxContainer/Row2/Red/Buy" to="." method="_on_cancel_restart_pressed"]
-[connection signal="pressed" from="Menu/VBoxContainer/Row2/Red/Buy" to="Menu" method="_on_quit_btn_pressed"]
-[connection signal="pressed" from="Menu/VBoxContainer/Row3/Green/Buy" to="." method="_on_cancel_restart_pressed"]
-[connection signal="pressed" from="Menu/VBoxContainer/Row3/Green/Buy" to="Menu" method="_on_quit_btn_pressed"]
-[connection signal="pressed" from="Menu/VBoxContainer/Row3/Orange/Buy" to="." method="_on_cancel_restart_pressed"]
-[connection signal="pressed" from="Menu/VBoxContainer/Row3/Orange/Buy" to="Menu" method="_on_quit_btn_pressed"]
-[connection signal="pressed" from="Menu/VBoxContainer/Row4/Teal/Buy" to="." method="_on_cancel_restart_pressed"]
-[connection signal="pressed" from="Menu/VBoxContainer/Row4/Teal/Buy" to="Menu" method="_on_quit_btn_pressed"]
-[connection signal="pressed" from="Menu/VBoxContainer/Row4/Gold/Buy" to="." method="_on_cancel_restart_pressed"]
-[connection signal="pressed" from="Menu/VBoxContainer/Row4/Gold/Buy" to="Menu" method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Row1/Purple/Select" to="." method="_on_purple_select_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Row1/Blue/Buy" to="." method="_on_blue_buy_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Row1/Blue/Select" to="." method="_on_blue_select_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Row2/Pink/Buy" to="." method="_on_pink_buy_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Row2/Pink/Select" to="." method="_on_pink_select_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Row2/Red/Buy" to="." method="_on_red_buy_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Row2/Red/Select" to="." method="_on_red_select_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Row3/Green/Buy" to="." method="_on_green_buy_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Row3/Green/Select" to="." method="_on_green_select_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Row3/Orange/Buy" to="." method="_on_orange_buy_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Row3/Orange/Select" to="." method="_on_orange_select_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Row4/Teal/Buy" to="." method="_on_teal_buy_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Row4/Teal/Select" to="." method="_on_teal_select_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Row4/Gold/Buy" to="." method="_on_gold_buy_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Row4/Gold/Select" to="." method="_on_gold_select_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Back" to="." method="_on_back_pressed"]
