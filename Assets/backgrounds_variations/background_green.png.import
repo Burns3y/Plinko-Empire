@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7v5vytywmhqu"
-path="res://.godot/imported/Plinko-background.png-561e5c6fef23f81f378ad03515de547c.ctex"
+uid="uid://bbdfdnnhr1h56"
+path="res://.godot/imported/background_green.png-d4564fafd3caaebc6090187d53636eae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Plinko-background.png"
-dest_files=["res://.godot/imported/Plinko-background.png-561e5c6fef23f81f378ad03515de547c.ctex"]
+source_file="res://Assets/backgrounds_variations/background_green.png"
+dest_files=["res://.godot/imported/background_green.png-d4564fafd3caaebc6090187d53636eae.ctex"]
 
 [params]
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Plinko/plinko.gd" id="1_ii2fs"]
 [ext_resource type="PackedScene" uid="uid://dwi2juadl5agr" path="res://Scenes/Plinko/multiplier_display.tscn" id="2_7t7hv"]
-[ext_resource type="Texture2D" uid="uid://7v5vytywmhqu" path="res://Plinko-background.png" id="2_rfl30"]
+[ext_resource type="Texture2D" uid="uid://7v5vytywmhqu" path="res://Assets/backgrounds_variations/Plinko-background.png" id="2_rfl30"]
 [ext_resource type="PackedScene" uid="uid://fldhyw8rvrv2" path="res://incomeDisplay.tscn" id="3_2oh6s"]
 [ext_resource type="PackedScene" uid="uid://dd24y1jcounp7" path="res://Scenes/coinDisplay.tscn" id="3_t0noj"]
 

@@ -47,6 +47,13 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxEmpty_1qoob")
 text = "Start"
 
+[node name="Shop" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1qoob")
+text = "Start"
+
 [node name="OptionsBtn" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
@@ -62,5 +69,6 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_1qoob")
 text = "Quit?"
 
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/StartBtn" to="Menu" method="_on_start_btn_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Shop" to="Menu" method="_on_shop_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/OptionsBtn" to="Menu" method="_on_options_btn_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/QuitBtn" to="Menu" method="_on_quit_btn_pressed"]

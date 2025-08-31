@@ -16,7 +16,6 @@ func _on_back_pressed():
 
 
 func _on_restart_pressed():
-	print("Pressed")
 	$Menu/MarginContainer/VBoxContainer/Restart.visible = false
 	$Menu/MarginContainer/VBoxContainer/ConfirmRestartLabel.visible = true
 	$Menu/MarginContainer/VBoxContainer/ConfirmRestartButtons.visible = true

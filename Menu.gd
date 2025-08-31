@@ -21,3 +21,7 @@ func _on_options_btn_pressed():
 
 func _on_quit_btn_pressed():
 	get_tree().quit()
+
+
+func _on_shop_pressed():
+	get_tree().change_scene_to_file("res://shop.tscn")
