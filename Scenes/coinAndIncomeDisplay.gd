@@ -21,6 +21,6 @@ func format_abbreviated(value, decimals):
 	var text = UsefulFunctions._format_abbreviated(value, decimals)
 
 	if self.name == "CoinDisplay":
-		return "S" + text
+		return "$" + text
 	elif self.name == "IncomeDisplay":
 		return "$" + text + "/ min"

@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://qq5svt52ud6m"]
+[gd_scene load_steps=5 format=3 uid="uid://qq5svt52ud6m"]
 
 [ext_resource type="Script" path="res://menu-pg_2.gd" id="1_wnpd5"]
+[ext_resource type="PackedScene" uid="uid://dd24y1jcounp7" path="res://Scenes/coinDisplay.tscn" id="2_tg5jv"]
+[ext_resource type="PackedScene" uid="uid://fldhyw8rvrv2" path="res://incomeDisplay.tscn" id="3_yjio6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1qoob"]
 
@@ -14,6 +16,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Displays" type="Node2D" parent="Menu"]
+
+[node name="CoinDisplay" parent="Menu/Displays" instance=ExtResource("2_tg5jv")]
+offset_left = 52.0
+offset_top = 56.0
+offset_right = 53.0
+offset_bottom = 96.0
+scale = Vector2(0.08, 0.08)
+
+[node name="IncomeDisplay" parent="Menu/Displays" instance=ExtResource("3_yjio6")]
+offset_left = 517.0
+offset_top = 56.0
+offset_right = 518.0
+offset_bottom = 96.0
+scale = Vector2(0.08, 0.08)
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu"]
 layout_mode = 1
@@ -39,13 +57,6 @@ text = "OPTIONS"
 [node name="MarginContainer" type="MarginContainer" parent="Menu/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 80)
 layout_mode = 2
-
-[node name="Back" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxEmpty_1qoob")
-text = "Back"
 
 [node name="MuteMusic" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -97,8 +108,17 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxEmpty_1qoob")
 text = "Cancel"
 
-[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Back" to="Menu" method="_on_start_btn_pressed"]
+[node name="MarginContainer2" type="MarginContainer" parent="Menu/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 80)
+layout_mode = 2
+
+[node name="Back" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1qoob")
+text = "Back"
+
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/MuteMusic" to="Menu" method="_on_options_btn_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/MuteSFX" to="Menu" method="_on_options_btn_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
@@ -107,3 +127,5 @@ text = "Cancel"
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/ConfirmRestartButtons/Confirm" to="Menu" method="_on_quit_btn_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/ConfirmRestartButtons/Cancel" to="." method="_on_cancel_restart_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/ConfirmRestartButtons/Cancel" to="Menu" method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Back" to="Menu" method="_on_start_btn_pressed"]

@@ -1,6 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://cg40wdcid0i04"]
+[gd_scene load_steps=14 format=3 uid="uid://cg40wdcid0i04"]
 
 [ext_resource type="Script" path="res://shop.gd" id="1_t6183"]
+[ext_resource type="PackedScene" uid="uid://dd24y1jcounp7" path="res://Scenes/coinDisplay.tscn" id="2_fsskq"]
+[ext_resource type="PackedScene" uid="uid://fldhyw8rvrv2" path="res://incomeDisplay.tscn" id="3_eu3ar"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4cfnq"]
 font_size = 30
@@ -40,6 +42,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Displays" type="Node2D" parent="Menu"]
+
+[node name="CoinDisplay" parent="Menu/Displays" instance=ExtResource("2_fsskq")]
+offset_left = 52.0
+offset_top = 56.0
+offset_right = 53.0
+offset_bottom = 96.0
+scale = Vector2(0.08, 0.08)
+
+[node name="IncomeDisplay" parent="Menu/Displays" instance=ExtResource("3_eu3ar")]
+offset_left = 517.0
+offset_top = 56.0
+offset_right = 518.0
+offset_bottom = 96.0
+scale = Vector2(0.08, 0.08)
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu"]
 layout_mode = 1

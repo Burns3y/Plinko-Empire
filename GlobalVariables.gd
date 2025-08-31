@@ -22,8 +22,8 @@ var free_balls = []
 var bought_bg: Dictionary = {
 	"Purple": true,
 	"Blue": false,
-	"Pink": true,
-	"Red": true,
+	"Pink": false,
+	"Red": false,
 	"Green": false,
 	"Orange": false,
 	"Teal": false,
