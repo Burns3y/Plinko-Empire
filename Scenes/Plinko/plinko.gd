@@ -27,6 +27,28 @@ func _ready():
 	$Displays/CoinDisplay._update_label()
 	$Displays/IncomeDisplay._update_label()
 	
+	# Background
+	if GlobalVariables.selected_bg != "Gold":
+		$"Plinko-background".modulate = Color(1, 1, 1)
+	if GlobalVariables.selected_bg == "Purple":
+		$"Plinko-background".texture = load("res://Assets/backgrounds_variations/Plinko-background.png")
+	elif GlobalVariables.selected_bg == "Blue":
+		$"Plinko-background".texture = load("res://Assets/backgrounds_variations/background_blue.png")
+	elif GlobalVariables.selected_bg == "Green":
+		$"Plinko-background".texture = load("res://Assets/backgrounds_variations/background_green.png")
+	elif GlobalVariables.selected_bg == "Orange":
+		$"Plinko-background".texture = load("res://Assets/backgrounds_variations/background_orange.png")
+	elif GlobalVariables.selected_bg == "Red":
+		$"Plinko-background".texture = load("res://Assets/backgrounds_variations/background_red.png")
+	elif GlobalVariables.selected_bg == "Pink":
+		$"Plinko-background".texture = load("res://Assets/backgrounds_variations/background_pink.png")
+	elif GlobalVariables.selected_bg == "Teal":
+		$"Plinko-background".texture = load("res://Assets/backgrounds_variations/background_teal.png")
+	elif GlobalVariables.selected_bg == "Gold":
+		$"Plinko-background".texture = load("res://Assets/backgrounds_variations/background_gold.png")
+		$"Plinko-background".modulate = Color(0.8, 0.8, 0.8)
+		
+	
 	# Setting pin scale depending on rows
 	if get_viewport_rect().size != Vector2(720, 1280):
 		_on_viewport_size_changed()

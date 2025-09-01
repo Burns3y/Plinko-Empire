@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 func _ready():
+	$Menu/Displays/CoinDisplay._update_label()
 	_refresh_buttons()
 
 
@@ -23,6 +24,7 @@ func _refresh_buttons():
 								else:
 									button.text = "Select"
 									button.disabled = false
+	UsefulFunctions.save()
 
 
 # Handles background buying
@@ -32,6 +34,8 @@ func buy_bg(colour: String, price: int):
 		GlobalVariables.coins = round(GlobalVariables.coins * 10) / 10.0
 		GlobalVariables.bought_bg[colour] = true
 		select_bg(colour) # auto-select after buying
+		$Menu/Displays/CoinDisplay._update_label()
+		UsefulFunctions.save()
 
 
 # Handles background selection
