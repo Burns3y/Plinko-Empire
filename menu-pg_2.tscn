@@ -119,8 +119,8 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxEmpty_1qoob")
 text = "Back"
 
-[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/MuteMusic" to="Menu" method="_on_options_btn_pressed"]
-[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/MuteSFX" to="Menu" method="_on_options_btn_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/MuteMusic" to="." method="_on_mute_music_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/MuteSFX" to="." method="_on_mute_sfx_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Restart" to="Menu" method="_on_quit_btn_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/ConfirmRestartButtons/Confirm" to="." method="_on_confirm_restart_pressed"]

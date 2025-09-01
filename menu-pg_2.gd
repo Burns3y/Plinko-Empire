@@ -30,3 +30,20 @@ func _on_cancel_restart_pressed():
 	$Menu/MarginContainer/VBoxContainer/Restart.visible = true
 	$Menu/MarginContainer/VBoxContainer/ConfirmRestartLabel.visible = false
 	$Menu/MarginContainer/VBoxContainer/ConfirmRestartButtons.visible = false
+
+
+func _on_mute_music_pressed():
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Music"), !AudioServer.is_bus_mute(AudioServer.get_bus_index("Music")))
+	if AudioServer.is_bus_mute(AudioServer.get_bus_index("Music")):
+		$Menu/MarginContainer/VBoxContainer/MuteMusic.text = "Unmute Music"
+	else:
+		$Menu/MarginContainer/VBoxContainer/MuteMusic.text = "Mute Music"
+	
+
+
+func _on_mute_sfx_pressed():
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Music"), !AudioServer.is_bus_mute(AudioServer.get_bus_index("Music")))
+	if AudioServer.is_bus_mute(AudioServer.get_bus_index("Music")):
+		$Menu/MarginContainer/VBoxContainer/MuteMusic.text = "Unmute Music"
+	else:
+		$Menu/MarginContainer/VBoxContainer/MuteMusic.text = "Mute Music"

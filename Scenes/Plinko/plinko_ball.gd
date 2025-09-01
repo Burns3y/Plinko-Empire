@@ -5,7 +5,7 @@ var value: int = 1
 func _ready():
 	$Timer.start()
 	# Each ball has a 1 in 100 chance of having extra bounce, to increase randomness.
-	if randi() % 250 == 1:
+	if randi() % 200 == 1:
 		print("Magic")
 		$".".physics_material_override.bounce = 0.5
 
@@ -46,3 +46,7 @@ func _on_timer_timeout():
 	if $Timer.wait_time >= 2:
 		$Timer.wait_time -= 2
 	$Timer.start()
+
+
+func _on_body_entered(body):
+	$AudioStreamPlayer2D.play()
