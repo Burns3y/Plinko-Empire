@@ -41,7 +41,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="Theme" id="Theme_duuok"]
-default_font_size = 80
+default_font_size = 50
 
 [node name="Map" type="Node3D"]
 script = ExtResource("1_br6t4")
@@ -395,6 +395,23 @@ grow_vertical = 2
 theme = SubResource("Theme_duuok")
 text = "Start"
 
+[node name="MenuButton" type="Button" parent="Displays"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 129.0
+offset_right = 152.0
+offset_bottom = 253.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_duuok")
+text = "Menu"
+
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
@@ -405,3 +422,4 @@ mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
 [connection signal="pressed" from="Displays/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Displays/MenuButton" to="." method="_on_menu_button_pressed"]
