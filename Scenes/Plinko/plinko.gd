@@ -28,8 +28,7 @@ func _ready():
 	$Displays/IncomeDisplay._update_label()
 	
 	# Background
-	if GlobalVariables.selected_bg != "Gold":
-		$"Plinko-background".modulate = Color(1, 1, 1)
+	$"Plinko-background".modulate = Color(1, 1, 1)
 	if GlobalVariables.selected_bg == "Purple":
 		$"Plinko-background".texture = load("res://Assets/backgrounds_variations/Plinko-background.png")
 	elif GlobalVariables.selected_bg == "Blue":
@@ -38,17 +37,19 @@ func _ready():
 		$"Plinko-background".texture = load("res://Assets/backgrounds_variations/background_green.png")
 	elif GlobalVariables.selected_bg == "Orange":
 		$"Plinko-background".texture = load("res://Assets/backgrounds_variations/background_orange.png")
+		$"Plinko-background".modulate = Color(1, 0.886, 0.302)
 	elif GlobalVariables.selected_bg == "Red":
 		$"Plinko-background".texture = load("res://Assets/backgrounds_variations/background_red.png")
 	elif GlobalVariables.selected_bg == "Pink":
 		$"Plinko-background".texture = load("res://Assets/backgrounds_variations/background_pink.png")
 	elif GlobalVariables.selected_bg == "Teal":
 		$"Plinko-background".texture = load("res://Assets/backgrounds_variations/background_teal.png")
+		$"Plinko-background".modulate = Color(0, 1, 0.561)
 	elif GlobalVariables.selected_bg == "Gold":
 		$"Plinko-background".texture = load("res://Assets/backgrounds_variations/background_gold.png")
 		$"Plinko-background".modulate = Color(0.8, 0.8, 0.8)
-		
-	
+
+
 	# Setting pin scale depending on rows
 	if get_viewport_rect().size != Vector2(720, 1280):
 		_on_viewport_size_changed()
@@ -124,6 +125,8 @@ func create_rows():
 			final_pin_location = new_pin.position
 		col_count += 1
 	
+	if GlobalVariables.max_rows == 12:
+		$Buttons/BuyButton.disabled = true
 	# Multipliers
 	create_multipliers(y_spacing, x_spacing, final_pin_location)
 
