@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvyueostkncbu"]
+
+[ext_resource type="Script" path="res://Area3D.gd" id="1_35a5v"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_gbrxf"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[node name="Area3D" type="Area3D"]
+script = ExtResource("1_35a5v")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = SubResource("ViewportTexture_gbrxf")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D"]
+size = Vector2i(45, 30)
+
+[node name="Button" type="Button" parent="Sprite3D/SubViewport"]
+offset_right = 8.0
+offset_bottom = 8.0
+text = " buy  "

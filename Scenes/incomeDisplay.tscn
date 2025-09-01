@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://fldhyw8rvrv2"]
+
+[ext_resource type="Script" path="res://Scenes/coinAndIncomeDisplay.gd" id="1_xkrbc"]
+[ext_resource type="Texture2D" uid="uid://8sje4rmqrfq0" path="res://IdleIncomeLabel.png" id="2_h5uqw"]
+[ext_resource type="Texture2D" uid="uid://dcb73ypgsk73o" path="res://HourglassAdjusted.png" id="3_hxaaj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8s6u8"]
+font_size = 200
+font_color = Color(0, 0, 0, 1)
+
+[node name="IncomeDisplay" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 2139.0
+offset_bottom = 577.0
+script = ExtResource("1_xkrbc")
+
+[node name="TextCont" type="Sprite2D" parent="."]
+position = Vector2(1073, 285)
+scale = Vector2(2.3, 1.75)
+texture = ExtResource("2_h5uqw")
+
+[node name="Hourglass" type="Sprite2D" parent="."]
+position = Vector2(-17, 310)
+scale = Vector2(3.87443, 4.47399)
+texture = ExtResource("3_hxaaj")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_left = 129.0
+offset_top = 26.0
+offset_right = 1030.0
+offset_bottom = 299.0
+scale = Vector2(1.71582, 1.71582)
+text = "$2 / min"
+label_settings = SubResource("LabelSettings_8s6u8")

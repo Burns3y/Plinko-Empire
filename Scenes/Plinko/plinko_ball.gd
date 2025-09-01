@@ -47,6 +47,12 @@ func _on_timer_timeout():
 		$Timer.wait_time -= 2
 	$Timer.start()
 
+func _on_ball_body_entered(body: Node) -> void:
+	print("Hit ", body.name)
+	if body.name.begins_with("plinko_pin"):
+		$plinkobounce.play() 
 
-func _on_body_entered(body):
-	$AudioStreamPlayer2D.play()
+
+#func _on_body_entered(body):
+	#print("collided")
+	#$plinkobounce.play()
