@@ -24,6 +24,8 @@ func save():
 	file.store_var(GlobalVariables.coins)
 	file.store_var(GlobalVariables.max_rows)
 	file.store_var(GlobalVariables.new_row_cost)
+	#file.store_var(GlobalVariables.music_muted)
+	#file.store_var(GlobalVariables.sfx_muted)
 	
 	file.store_var(GlobalVariables.initial_datetime)
 	
@@ -44,6 +46,8 @@ func load_data():
 		GlobalVariables.coins = file.get_var()
 		GlobalVariables.max_rows = file.get_var()
 		GlobalVariables.new_row_cost = file.get_var()
+		#GlobalVariables.music_muted = file.get_var()
+		#GlobalVariables.sfx_muted = file.get_var()
 		GlobalVariables.initial_datetime = file.get_var()
 
 		# Load background state
@@ -59,7 +63,9 @@ func load_data():
 			for key in building_str.keys():
 				fixed_dict[int(key)] = building_str[key]   # key back to int
 			GlobalVariables.buildings_bought = fixed_dict
-
+		
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("Music"), GlobalVariables.music_muted)
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX"), GlobalVariables.sfx_muted)
 		GlobalVariables.coins += clamp((Time.get_unix_time_from_system() - GlobalVariables.initial_datetime)/60, 0, 100 * GlobalVariables.income_per_minute)
 
 

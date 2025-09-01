@@ -50,7 +50,6 @@ func _on_timer_timeout():
 	$Timer.start()
 
 func _on_ball_body_entered(body: Node) -> void:
-	print("Hit ", body.name)
 	if body.name.begins_with("plinko_pin"):
 		$plinkobounce.play() 
 

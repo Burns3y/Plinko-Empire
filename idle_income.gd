@@ -19,7 +19,6 @@ func _on_income_tick():
 	if GlobalVariables.income_per_minute >= 60:
 		timer_wait_time = 5
 		dollars_per_tick = GlobalVariables.income_per_minute / (60/timer_wait_time)
-		print("Dollars/tick ", dollars_per_tick)
 	else:
 		timer_wait_time = 60
 		dollars_per_tick = GlobalVariables.income_per_minute

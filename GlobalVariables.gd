@@ -29,6 +29,8 @@ var max_rows: int = 8
 var current_rows: int = 6
 var new_row_cost: int = 150
 var income_per_minute: int = 2
+var sfx_muted: bool = false
+var music_muted: bool = false
 
 var animations_on: bool = true
 var free_balls = []

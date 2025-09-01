@@ -4,6 +4,16 @@ extends CanvasLayer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Menu/Displays/CoinDisplay._update_label()
+	if AudioServer.is_bus_mute(AudioServer.get_bus_index("Music")):
+		$Menu/MarginContainer/VBoxContainer/MuteMusic.text = "Unmute Music"
+	else:
+		$Menu/MarginContainer/VBoxContainer/MuteMusic.text = "Mute Music"
+		
+	if AudioServer.is_bus_mute(AudioServer.get_bus_index("SFX")):
+		$Menu/MarginContainer/VBoxContainer/MuteSFX.text = "Unmute SFX"
+	else:
+		$Menu/MarginContainer/VBoxContainer/MuteSFX.text = "Mute SFX"
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -38,12 +48,14 @@ func _on_mute_music_pressed():
 		$Menu/MarginContainer/VBoxContainer/MuteMusic.text = "Unmute Music"
 	else:
 		$Menu/MarginContainer/VBoxContainer/MuteMusic.text = "Mute Music"
+	GlobalVariables.music_muted = AudioServer.is_bus_mute(AudioServer.get_bus_index("Music"))
 	
 
 
 func _on_mute_sfx_pressed():
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX"), !AudioServer.is_bus_mute(AudioServer.get_bus_index("SFX")))
-	if AudioServer.is_bus_mute(AudioServer.get_bus_index("Music")):
+	if AudioServer.is_bus_mute(AudioServer.get_bus_index("SFX")):
 		$Menu/MarginContainer/VBoxContainer/MuteSFX.text = "Unmute SFX"
 	else:
 		$Menu/MarginContainer/VBoxContainer/MuteSFX.text = "Mute SFX"
+	GlobalVariables.sfx_muted = AudioServer.is_bus_mute(AudioServer.get_bus_index("SFX"))
