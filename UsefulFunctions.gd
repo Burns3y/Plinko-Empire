@@ -66,6 +66,7 @@ func reset():
 	
 		# Reset backgrounds
 	GlobalVariables.bought_bg = {
+		"Purple": true,
 		"Blue": false,
 		"Pink": false,
 		"Red": false,

@@ -24,6 +24,7 @@ func _refresh_buttons():
 								else:
 									button.text = "Select"
 									button.disabled = false
+
 	UsefulFunctions.save()
 
 

@@ -126,7 +126,7 @@ func create_rows():
 		col_count += 1
 	
 	if GlobalVariables.max_rows == 12:
-		$Buttons/BuyButton.disabled = true
+		$Buttons/BuyButton.visible = false
 	# Multipliers
 	create_multipliers(y_spacing, x_spacing, final_pin_location)
 

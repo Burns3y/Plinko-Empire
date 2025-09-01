@@ -100,7 +100,6 @@ text = "Purple - Default"
 label_settings = SubResource("LabelSettings_4cfnq")
 
 [node name="Select" type="Button" parent="Menu/VBoxContainer/Row1/Purple"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 40
