@@ -7,6 +7,20 @@ var initial_current_rows: int = 6
 var initial_new_row_cost: int = 150
 var initial_income_per_minute: int = 2
 
+var buildings_bought: Dictionary = {
+	100: false,
+	500: false,
+	1000: false,
+	5000: false,
+	10000: false,
+	50000: false,
+	100000: false,
+	500000: false,
+	1000000: false,
+	50000000: false,
+	1000000000: false,
+}
+
 # Datetime
 var initial_datetime = Time.get_unix_time_from_system()
 

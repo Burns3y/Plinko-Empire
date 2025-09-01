@@ -5,6 +5,7 @@ var drag_sensitivity = 0.01
 var zoom_sensitivity = 0.01
 var events = {}
 
+
 func _unhandled_input(event):
 	if $".".current:
 		# Track when fingers touch or lift

@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dy1m05snkjhro"]
+[gd_scene load_steps=8 format=3 uid="uid://dy1m05snkjhro"]
 
 [ext_resource type="Script" path="res://Area3D.gd" id="1_cpse0"]
+[ext_resource type="Script" path="res://button_3d.gd" id="1_ua7a5"]
 [ext_resource type="PackedScene" uid="uid://dgi6ci8x5xxt1" path="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/building_B_withoutBase.gltf" id="2_njes7"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_hvmgg"]
@@ -16,6 +17,7 @@ font_size = 80
 viewport_path = NodePath("Area3D/TextViewport")
 
 [node name="buy_button" type="Node3D"]
+script = ExtResource("1_ua7a5")
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.1, 2.08165e-12)

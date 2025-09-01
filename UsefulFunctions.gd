@@ -31,6 +31,10 @@ func save():
 	file.store_var(GlobalVariables.selected_bg) # string
 	var jstr = JSON.stringify(GlobalVariables.bought_bg)
 	file.store_line(jstr)   # dictionary
+	
+	# Save buildings
+	var bg_jstr = JSON.stringify(GlobalVariables.bought_bg)
+	file.store_line(bg_jstr) 
 
 
 func load_data():
@@ -47,6 +51,11 @@ func load_data():
 		var bg_str = JSON.parse_string(file.get_line())
 		if bg_str:
 			GlobalVariables.bought_bg = bg_str
+			
+		# Load Bought Buildings
+		var building_str = JSON.parse_string(file.get_line())
+		if building_str:
+			GlobalVariables.bought_bg = building_str
 
 		GlobalVariables.coins += clamp((Time.get_unix_time_from_system() - GlobalVariables.initial_datetime)/60, 0, 100 * GlobalVariables.income_per_minute)
 
@@ -75,11 +84,26 @@ func reset():
 		"Teal": false,
 		"Gold": false,
 	}
+	
+	GlobalVariables.buildings_bought = {
+		100: false,
+		500: false,
+		1000: false,
+		5000: false,
+		10000: false,
+		50000: false,
+		100000: false,
+		500000: false,
+		1000000: false,
+		50000000: false,
+		1000000000: false,
+	}
+
 	GlobalVariables.selected_bg = "Purple"
 	save()
 
 
-func _format_abbreviated(value, decimals):
+func _format_abbreviated(value, decimals = 0):
 	var suffixes = ["", "K", "M", "B", "T", "Q"]
 	var suffix_index = 0
 
