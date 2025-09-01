@@ -9,27 +9,27 @@ signal trans_complete
 func _ready():
 	# Connect signals
 	$idle_buildings_buttons/button_100.connect("bought", self._on_100_bought)
-	$idle_buildings_buttons/button_100._change_label(100, 2)
+	$idle_buildings_buttons/button_100._change_label(100, 2, GlobalVariables.buildings_bought[100])
 	$idle_buildings_buttons/button_500.connect("bought", self._on_500_bought)
-	$idle_buildings_buttons/button_500._change_label(500, 10)
+	$idle_buildings_buttons/button_500._change_label(500, 10, GlobalVariables.buildings_bought[500])
 	$idle_buildings_buttons/button_1000.connect("bought", self._on_1k_bought)
-	$idle_buildings_buttons/button_1000._change_label(1000, 25)
+	$idle_buildings_buttons/button_1000._change_label(1000, 25, GlobalVariables.buildings_bought[1000])
 	$idle_buildings_buttons/button_5000.connect("bought", self._on_5k_bought)
-	$idle_buildings_buttons/button_5000._change_label(5000, 150)
+	$idle_buildings_buttons/button_5000._change_label(5000, 150, GlobalVariables.buildings_bought[5000])
 	$idle_buildings_buttons/button_10000.connect("bought", self._on_10k_bought)
-	$idle_buildings_buttons/button_10000._change_label(10000, 400)
+	$idle_buildings_buttons/button_10000._change_label(10000, 400, GlobalVariables.buildings_bought[10000])
 	$idle_buildings_buttons/button_50000.connect("bought", self._on_50k_bought)
-	$idle_buildings_buttons/button_50000._change_label(50000, 2500)
+	$idle_buildings_buttons/button_50000._change_label(50000, 2500, GlobalVariables.buildings_bought[50000])
 	$idle_buildings_buttons/button_100000.connect("bought", self._on_100k_bought)
-	$idle_buildings_buttons/button_100000._change_label(100000, 7000)
+	$idle_buildings_buttons/button_100000._change_label(100000, 7000, GlobalVariables.buildings_bought[100000])
 	$idle_buildings_buttons/button_500000.connect("bought", self._on_500k_bought)
-	$idle_buildings_buttons/button_500000._change_label(500000, 45000)
+	$idle_buildings_buttons/button_500000._change_label(500000, 45000, GlobalVariables.buildings_bought[500000])
 	$idle_buildings_buttons/button_1000000.connect("bought", self._on_1M_bought)
-	$idle_buildings_buttons/button_1000000._change_label(1000000, 120000)
+	$idle_buildings_buttons/button_1000000._change_label(1000000, 120000, GlobalVariables.buildings_bought[1000000])
 	$idle_buildings_buttons/button_50000000.connect("bought", self._on_50M_bought)
-	$idle_buildings_buttons/button_50000000._change_label(50000000, 900000)
+	$idle_buildings_buttons/button_50000000._change_label(50000000, 900000, GlobalVariables.buildings_bought[50000000])
 	$idle_buildings_buttons/button_1000000000.connect("bought", self._on_1B_bought)
-	$idle_buildings_buttons/button_1000000000._change_label(1000000000, 25000000)
+	$idle_buildings_buttons/button_1000000000._change_label(1000000000, 25000000, GlobalVariables.buildings_bought[1000000000])
 	
 	$Displays/CoinDisplay._update_label()
 	$Displays/IncomeDisplay._update_label()
@@ -94,39 +94,41 @@ func _on_menu_button_pressed():
 
 # Functions with idle income values passed in
 func _on_100_bought():
-	_add_idle_income(2)
+	_add_idle_income($idle_buildings_buttons/button_100, 100)
 
 func _on_500_bought():
-	_add_idle_income(10)
+	_add_idle_income($idle_buildings_buttons/button_500, 500)
 
 func _on_1k_bought():
-	_add_idle_income(25)
+	_add_idle_income($idle_buildings_buttons/button_1000, 1000)
 
 func _on_5k_bought():
-	_add_idle_income(150)
+	_add_idle_income($idle_buildings_buttons/button_5000, 5000)
 
 func _on_10k_bought():
-	_add_idle_income(400)
+	_add_idle_income($idle_buildings_buttons/button_10000, 10000)
 
 func _on_50k_bought():
-	_add_idle_income(2500)
+	_add_idle_income($idle_buildings_buttons/button_50000, 50000)
 
 func _on_100k_bought():
-	_add_idle_income(7000)
+	_add_idle_income($idle_buildings_buttons/button_100000, 100000)
 
 func _on_500k_bought():
-	_add_idle_income(45000)
+	_add_idle_income($idle_buildings_buttons/button_500000, 500000)
 
 func _on_1M_bought():
-	_add_idle_income(120000)
+	_add_idle_income($idle_buildings_buttons/button_1000000, 1000000)
 
 func _on_50M_bought():
-	_add_idle_income(900000)
+	_add_idle_income($idle_buildings_buttons/button_50000000, 50000000)
 
 func _on_1B_bought():
-	_add_idle_income(25000000)
+	_add_idle_income($idle_buildings_buttons/button_1000000000, 1000000000)
 
-func _add_idle_income(value):
+func _add_idle_income(path, value):
 	$Displays/CoinDisplay._update_label()
 	$Displays/IncomeDisplay._update_label()
+	path.been_bought = true
+	GlobalVariables.buildings_bought[value] = true
 	UsefulFunctions.save()
