@@ -33,7 +33,7 @@ func save():
 	file.store_line(jstr)   # dictionary
 	
 	# Save buildings
-	var bg_jstr = JSON.stringify(GlobalVariables.bought_bg)
+	var bg_jstr = JSON.stringify(GlobalVariables.buildings_bought)
 	file.store_line(bg_jstr) 
 
 
@@ -55,7 +55,10 @@ func load_data():
 		# Load Bought Buildings
 		var building_str = JSON.parse_string(file.get_line())
 		if building_str:
-			GlobalVariables.bought_bg = building_str
+			var fixed_dict = {}
+			for key in building_str.keys():
+				fixed_dict[int(key)] = building_str[key]   # key back to int
+			GlobalVariables.buildings_bought = fixed_dict
 
 		GlobalVariables.coins += clamp((Time.get_unix_time_from_system() - GlobalVariables.initial_datetime)/60, 0, 100 * GlobalVariables.income_per_minute)
 

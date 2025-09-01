@@ -364,28 +364,28 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 1.4
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 1.4, 4.98454)
 
 [node name="button_5000" parent="idle_buildings_buttons" instance=ExtResource("22_delwu")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 1.4, 4.98454)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.998, 1.4, -1)
 
 [node name="button_10000" parent="idle_buildings_buttons" instance=ExtResource("22_delwu")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 1.4, 4.98454)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.07637, 1.4, 1.04957)
 
 [node name="button_50000" parent="idle_buildings_buttons" instance=ExtResource("22_delwu")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 1.4, 4.98454)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.00542, 1.4, 3.05139)
 
 [node name="button_100000" parent="idle_buildings_buttons" instance=ExtResource("22_delwu")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 1.4, 4.98454)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.0547, 1.4, 4.98454)
 
 [node name="button_500000" parent="idle_buildings_buttons" instance=ExtResource("22_delwu")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 1.4, 4.98454)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.005, 1.4, -1.02439)
 
 [node name="button_1000000" parent="idle_buildings_buttons" instance=ExtResource("22_delwu")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 1.4, 4.98454)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10.9924, 1.4, 0.993703)
 
 [node name="button_50000000" parent="idle_buildings_buttons" instance=ExtResource("22_delwu")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 1.4, 4.98454)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10.9224, 1.4, 3.00589)
 
 [node name="button_1000000000" parent="idle_buildings_buttons" instance=ExtResource("22_delwu")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 1.4, 4.98454)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.0459, 1.4, 4.98454)
 
 [node name="Displays" type="Control" parent="."]
 layout_mode = 3
