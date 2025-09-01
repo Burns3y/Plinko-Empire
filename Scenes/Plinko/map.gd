@@ -26,12 +26,6 @@ func _CameraIntro():
 					selected_camera.current = true
 
 
-func _process(_delta):
-	if Input.is_action_just_pressed("ui_down"):
-		start_plinko()
-	
-
-
 func _change_camera(desired_camera: Camera3D):
 	
 	if transitionTween:
@@ -46,11 +40,13 @@ func _change_camera(desired_camera: Camera3D):
 	
 	await transitionTween.finished
 	emit_signal("trans_complete")
-	
-func start_plinko():
+
+
+func _on_start_button_pressed():
+	await _change_camera($camreas/StartCamera)
+
+	var tween := create_tween()
+	tween.tween_property($ColorRect, "color", Color(0, 0, 0, 1), 0.5)
+	await tween.finished
+
 	get_tree().change_scene_to_file("res://Scenes/Plinko/plinko.tscn")
-
-
-
-func _on_button_pressed():
-	start_plinko()
