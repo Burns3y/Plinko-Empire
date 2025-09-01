@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dy1m05snkjhro"]
+[gd_scene load_steps=7 format=3 uid="uid://dy1m05snkjhro"]
 
 [ext_resource type="Script" path="res://Area3D.gd" id="1_cpse0"]
 [ext_resource type="PackedScene" uid="uid://dgi6ci8x5xxt1" path="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/building_B_withoutBase.gltf" id="2_njes7"]
@@ -8,6 +8,12 @@ size = Vector3(0.8, 0.05, 0.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4outt"]
 size = Vector3(0.8, 0.05, 0.8)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ko1ot"]
+font_size = 80
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_8ca2o"]
+viewport_path = NodePath("Area3D/TextViewport")
 
 [node name="buy_button" type="Node3D"]
 
@@ -23,5 +29,23 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_4outt")
 
+[node name="TextViewport" type="SubViewport" parent="Area3D"]
+transparent_bg = true
+
+[node name="Label" type="Label" parent="Area3D/TextViewport"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "+$2/min
+Buy for $100"
+label_settings = SubResource("LabelSettings_ko1ot")
+horizontal_alignment = 1
+
+[node name="TextDisplay" type="Sprite3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.159273, 0)
+pixel_size = 0.003
+billboard = 1
+texture = SubResource("ViewportTexture_8ca2o")
+
 [node name="second_build" parent="." instance=ExtResource("2_njes7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.37874, 0)
 visible = false
