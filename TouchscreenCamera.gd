@@ -1,8 +1,10 @@
 extends Camera3D
 
+@onready var y_pos = $".".position.y
 var drag_sensitivity = 0.01
 var zoom_sensitivity = 0.01
 var events = {}
+
 
 func _unhandled_input(event):
 	if $".".current:
@@ -21,7 +23,8 @@ func _unhandled_input(event):
 			if events.size() == 1:
 				var drag = event.relative
 				var move = Vector3(-drag.x, 0, -drag.y) * drag_sensitivity
-				translate_object_local(move)
+				translate(move)
+				$".".position.y = y_pos
 
 			# Two fingers: pinch zoom
 			elif events.size() == 2:
@@ -37,3 +40,4 @@ func _unhandled_input(event):
 					var zoom_change = (curr_dist - prev_dist) * -zoom_sensitivity
 
 					translate_object_local(Vector3(0, 0, zoom_change))
+					y_pos = $".".position.y
