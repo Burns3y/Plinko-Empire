@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2n601pywpo5p"]
+[gd_scene load_steps=5 format=3 uid="uid://wt7hb57ic7hh"]
 
 [ext_resource type="Script" path="res://Menu.gd" id="1_lod11"]
+[ext_resource type="PackedScene" uid="uid://dd24y1jcounp7" path="res://Scenes/coinDisplay.tscn" id="2_fv3ji"]
+[ext_resource type="PackedScene" uid="uid://fldhyw8rvrv2" path="res://incomeDisplay.tscn" id="3_h2t5q"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1qoob"]
 
@@ -14,6 +16,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lod11")
+
+[node name="Displays" type="Node2D" parent="Menu"]
+
+[node name="CoinDisplay" parent="Menu/Displays" instance=ExtResource("2_fv3ji")]
+offset_left = 52.0
+offset_top = 56.0
+offset_right = 53.0
+offset_bottom = 96.0
+scale = Vector2(0.08, 0.08)
+
+[node name="IncomeDisplay" parent="Menu/Displays" instance=ExtResource("3_h2t5q")]
+offset_left = 517.0
+offset_top = 56.0
+offset_right = 518.0
+offset_bottom = 96.0
+scale = Vector2(0.08, 0.08)
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu"]
 layout_mode = 1
@@ -47,6 +65,13 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxEmpty_1qoob")
 text = "Start"
 
+[node name="Shop" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1qoob")
+text = "Shop"
+
 [node name="OptionsBtn" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
@@ -62,5 +87,6 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_1qoob")
 text = "Quit?"
 
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/StartBtn" to="Menu" method="_on_start_btn_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Shop" to="Menu" method="_on_shop_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/OptionsBtn" to="Menu" method="_on_options_btn_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/QuitBtn" to="Menu" method="_on_quit_btn_pressed"]

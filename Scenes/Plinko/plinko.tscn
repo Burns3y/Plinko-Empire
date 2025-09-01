@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Plinko/plinko.gd" id="1_ii2fs"]
 [ext_resource type="PackedScene" uid="uid://dwi2juadl5agr" path="res://Scenes/Plinko/multiplier_display.tscn" id="2_7t7hv"]
-[ext_resource type="Texture2D" uid="uid://7v5vytywmhqu" path="res://Plinko-background.png" id="2_rfl30"]
+[ext_resource type="Texture2D" uid="uid://dpc8vtn2is6tm" path="res://Assets/backgrounds_variations/background_teal.png" id="2_g28nw"]
 [ext_resource type="PackedScene" uid="uid://fldhyw8rvrv2" path="res://incomeDisplay.tscn" id="3_2oh6s"]
 [ext_resource type="PackedScene" uid="uid://dd24y1jcounp7" path="res://Scenes/coinDisplay.tscn" id="3_t0noj"]
 
@@ -1846,9 +1846,9 @@ script = ExtResource("1_ii2fs")
 metadata/_edit_use_anchors_ = true
 
 [node name="Plinko-background" type="Sprite2D" parent="."]
-position = Vector2(166, 569)
-scale = Vector2(1.89258, 1.89258)
-texture = ExtResource("2_rfl30")
+position = Vector2(364, 513)
+scale = Vector2(1.43262, 1.43262)
+texture = ExtResource("2_g28nw")
 
 [node name="BallSpawnPoint" type="Node2D" parent="."]
 position = Vector2(360, 515)

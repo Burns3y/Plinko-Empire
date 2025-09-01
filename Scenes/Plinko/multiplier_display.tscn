@@ -3,18 +3,23 @@
 [ext_resource type="Script" path="res://Scenes/Plinko/multiplier_display.gd" id="1_6clcx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_npkjg"]
+font_size = 20
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ipw22"]
+font_size = 20
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vurtr"]
+font_size = 20
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_xlmhx"]
+font_size = 20
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_2f5fi"]
+font_size = 20
 font_color = Color(0, 0, 0, 1)
 
 [node name="MultiplierDisplay" type="VBoxContainer"]

@@ -26,6 +26,11 @@ func save():
 	file.store_var(GlobalVariables.new_row_cost)
 	
 	file.store_var(GlobalVariables.initial_datetime)
+	
+	# Save background state
+	file.store_var(GlobalVariables.selected_bg) # string
+	var jstr = JSON.stringify(GlobalVariables.bought_bg)
+	file.store_line(jstr)   # dictionary
 
 
 func load_data():
@@ -36,6 +41,12 @@ func load_data():
 		GlobalVariables.max_rows = file.get_var()
 		GlobalVariables.new_row_cost = file.get_var()
 		GlobalVariables.initial_datetime = file.get_var()
+
+		# Load background state
+		GlobalVariables.selected_bg = file.get_var()
+		var bg_str = JSON.parse_string(file.get_line())
+		if bg_str:
+			GlobalVariables.bought_bg = bg_str
 
 		GlobalVariables.coins += clamp((Time.get_unix_time_from_system() - GlobalVariables.initial_datetime)/60, 0, 100 * GlobalVariables.income_per_minute)
 
@@ -50,8 +61,22 @@ func reset():
 	# Replace all variables
 	GlobalVariables.income_per_minute = GlobalVariables.initial_income_per_minute
 	GlobalVariables.coins = GlobalVariables.initial_coins
-	GlobalVariables.max_rows = GlobalVariables.inital_max_rows
-	GlobalVariables.new_row_cost = GlobalVariables.new_row_cost
+	GlobalVariables.max_rows = GlobalVariables.initial_max_rows
+	GlobalVariables.new_row_cost = GlobalVariables.initial_new_row_cost
+	
+		# Reset backgrounds
+	GlobalVariables.bought_bg = {
+		"Purple": true,
+		"Blue": false,
+		"Pink": false,
+		"Red": false,
+		"Green": false,
+		"Orange": false,
+		"Teal": false,
+		"Gold": false,
+	}
+	GlobalVariables.selected_bg = "Purple"
+	save()
 
 
 func _format_abbreviated(value, decimals):

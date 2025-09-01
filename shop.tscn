@@ -1,0 +1,309 @@
+[gd_scene load_steps=14 format=3 uid="uid://cg40wdcid0i04"]
+
+[ext_resource type="Script" path="res://shop.gd" id="1_t6183"]
+[ext_resource type="PackedScene" uid="uid://dd24y1jcounp7" path="res://Scenes/coinDisplay.tscn" id="2_fsskq"]
+[ext_resource type="PackedScene" uid="uid://fldhyw8rvrv2" path="res://incomeDisplay.tscn" id="3_eu3ar"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4cfnq"]
+font_size = 30
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mwffs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8i7gm"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_x6y8x"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_8q6ey"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_dpmc7"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_al7qh"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_ot77k"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_gv8ek"]
+font_size = 30
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d0xny"]
+
+[node name="Shop" type="CanvasLayer"]
+script = ExtResource("1_t6183")
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Displays" type="Node2D" parent="Menu"]
+
+[node name="CoinDisplay" parent="Menu/Displays" instance=ExtResource("2_fsskq")]
+offset_left = 52.0
+offset_top = 56.0
+offset_right = 53.0
+offset_bottom = 96.0
+scale = Vector2(0.08, 0.08)
+
+[node name="IncomeDisplay" parent="Menu/Displays" instance=ExtResource("3_eu3ar")]
+offset_left = 517.0
+offset_top = 56.0
+offset_right = 518.0
+offset_bottom = 96.0
+scale = Vector2(0.08, 0.08)
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 350
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+layout_mode = 2
+offset_left = 80.0
+offset_top = 350.0
+offset_right = 640.0
+offset_bottom = 1180.0
+theme_override_constants/separation = 25
+
+[node name="Label" type="Label" parent="Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 62
+text = "SHOP"
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 80)
+layout_mode = 2
+
+[node name="Row1" type="HBoxContainer" parent="Menu/VBoxContainer"]
+layout_mode = 2
+
+[node name="Purple" type="VBoxContainer" parent="Menu/VBoxContainer/Row1"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/VBoxContainer/Row1/Purple"]
+layout_mode = 2
+text = "Purple - Default"
+label_settings = SubResource("LabelSettings_4cfnq")
+
+[node name="Select" type="Button" parent="Menu/VBoxContainer/Row1/Purple"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mwffs")
+text = "Select"
+
+[node name="Blue" type="VBoxContainer" parent="Menu/VBoxContainer/Row1"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Label" type="Label" parent="Menu/VBoxContainer/Row1/Blue"]
+layout_mode = 2
+text = "Blue - $100"
+label_settings = SubResource("LabelSettings_8i7gm")
+
+[node name="Buy" type="Button" parent="Menu/VBoxContainer/Row1/Blue"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mwffs")
+text = "Buy"
+
+[node name="Select" type="Button" parent="Menu/VBoxContainer/Row1/Blue"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mwffs")
+text = "Select"
+
+[node name="Row2" type="HBoxContainer" parent="Menu/VBoxContainer"]
+layout_mode = 2
+
+[node name="Pink" type="VBoxContainer" parent="Menu/VBoxContainer/Row2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/VBoxContainer/Row2/Pink"]
+layout_mode = 2
+text = "Pink - $500"
+label_settings = SubResource("LabelSettings_x6y8x")
+
+[node name="Buy" type="Button" parent="Menu/VBoxContainer/Row2/Pink"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mwffs")
+text = "Buy"
+
+[node name="Select" type="Button" parent="Menu/VBoxContainer/Row2/Pink"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mwffs")
+text = "Select"
+
+[node name="Red" type="VBoxContainer" parent="Menu/VBoxContainer/Row2"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Label" type="Label" parent="Menu/VBoxContainer/Row2/Red"]
+layout_mode = 2
+text = "Red - $500"
+label_settings = SubResource("LabelSettings_8q6ey")
+
+[node name="Buy" type="Button" parent="Menu/VBoxContainer/Row2/Red"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mwffs")
+text = "Buy"
+
+[node name="Select" type="Button" parent="Menu/VBoxContainer/Row2/Red"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mwffs")
+text = "Select"
+
+[node name="Row3" type="HBoxContainer" parent="Menu/VBoxContainer"]
+layout_mode = 2
+
+[node name="Green" type="VBoxContainer" parent="Menu/VBoxContainer/Row3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/VBoxContainer/Row3/Green"]
+layout_mode = 2
+text = "Green - $10k"
+label_settings = SubResource("LabelSettings_dpmc7")
+
+[node name="Buy" type="Button" parent="Menu/VBoxContainer/Row3/Green"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mwffs")
+text = "Buy"
+
+[node name="Select" type="Button" parent="Menu/VBoxContainer/Row3/Green"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mwffs")
+text = "Select"
+
+[node name="Orange" type="VBoxContainer" parent="Menu/VBoxContainer/Row3"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Label" type="Label" parent="Menu/VBoxContainer/Row3/Orange"]
+layout_mode = 2
+text = "Orange - $50k"
+label_settings = SubResource("LabelSettings_al7qh")
+
+[node name="Buy" type="Button" parent="Menu/VBoxContainer/Row3/Orange"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mwffs")
+text = "Buy"
+
+[node name="Select" type="Button" parent="Menu/VBoxContainer/Row3/Orange"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mwffs")
+text = "Select"
+
+[node name="Row4" type="HBoxContainer" parent="Menu/VBoxContainer"]
+layout_mode = 2
+
+[node name="Teal" type="VBoxContainer" parent="Menu/VBoxContainer/Row4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/VBoxContainer/Row4/Teal"]
+layout_mode = 2
+text = "Teal - $100k"
+label_settings = SubResource("LabelSettings_ot77k")
+
+[node name="Buy" type="Button" parent="Menu/VBoxContainer/Row4/Teal"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mwffs")
+text = "Buy"
+
+[node name="Select" type="Button" parent="Menu/VBoxContainer/Row4/Teal"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mwffs")
+text = "Select"
+
+[node name="Gold" type="VBoxContainer" parent="Menu/VBoxContainer/Row4"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Label" type="Label" parent="Menu/VBoxContainer/Row4/Gold"]
+layout_mode = 2
+text = "Gold - $10M"
+label_settings = SubResource("LabelSettings_gv8ek")
+
+[node name="Buy" type="Button" parent="Menu/VBoxContainer/Row4/Gold"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mwffs")
+text = "Buy"
+
+[node name="Select" type="Button" parent="Menu/VBoxContainer/Row4/Gold"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mwffs")
+text = "Select"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Menu/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 80)
+layout_mode = 2
+
+[node name="Back" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_d0xny")
+text = "Back"
+
+[connection signal="pressed" from="Menu/VBoxContainer/Row1/Purple/Select" to="." method="_on_purple_select_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Row1/Blue/Buy" to="." method="_on_blue_buy_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Row1/Blue/Select" to="." method="_on_blue_select_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Row2/Pink/Buy" to="." method="_on_pink_buy_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Row2/Pink/Select" to="." method="_on_pink_select_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Row2/Red/Buy" to="." method="_on_red_buy_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Row2/Red/Select" to="." method="_on_red_select_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Row3/Green/Buy" to="." method="_on_green_buy_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Row3/Green/Select" to="." method="_on_green_select_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Row3/Orange/Buy" to="." method="_on_orange_buy_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Row3/Orange/Select" to="." method="_on_orange_select_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Row4/Teal/Buy" to="." method="_on_teal_buy_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Row4/Teal/Select" to="." method="_on_teal_select_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Row4/Gold/Buy" to="." method="_on_gold_buy_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Row4/Gold/Select" to="." method="_on_gold_select_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Back" to="." method="_on_back_pressed"]

@@ -15,8 +15,21 @@ var max_rows: int = 8
 var current_rows: int = 6
 var new_row_cost: int = 150
 var income_per_minute: int = 2
+
 var animations_on: bool = true
 var free_balls = []
+
+var bought_bg: Dictionary = {
+	"Purple": true,
+	"Blue": false,
+	"Pink": false,
+	"Red": false,
+	"Green": false,
+	"Orange": false,
+	"Teal": false,
+	"Gold": false
+}
+var selected_bg: String = "Purple"
 
 func _ready():
 	UsefulFunctions.load_data()

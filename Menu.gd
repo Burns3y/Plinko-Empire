@@ -3,7 +3,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$Displays/CoinDisplay._update_label()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,8 +16,12 @@ func _on_start_btn_pressed():
 
 
 func _on_options_btn_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://menu-pg_2.tscn")
 
 
 func _on_quit_btn_pressed():
-	pass # Replace with function body.
+	get_tree().quit()
+
+
+func _on_shop_pressed():
+	get_tree().change_scene_to_file("res://shop.tscn")
