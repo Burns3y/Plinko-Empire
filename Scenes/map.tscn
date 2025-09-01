@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b3hquyhaxtecu"]
+[gd_scene load_steps=31 format=3 uid="uid://b3hquyhaxtecu"]
 
 [ext_resource type="Script" path="res://Scenes/Plinko/map.gd" id="1_br6t4"]
 [ext_resource type="PackedScene" uid="uid://divovq2vcf0lf" path="res://Assets/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/road_straight.gltf" id="1_ktjc1"]
@@ -26,7 +26,6 @@
 [ext_resource type="PackedScene" uid="uid://dy1m05snkjhro" path="res://button_3d.tscn" id="22_delwu"]
 [ext_resource type="PackedScene" uid="uid://dd24y1jcounp7" path="res://Scenes/coinDisplay.tscn" id="25_f6rvm"]
 [ext_resource type="PackedScene" uid="uid://fldhyw8rvrv2" path="res://incomeDisplay.tscn" id="26_hv32m"]
-[ext_resource type="PackedScene" uid="uid://d2urdcqtr7xsi" path="res://music_global.tscn" id="27_d88de"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_4dw56"]
 panorama = ExtResource("2_cl0lj")
@@ -415,12 +414,11 @@ scale = Vector2(0.08, 0.08)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
-anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 272.0
+offset_left = 214.0
 offset_top = 1080.0
-offset_right = 596.0
+offset_right = 538.0
 offset_bottom = 1222.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -452,8 +450,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
-
-[node name="AudioStreamPlayer" parent="." instance=ExtResource("27_d88de")]
 
 [connection signal="pressed" from="Displays/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Displays/MenuButton" to="." method="_on_menu_button_pressed"]

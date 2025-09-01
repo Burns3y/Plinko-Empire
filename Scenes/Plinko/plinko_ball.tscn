@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b0hxs2qe1nd5p" path="res://Assets/Ball-removebg-preview.png" id="1_268xg"]
 [ext_resource type="Script" path="res://Scenes/Plinko/plinko_ball.gd" id="1_rcrc3"]
-[ext_resource type="AudioStream" uid="uid://ql742kjkbolg" path="res://Scenes/PlinkoBouce.mp3" id="3_mrfht"]
+[ext_resource type="AudioStream" uid="uid://bmnma8i5r8b5u" path="res://blip.mp3" id="3_u12wl"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g17v8"]
 friction = 0.1
@@ -29,10 +29,10 @@ shape = SubResource("CircleShape2D_h6ukh")
 wait_time = 6.5
 
 [node name="plinkobounce" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_mrfht")
-volume_db = -7.68
+stream = ExtResource("3_u12wl")
+volume_db = -40.382
 pitch_scale = 1.68
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

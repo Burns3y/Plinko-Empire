@@ -42,8 +42,8 @@ func _on_mute_music_pressed():
 
 
 func _on_mute_sfx_pressed():
-	AudioServer.set_bus_mute(AudioServer.get_bus_index("Music"), !AudioServer.is_bus_mute(AudioServer.get_bus_index("Music")))
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX"), !AudioServer.is_bus_mute(AudioServer.get_bus_index("SFX")))
 	if AudioServer.is_bus_mute(AudioServer.get_bus_index("Music")):
-		$Menu/MarginContainer/VBoxContainer/MuteMusic.text = "Unmute Music"
+		$Menu/MarginContainer/VBoxContainer/MuteSFX.text = "Unmute SFX"
 	else:
-		$Menu/MarginContainer/VBoxContainer/MuteMusic.text = "Mute Music"
+		$Menu/MarginContainer/VBoxContainer/MuteSFX.text = "Mute SFX"

@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://1texhmvmhmfg"]
+[gd_scene load_steps=13 format=3 uid="uid://1texhmvmhmfg"]
 
 [ext_resource type="Script" path="res://Scenes/Plinko/plinko.gd" id="1_ii2fs"]
 [ext_resource type="PackedScene" uid="uid://dwi2juadl5agr" path="res://Scenes/Plinko/multiplier_display.tscn" id="2_7t7hv"]
 [ext_resource type="Texture2D" uid="uid://dpc8vtn2is6tm" path="res://Assets/backgrounds_variations/background_teal.png" id="2_g28nw"]
-[ext_resource type="PackedScene" uid="uid://d2urdcqtr7xsi" path="res://music_global.tscn" id="2_wkmxb"]
 [ext_resource type="PackedScene" uid="uid://fldhyw8rvrv2" path="res://incomeDisplay.tscn" id="3_2oh6s"]
 [ext_resource type="PackedScene" uid="uid://dd24y1jcounp7" path="res://Scenes/coinDisplay.tscn" id="3_t0noj"]
 
@@ -1845,8 +1844,6 @@ grow_vertical = 2
 size_flags_vertical = 3
 script = ExtResource("1_ii2fs")
 metadata/_edit_use_anchors_ = true
-
-[node name="AudioStreamPlayer" parent="." instance=ExtResource("2_wkmxb")]
 
 [node name="Plinko-background" type="Sprite2D" parent="."]
 position = Vector2(364, 513)

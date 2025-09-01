@@ -1,15 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://wt7hb57ic7hh"]
+[gd_scene load_steps=5 format=3 uid="uid://wt7hb57ic7hh"]
 
 [ext_resource type="Script" path="res://Menu.gd" id="1_lod11"]
-[ext_resource type="PackedScene" uid="uid://d2urdcqtr7xsi" path="res://music_global.tscn" id="1_mll6q"]
 [ext_resource type="PackedScene" uid="uid://dd24y1jcounp7" path="res://Scenes/coinDisplay.tscn" id="2_fv3ji"]
 [ext_resource type="PackedScene" uid="uid://fldhyw8rvrv2" path="res://incomeDisplay.tscn" id="3_h2t5q"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1qoob"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
-
-[node name="AudioStreamPlayer" parent="." instance=ExtResource("1_mll6q")]
 
 [node name="Menu" type="Control" parent="."]
 layout_mode = 3

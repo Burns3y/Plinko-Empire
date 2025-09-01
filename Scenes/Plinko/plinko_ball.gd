@@ -3,6 +3,8 @@ extends RigidBody2D
 var value: int = 1
 
 func _ready():
+	$".".contact_monitor = true
+	$".".max_contacts_reported = 100
 	$Timer.start()
 	# Each ball has a 1 in 100 chance of having extra bounce, to increase randomness.
 	if randi() % 200 == 1:
@@ -53,6 +55,6 @@ func _on_ball_body_entered(body: Node) -> void:
 		$plinkobounce.play() 
 
 
-#func _on_body_entered(body):
-	#print("collided")
-	#$plinkobounce.play()
+
+func _on_body_entered(body):
+	$plinkobounce.play()
