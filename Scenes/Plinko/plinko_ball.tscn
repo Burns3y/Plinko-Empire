@@ -12,8 +12,7 @@ bounce = 1.0
 radius = 55.581
 
 [node name="Plinko-ball" type="RigidBody2D" groups=["Ball"]]
-collision_layer = 7
-collision_mask = 7
+collision_mask = 2
 physics_material_override = SubResource("PhysicsMaterial_g17v8")
 script = ExtResource("1_rcrc3")
 
