@@ -26,6 +26,7 @@ func _ready():
 	get_tree().root.connect("size_changed", self._on_viewport_size_changed)
 	$Displays/CoinDisplay._update_label()
 	$Displays/IncomeDisplay._update_label()
+	$Buttons/BuyButton.text = "Buy Row\n$" + UsefulFunctions._format_abbreviated(GlobalVariables.new_row_cost, 2)
 	
 	# Background
 	$"Plinko-background".modulate = Color(1, 1, 1)
@@ -195,6 +196,8 @@ func _on_row_slider_value_changed(value):
 		$Sliders/BallAmountSlider.min_value = (GlobalVariables.current_rows - 6) * 10
 	$Sliders/BallAmountSlider.max_value = (GlobalVariables.current_rows - 5) * 50
 	$Sliders/BallAmountSlider/BallAmountLabel.text = "Ball value: $" + str(ball_value)
+	
+	$Buttons/BuyButton.text = "Buy Row\n$" + UsefulFunctions._format_abbreviated(GlobalVariables.new_row_cost, 2)
 	
 	UsefulFunctions.save()
 
