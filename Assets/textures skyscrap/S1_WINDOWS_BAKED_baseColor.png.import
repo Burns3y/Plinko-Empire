@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2cmeb54q75ie"
 path.s3tc="res://.godot/imported/S1_WINDOWS_BAKED_baseColor.png-ef3564654f597c829cf20e1f75261a30.s3tc.ctex"
+path.etc2="res://.godot/imported/S1_WINDOWS_BAKED_baseColor.png-ef3564654f597c829cf20e1f75261a30.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/textures skyscrap/S1_WINDOWS_BAKED_baseColor.png"
-dest_files=["res://.godot/imported/S1_WINDOWS_BAKED_baseColor.png-ef3564654f597c829cf20e1f75261a30.s3tc.ctex"]
+dest_files=["res://.godot/imported/S1_WINDOWS_BAKED_baseColor.png-ef3564654f597c829cf20e1f75261a30.s3tc.ctex", "res://.godot/imported/S1_WINDOWS_BAKED_baseColor.png-ef3564654f597c829cf20e1f75261a30.etc2.ctex"]
 
 [params]
 

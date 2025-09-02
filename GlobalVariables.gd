@@ -1,7 +1,7 @@
 extends Node
 
 # For saving before 
-var initial_coins: float = 1000000000
+var initial_coins: float = 100
 var initial_max_rows: int = 8
 var initial_current_rows: int = 6
 var initial_new_row_cost: int = 150
