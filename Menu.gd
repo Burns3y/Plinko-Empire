@@ -5,6 +5,7 @@ extends Control
 func _ready():
 	$Displays/CoinDisplay._update_label()
 	$Displays/IncomeDisplay._update_label()
+	print(get_viewport_rect()	)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -56,8 +56,10 @@ func _ready():
 		_on_viewport_size_changed()
 	else:
 		var t = float(GlobalVariables.current_rows - 4) / 4.0
-		var base_pin_scale = lerp(1.5, 1.1, float(GlobalVariables.current_rows - 4) / 4.0)
-		pin_scale = base_pin_scale * (get_viewport_rect().size.x / 720)
+		var base_pin_scale = lerp(1.6, 1.2, float(GlobalVariables.current_rows - 4) / 4.0)
+		var viewport_size = get_viewport_rect().size
+		var scale_factor = ((viewport_size.x / 720.0) + (viewport_size.y / 1280.0)) / 2.0
+		pin_scale = base_pin_scale * scale_factor
 		$Sliders/RowSlider.max_value = GlobalVariables.max_rows
 		create_rows()
 
@@ -103,17 +105,17 @@ func create_rows():
 	var viewport_size = get_viewport_rect().size
 
 	# Use ratios instead of fixed values
-	var x_spacing = (viewport_size.x * 0.8) / (GlobalVariables.current_rows + 1)
-	var y_spacing = (viewport_size.y * 0.55) / (GlobalVariables.current_rows + 2)
+	var x_spacing = (viewport_size.x * 0.8) / (GlobalVariables.current_rows)
+	var y_spacing = (viewport_size.y * 0.55) / (GlobalVariables.current_rows + 1)
 
 	# Start a bit below the top middle
-	var start_position = Vector2(viewport_size.x / 2 - x_spacing, viewport_size.y * 0.4)
+	var start_position = Vector2(viewport_size.x / 2 - x_spacing, viewport_size.y * 0.42)
 
 	var new_pos = start_position
 	var col_count = 3
 	var final_pin_location
 
-	for row in range(GlobalVariables.current_rows):
+	for row in range(GlobalVariables.current_rows - 2):
 		new_pos.y += y_spacing
 		new_pos.x = start_position.x - row * x_spacing / 2
 		for col in range(col_count):
@@ -133,30 +135,37 @@ func create_rows():
 
 func create_multipliers(y_spacing, x_spacing, final_pin_location):
 	var distributions = {
-		6: [fiftyMultiplier, fiveMultiplier, threeMultiplier, zeroPointFiveMultiplier, zeroPointTwoMultiplier, zeroPointFiveMultiplier, threeMultiplier, fiveMultiplier, fiftyMultiplier],
-		7: [hundredMultiplier, fiveMultiplier, fiveMultiplier, zeroPointFiveMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, zeroPointFiveMultiplier, fiveMultiplier, fiveMultiplier, hundredMultiplier],
-		8: [hundredMultiplier, tenMultiplier, fiveMultiplier, threeMultiplier, zeroPointFiveMultiplier, zeroPointTwoMultiplier, zeroPointFiveMultiplier, threeMultiplier, fiveMultiplier, tenMultiplier, hundredMultiplier],
-		9: [hundredMultiplier, fiftyMultiplier, fiveMultiplier, threeMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, threeMultiplier, fiveMultiplier, fiftyMultiplier, hundredMultiplier],
-		10: [hundredMultiplier, hundredMultiplier, fiftyMultiplier, tenMultiplier, threeMultiplier, zeroPointFiveMultiplier, zeroPointTwoMultiplier, zeroPointFiveMultiplier, threeMultiplier, tenMultiplier, fiftyMultiplier, hundredMultiplier, hundredMultiplier]
+		8: [fiftyMultiplier, fiveMultiplier, threeMultiplier, zeroPointFiveMultiplier, zeroPointTwoMultiplier, zeroPointFiveMultiplier, threeMultiplier, fiveMultiplier, fiftyMultiplier],
+		9: [hundredMultiplier, fiveMultiplier, fiveMultiplier, zeroPointFiveMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, zeroPointFiveMultiplier, fiveMultiplier, fiveMultiplier, hundredMultiplier],
+		10: [hundredMultiplier, tenMultiplier, fiveMultiplier, threeMultiplier, zeroPointFiveMultiplier, zeroPointTwoMultiplier, zeroPointFiveMultiplier, threeMultiplier, fiveMultiplier, tenMultiplier, hundredMultiplier],
+		11: [hundredMultiplier, fiftyMultiplier, fiveMultiplier, threeMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, zeroPointTwoMultiplier, threeMultiplier, fiveMultiplier, fiftyMultiplier, hundredMultiplier],
+		12: [hundredMultiplier, hundredMultiplier, fiftyMultiplier, tenMultiplier, threeMultiplier, zeroPointFiveMultiplier, zeroPointTwoMultiplier, zeroPointFiveMultiplier, threeMultiplier, tenMultiplier, fiftyMultiplier, hundredMultiplier, hundredMultiplier]
 	}
 	
 	# Getting distribution
 	var selected_distribution = distributions.get(GlobalVariables.current_rows, [])
-	
-	#Finding multiplier spacing
-	var starting_position = Vector2(final_pin_location.x + x_spacing/2 - 20 * pin_scale, final_pin_location.y + y_spacing*0.8)
 
-	# Placing the multipliers
-	var multiplier_count = 0
-	for multiplier in selected_distribution:
-		var new_multiplier = multiplier.instantiate()
-		new_multiplier.position = starting_position - Vector2(multiplier_count * x_spacing, 0)
+	# Y position just below last pin row
+	var y_pos = final_pin_location.y + y_spacing * 0.8
+
+	# Number of multipliers (same as number of slots)
+	var count = selected_distribution.size()
+
+	# Start from rightmost slot
+	var start_x = final_pin_location.x + (x_spacing / 2 - 20 * pin_scale)
+
+	for i in range(count):
+		var multiplier_scene = selected_distribution[i]
+		var new_multiplier = multiplier_scene.instantiate()
+
+		# Place each multiplier, moving left
+		new_multiplier.position = Vector2(start_x - i * x_spacing, y_pos)
 		new_multiplier.scale = Vector2(pin_scale, pin_scale)
 		$Multipliers.add_child(new_multiplier)
-		multiplier_count += 1
 
 		new_multiplier.connect("add_points", self._on_multiplier_hit)
-	
+		$Sliders/RowSlider.max_value = GlobalVariables.max_rows
+		
 func _on_multiplier_hit(multiplier_value, ball_colliding):
 	'''Adds value of multiplier * value of ball to global coins'''
 	GlobalVariables.coins += ball_colliding.value * multiplier_value
@@ -169,7 +178,7 @@ func _on_multiplier_hit(multiplier_value, ball_colliding):
 
 
 func _on_row_slider_value_changed(value):
-	GlobalVariables.current_rows = value - 2
+	GlobalVariables.current_rows = value
 
 	# Wait until there are no balls left in $Balls
 	if $Balls.get_child_count() > 0 and GlobalVariables.max_rows != 8:
@@ -185,7 +194,7 @@ func _on_row_slider_value_changed(value):
 	
 
 	# Setting text and reenabling button
-	$Sliders/RowSlider/RowNumberLabel.text = "Rows:         " + str(GlobalVariables.current_rows + 2)
+	$Sliders/RowSlider/RowNumberLabel.text = "Rows:         " + str(GlobalVariables.current_rows)
 	
 	$Buttons/BallDrop.disabled = false
 	
@@ -193,8 +202,8 @@ func _on_row_slider_value_changed(value):
 	if $Sliders/RowSlider.value == $Sliders/RowSlider.min_value:
 		$Sliders/BallAmountSlider.min_value = 1
 	else:
-		$Sliders/BallAmountSlider.min_value = (GlobalVariables.current_rows - 6) * 10
-	$Sliders/BallAmountSlider.max_value = (GlobalVariables.current_rows - 5) * 50
+		$Sliders/BallAmountSlider.min_value = (GlobalVariables.current_rows - 8) * 10
+	$Sliders/BallAmountSlider.max_value = (GlobalVariables.current_rows - 7) * 50
 	$Sliders/BallAmountSlider/BallAmountLabel.text = "Ball value: $" + str(ball_value)
 	
 	$Buttons/BuyButton.text = "Buy Row\n$" + UsefulFunctions._format_abbreviated(GlobalVariables.new_row_cost, 2)
@@ -219,7 +228,7 @@ func _on_exit_pressed():
 
 func _on_buy_button_pressed():
 	if GlobalVariables.coins >= GlobalVariables.new_row_cost:
-		if GlobalVariables.current_rows < 10:
+		if GlobalVariables.current_rows < 12:
 			GlobalVariables.coins -= GlobalVariables.new_row_cost
 			GlobalVariables.coins = round(GlobalVariables.coins * 10) / 10.0
 			$Displays/CoinDisplay._update_label()
@@ -262,8 +271,8 @@ func _on_viewport_size_changed():
 	_clear_all()
 	for slider in $Sliders.get_children():
 		slider.size_flags_vertical = Control.SIZE_EXPAND
-	var base_pin_scale = lerp(1.5, 1.1, float(GlobalVariables.current_rows - 4) / 4.0)
-	pin_scale = base_pin_scale * (get_viewport_rect().size.x / 720)
+	var base_pin_scale = lerp(1.6, 1.2, float(GlobalVariables.current_rows - 4) / 4.0)
+	pin_scale = base_pin_scale * (get_viewport_rect().size.y / 1280)
 	$BallSpawnPoint.position.x = get_viewport_rect().size.x / 2
 	$BallSpawnPoint.position.y = get_viewport_rect().size.y * 0.4
 	create_rows()
